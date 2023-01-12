@@ -36,7 +36,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     
     var color: UIColor = .purple
     
-    var inputFromField = false
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -50,7 +50,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     @IBAction func inputColorUpdated(_ sender: Any) {
         print(inputColor.text)
         print("was edited")
-        self.inputFromField = true
+
         if let color = parseInputColor(color: inputColor.text!, type: inputType) {
             self.color = color
         }
@@ -141,7 +141,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainStack.center = CGPointMake(150, 150)
+        
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         inputColor.delegate = self
@@ -209,17 +209,20 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         backgroundView.backgroundColor = colorSelector.selectedColor
         updateInputColorField()
         updateOutputColorField()
-        self.inputFromField = false
+        GlobalColor.color = self.color
+        
     }
     func updateInputColorField() {
         inputColor.text = colorToText(color: self.color, type: inputType)
     }
     func updateOutputColorField() {
         outputColorText.text = colorToText(color: self.color, type: outputType)
+        
     }
     func updateElementColors() {
         colorSelector.selectedColor = self.color
         backgroundView.backgroundColor = self.color
+        GlobalColor.color = self.color
     }
 
     

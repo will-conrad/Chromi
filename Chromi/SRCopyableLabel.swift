@@ -36,6 +36,7 @@ class SRCopyableLabel: UILabel {
     override func copy(_ sender: Any?) {
         UIPasteboard.general.string = text
         UIMenuController.shared.setMenuVisible(false, animated: true)
+
     }
 
     @objc private func showMenu(sender: Any?) {
@@ -46,6 +47,7 @@ class SRCopyableLabel: UILabel {
             menu.setMenuVisible(true, animated: true)
         }
     }
+
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return (action == #selector(copy(_:)))

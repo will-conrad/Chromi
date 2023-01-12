@@ -151,7 +151,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MMt-fs-ATl" userLabel="ColorConvertStack">
-                                        <rect key="frame" x="30" y="174.66666666666663" width="288" height="68"/>
+                                        <rect key="frame" x="43.666666666666657" y="174.66666666666663" width="288" height="68"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTx-C0-DQu">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="68"/>
@@ -162,26 +162,16 @@
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxQ-iV-suk">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-wK-IbK">
                                                         <rect key="frame" x="0.0" y="24" width="88" height="44"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-N5-Pf5">
-                                                                <rect key="frame" x="63" y="16.666666666666664" width="15" height="10"/>
-                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="EsQ-Gt-gbH"/>
-                                                                    <constraint firstAttribute="width" constant="15" id="Hdl-dG-lEK"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="KjM-N5-Pf5" secondAttribute="trailing" constant="10" id="dYR-Tc-jJT"/>
-                                                            <constraint firstItem="KjM-N5-Pf5" firstAttribute="centerY" secondItem="YxQ-iV-suk" secondAttribute="centerY" id="eAM-tR-AaX"/>
-                                                            <constraint firstAttribute="height" constant="44" id="lYK-Oi-09D"/>
-                                                            <constraint firstAttribute="width" constant="88" id="s6w-gb-XyJ"/>
+                                                            <constraint firstAttribute="width" constant="88" id="EB5-M0-Iza"/>
+                                                            <constraint firstAttribute="height" constant="44" id="a4y-Rr-8d1"/>
                                                         </constraints>
-                                                    </view>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="88" id="VfZ-WN-MBi"/>
@@ -216,23 +206,10 @@
                                             <constraint firstAttribute="height" constant="68" id="jJ3-Bm-nE7"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEI-Lc-EvR">
-                                        <rect key="frame" x="328" y="205.33333333333337" width="25" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Sj0-ty-DWP"/>
-                                            <constraint firstAttribute="width" constant="25" id="f5R-rh-eW7"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="doc.on.clipboard" catalog="system" title=""/>
-                                        <connections>
-                                            <action selector="copyToClipboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7v-UD-o2G"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6wk-Na-t5e" firstAttribute="leading" secondItem="7Ho-pS-GRf" secondAttribute="leading" constant="5" id="BUD-sV-3z1"/>
-                                    <constraint firstItem="MMt-fs-ATl" firstAttribute="leading" secondItem="7Ho-pS-GRf" secondAttribute="leading" constant="30" id="DTy-Mw-xDG"/>
                                     <constraint firstItem="MMt-fs-ATl" firstAttribute="top" secondItem="Oae-gq-bG6" secondAttribute="bottom" constant="8" id="FeG-1p-S7L"/>
                                     <constraint firstItem="QNR-Kp-Ooz" firstAttribute="centerX" secondItem="7Ho-pS-GRf" secondAttribute="centerX" id="G6G-G3-WWj"/>
                                     <constraint firstItem="YG8-Rh-AIy" firstAttribute="top" secondItem="7Ho-pS-GRf" secondAttribute="top" constant="17" id="UY0-vl-DTu"/>
@@ -241,11 +218,10 @@
                                     <constraint firstItem="YG8-Rh-AIy" firstAttribute="centerX" secondItem="7Ho-pS-GRf" secondAttribute="centerX" id="bUE-3i-RLe"/>
                                     <constraint firstAttribute="height" constant="400" id="jCJ-C9-ptr"/>
                                     <constraint firstItem="6wk-Na-t5e" firstAttribute="top" secondItem="QNR-Kp-Ooz" secondAttribute="bottom" constant="15" id="lWS-OZ-Mwl"/>
-                                    <constraint firstItem="UEI-Lc-EvR" firstAttribute="top" secondItem="6wk-Na-t5e" secondAttribute="bottom" constant="75" id="oEo-pc-gMp"/>
+                                    <constraint firstItem="MMt-fs-ATl" firstAttribute="centerX" secondItem="7Ho-pS-GRf" secondAttribute="centerX" id="oBu-j0-qth"/>
                                     <constraint firstItem="Oae-gq-bG6" firstAttribute="centerX" secondItem="7Ho-pS-GRf" secondAttribute="centerX" id="phu-Yo-oRN"/>
                                     <constraint firstItem="QNR-Kp-Ooz" firstAttribute="top" secondItem="YG8-Rh-AIy" secondAttribute="bottom" constant="8" id="qnn-bT-n2j"/>
                                     <constraint firstItem="Oae-gq-bG6" firstAttribute="top" secondItem="6wk-Na-t5e" secondAttribute="bottom" constant="16" id="sWN-gg-LA0"/>
-                                    <constraint firstItem="UEI-Lc-EvR" firstAttribute="leading" secondItem="MMt-fs-ATl" secondAttribute="trailing" constant="10" id="zSm-18-0OJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -278,7 +254,7 @@
                         <outlet property="mainStack" destination="7Ho-pS-GRf" id="ubY-lf-g3b"/>
                         <outlet property="mainStackBottomConstraint" destination="irl-u0-zET" id="I5A-gD-lBf"/>
                         <outlet property="outputColorView" destination="0bv-XI-aGa" id="pFG-hW-qCz"/>
-                        <outlet property="outputTypeView" destination="YxQ-iV-suk" id="piN-jP-ppc"/>
+                        <outlet property="outputTypeButton" destination="Xhi-wK-IbK" id="JJf-8v-cjc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -474,8 +450,6 @@
         <segue reference="tzS-om-u4c"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="chevron.up" catalog="system" width="128" height="70"/>
-        <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="paintpalette" catalog="system" width="128" height="105"/>
         <image name="repeat" catalog="system" width="128" height="98"/>

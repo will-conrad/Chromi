@@ -19,21 +19,17 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet var inputTypeButton: UIButton!
-    @IBOutlet var outputTypeView: UIView!
     
     @IBOutlet var inputColor: UITextField!
     
+    @IBOutlet var outputTypeButton: UIButton!
     @IBOutlet var outputColorView: UIView!
-    
-    var inputTypeText = ""
-    var outputTypeText = UILabel(frame: CGRect(x: 10, y: 0, width: 88, height: 44))
-    var outputColorText = UILabel(frame: CGRect(x: 10, y: 0, width: 170, height: 44))
+
+    var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 170, height: 44))
     
     var inputType: ColorType = .rgb
     var outputType: ColorType = .hex
-    
-    
-    
+
     var color: UIColor = .purple
     
 
@@ -94,31 +90,31 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     func colorOutputTypeContextMenu() -> UIMenu {
         let rgbOut = UIAction(title: "RGB", state: outputType == .rgb ? .on : .off) { _ in
             print("RGB")
-            self.outputTypeText.text = "RGB"
+            self.outputTypeButton.setTitle("RGB", for: .normal)
             self.outputType = .rgb
             self.updateOutputColorField()
         }
         let hslOut = UIAction(title: "HSL", state: outputType == .hsl ? .on : .off) { _ in
             print("HSL")
-            self.outputTypeText.text = "HSL"
+            self.outputTypeButton.setTitle("HSL", for: .normal)
             self.outputType = .hsl
             self.updateOutputColorField()
         }
         let hsvOut = UIAction(title: "HSV", state: outputType == .hsv ? .on : .off) { _ in
             print("HSV")
-            self.outputTypeText.text = "HSV"
+            self.outputTypeButton.setTitle("HSV", for: .normal)
             self.outputType = .hsv
             self.updateOutputColorField()
         }
         let cmykOut = UIAction(title: "CMYK", state: outputType == .cmyk ? .on : .off) { _ in
             print("CMYK")
-            self.outputTypeText.text = "CMYK"
+            self.outputTypeButton.setTitle("CMYK", for: .normal)
             self.outputType = .cmyk
             self.updateOutputColorField()
         }
         let hexOut = UIAction(title: "HEX", state: outputType == .hex ? .on : .off) { _ in
             print("HEX")
-            self.outputTypeText.text = "HEX"
+            self.outputTypeButton.setTitle("HEX", for: .normal)
             self.outputType = .hex
             self.updateOutputColorField()
         }
@@ -134,7 +130,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         inputColor.delegate = self
         
         inputTypeButton.layer.cornerRadius = 10
-        outputTypeView.layer.cornerRadius = 10
+        outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
         outputColorView.layer.cornerRadius = 10
         mainStack.layer.cornerRadius = 10
@@ -142,11 +138,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         inputColor.leftViewMode = .always
         
-        self.inputTypeText = "RGB"
-        inputTypeButton.setTitle(self.inputTypeText, for: .normal)
-        
-        self.outputTypeText.text = "HEX"
-        outputTypeView.addSubview(outputTypeText)
+        self.inputTypeButton.setTitle("RGB", for: .normal)
+        self.outputTypeButton.setTitle("HEX", for: .normal)
         
         self.outputColorText.text = ""
         self.outputColorText.textColor = UIColor.lightGray
@@ -156,6 +149,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
         inputTypeButton.showsMenuAsPrimaryAction = true
         inputTypeButton.menu = colorInputTypeContextMenu()
+        outputTypeButton.showsMenuAsPrimaryAction = true
+        outputTypeButton.menu = colorOutputTypeContextMenu()
 
         colorSelector.addTarget(self, action: #selector(colorSelectorUpdate), for: .valueChanged)
         colorSelector.selectedColor = self.color

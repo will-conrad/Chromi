@@ -7,10 +7,8 @@
 
 import UIKit
 
-class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate, UITextFieldDelegate {
+class ConvertViewController: UIViewController, UITextFieldDelegate {
 
-
-    @IBOutlet var aButton: UIButton!
     @IBOutlet var mainStackBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet var mainStack: UITableView!
@@ -19,21 +17,22 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     
     @IBOutlet var colorSelector: UIColorWell!
     
-    @IBOutlet var inputTypeView: UIView!
+    
+    @IBOutlet var inputTypeButton: UIButton!
     @IBOutlet var outputTypeView: UIView!
     
     @IBOutlet var inputColor: UITextField!
     
     @IBOutlet var outputColorView: UIView!
     
-    var inputTypeText = UILabel(frame: CGRect(x: 10, y: 0, width: 88, height: 44))
+    var inputTypeText = ""
     var outputTypeText = UILabel(frame: CGRect(x: 10, y: 0, width: 88, height: 44))
     var outputColorText = UILabel(frame: CGRect(x: 10, y: 0, width: 170, height: 44))
     
     var inputType: ColorType = .rgb
     var outputType: ColorType = .hex
     
-    var pointers: [Any] = []
+    
     
     var color: UIColor = .purple
     
@@ -49,9 +48,6 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
 
     
     @IBAction func inputColorUpdated(_ sender: Any) {
-        print(inputColor.text)
-        print("was edited")
-
         if let color = parseInputColor(color: inputColor.text!, type: inputType) {
             self.color = color
         }
@@ -62,31 +58,32 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     func colorInputTypeContextMenu() -> UIMenu {
         let rgbIn = UIAction(title: "RGB", state: inputType == .rgb ? .on : .off) { _ in
             print("RGB")
-            self.inputTypeText.text = "RGB"
+            self.inputTypeButton.setTitle("RGB", for: .normal)
             self.inputType = .rgb
             self.updateInputColorField()
         }
         let hslIn = UIAction(title: "HSL", state: inputType == .hsl ? .on : .off) { _ in
             print("HSL")
-            self.inputTypeText.text = "HSL"
+            self.inputTypeButton.setTitle("HSL", for: .normal)
             self.inputType = .hsl
+            print(self.inputType)
             self.updateInputColorField()
         }
         let hsvIn = UIAction(title: "HSV", state: inputType == .hsv ? .on : .off) { _ in
             print("HSV")
-            self.inputTypeText.text = "HSV"
+            self.inputTypeButton.setTitle("HSV", for: .normal)
             self.inputType = .hsv
             self.updateInputColorField()
         }
         let cmykIn = UIAction(title: "CMYK", state: inputType == .cmyk ? .on : .off) { _ in
             print("CMYK")
-            self.inputTypeText.text = "CMYK"
+            self.inputTypeButton.setTitle("CMYK", for: .normal)
             self.inputType = .cmyk
             self.updateInputColorField()
         }
         let hexIn = UIAction(title: "HEX", state: inputType == .hex ? .on : .off) { _ in
             print("HEX")
-            self.inputTypeText.text = "HEX"
+            self.inputTypeButton.setTitle("HEX", for: .normal)
             self.inputType = .hex
             self.updateInputColorField()
         }
@@ -129,17 +126,6 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         return colorOutputTypeMenu
     }
     
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
-            if interaction == self.pointers[0] as? NSObject {
-                return self.colorInputTypeContextMenu()
-            } else {
-                return self.colorOutputTypeContextMenu()
-            }
-        }
-        return config
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -147,7 +133,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         view.addGestureRecognizer(tap)
         inputColor.delegate = self
         
-        inputTypeView.layer.cornerRadius = 10
+        inputTypeButton.layer.cornerRadius = 10
         outputTypeView.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
         outputColorView.layer.cornerRadius = 10
@@ -156,8 +142,8 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         inputColor.leftViewMode = .always
         
-        self.inputTypeText.text = "RGB"
-        inputTypeView.addSubview(inputTypeText)
+        self.inputTypeText = "RGB"
+        inputTypeButton.setTitle(self.inputTypeText, for: .normal)
         
         self.outputTypeText.text = "HEX"
         outputTypeView.addSubview(outputTypeText)
@@ -167,17 +153,10 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         outputColorView.addSubview(outputColorText)
 
         //Add interactions to views, save pointers to compare when showing menus
-        inputTypeView.addInteraction(UIContextMenuInteraction(delegate: self))
-        pointers.append(inputTypeView.interactions[0])
-        aButton.showsMenuAsPrimaryAction = true
-        aButton.menu = colorInputTypeContextMenu()
-        
-        outputTypeView.addInteraction(UIContextMenuInteraction(delegate: self))
-        pointers.append(outputTypeView.interactions[0])
-        
-        inputTypeView.isUserInteractionEnabled = true
-        outputTypeView.isUserInteractionEnabled = true
-        
+
+        inputTypeButton.showsMenuAsPrimaryAction = true
+        inputTypeButton.menu = colorInputTypeContextMenu()
+
         colorSelector.addTarget(self, action: #selector(colorSelectorUpdate), for: .valueChanged)
         colorSelector.selectedColor = self.color
         colorSelectorUpdate()
@@ -213,27 +192,18 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         backgroundView.backgroundColor = colorSelector.selectedColor
         updateInputColorField()
         updateOutputColorField()
-        GlobalColor.color = self.color
+        
     }
-    
-    @IBAction func touched(_ sender: Any) {
-        let generator = UIImpactFeedbackGenerator()
-        generator.prepare()
-        generator.impactOccurred(intensity: 1)
-    }
-   
-    
     func updateInputColorField() {
         inputColor.text = colorToText(color: self.color, type: inputType)
     }
     func updateOutputColorField() {
         outputColorText.text = colorToText(color: self.color, type: outputType)
-        
+        GlobalColor.color = self.color
     }
     func updateElementColors() {
         colorSelector.selectedColor = self.color
         backgroundView.backgroundColor = self.color
-        GlobalColor.color = self.color
     }
 
     

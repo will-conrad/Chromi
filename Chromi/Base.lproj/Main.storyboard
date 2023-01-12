@@ -116,26 +116,16 @@
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-9i-DVS">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-tE-jQe">
                                                         <rect key="frame" x="0.0" y="24.000000000000057" width="88" height="44"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2hI-SJ-eaT">
-                                                                <rect key="frame" x="63" y="16.666666666666664" width="15" height="10"/>
-                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="BUo-Wh-RQR"/>
-                                                                    <constraint firstAttribute="width" constant="15" id="y4x-mv-MXZ"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="44" id="2eq-kk-eFZ"/>
-                                                            <constraint firstAttribute="trailing" secondItem="2hI-SJ-eaT" secondAttribute="trailing" constant="10" id="ijb-lf-8CC"/>
-                                                            <constraint firstAttribute="width" constant="88" id="k8c-z7-gPA"/>
-                                                            <constraint firstItem="2hI-SJ-eaT" firstAttribute="centerY" secondItem="VpC-9i-DVS" secondAttribute="centerY" id="lzr-kQ-UcY"/>
+                                                            <constraint firstAttribute="width" constant="88" id="UVw-77-oMt"/>
+                                                            <constraint firstAttribute="height" constant="44" id="kt0-6X-VGG"/>
                                                         </constraints>
-                                                    </view>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="88" id="G1T-Ax-XTz"/>
@@ -258,15 +248,6 @@
                                     <constraint firstItem="UEI-Lc-EvR" firstAttribute="leading" secondItem="MMt-fs-ATl" secondAttribute="trailing" constant="10" id="zSm-18-0OJ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-6V-6Bm">
-                                <rect key="frame" x="284" y="416" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="touched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgM-pO-k51"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.5725490196078431" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,11 +271,10 @@
                         <imageReference key="selectedImage" image="repeat" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="aButton" destination="dhN-6V-6Bm" id="bFK-T7-8SA"/>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="kzt-Q2-yao"/>
                         <outlet property="colorSelector" destination="foV-mM-aTa" id="09m-6N-g6z"/>
                         <outlet property="inputColor" destination="Odm-vu-afW" id="gZh-D3-Q9B"/>
-                        <outlet property="inputTypeView" destination="VpC-9i-DVS" id="WvA-8U-GF2"/>
+                        <outlet property="inputTypeButton" destination="uXU-tE-jQe" id="UB5-la-wBx"/>
                         <outlet property="mainStack" destination="7Ho-pS-GRf" id="ubY-lf-g3b"/>
                         <outlet property="mainStackBottomConstraint" destination="irl-u0-zET" id="I5A-gD-lBf"/>
                         <outlet property="outputColorView" destination="0bv-XI-aGa" id="pFG-hW-qCz"/>
@@ -491,7 +471,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fcB-Se-Gnd"/>
+        <segue reference="tzS-om-u4c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.up" catalog="system" width="128" height="70"/>

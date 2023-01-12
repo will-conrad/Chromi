@@ -16,13 +16,15 @@ class SchemesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(colorBarContainerView.frame.width)
-       
+        
+        
+        let padding: CGFloat = 7
          colorBarView = UIView(
             frame: CGRect(
-                    x: 7,
-                    y: 7,
-                    width: colorBarContainerView.frame.width - 14,
-                    height: colorBarContainerView.frame.height - 14))
+                    x: padding,
+                    y: padding,
+                    width: colorBarContainerView.frame.width - 2*padding,
+                    height: colorBarContainerView.frame.height - 2*padding))
         
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color

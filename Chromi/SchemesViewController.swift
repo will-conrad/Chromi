@@ -19,10 +19,10 @@ class SchemesViewController: UIViewController {
        
          colorBarView = UIView(
             frame: CGRect(
-                    x: 10,
-                    y: 10,
-                    width: colorBarContainerView.frame.width - 20,
-                    height: colorBarContainerView.frame.height - 20))
+                    x: 7,
+                    y: 7,
+                    width: colorBarContainerView.frame.width - 14,
+                    height: colorBarContainerView.frame.height - 14))
         
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color

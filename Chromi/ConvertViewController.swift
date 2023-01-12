@@ -10,6 +10,7 @@ import UIKit
 class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate, UITextFieldDelegate {
 
 
+    @IBOutlet var aButton: UIButton!
     @IBOutlet var mainStackBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet var mainStack: UITableView!
@@ -168,6 +169,9 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         //Add interactions to views, save pointers to compare when showing menus
         inputTypeView.addInteraction(UIContextMenuInteraction(delegate: self))
         pointers.append(inputTypeView.interactions[0])
+        aButton.showsMenuAsPrimaryAction = true
+        aButton.menu = colorInputTypeContextMenu()
+        
         outputTypeView.addInteraction(UIContextMenuInteraction(delegate: self))
         pointers.append(outputTypeView.interactions[0])
         
@@ -210,8 +214,15 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         updateInputColorField()
         updateOutputColorField()
         GlobalColor.color = self.color
-        
     }
+    
+    @IBAction func touched(_ sender: Any) {
+        let generator = UIImpactFeedbackGenerator()
+        generator.prepare()
+        generator.impactOccurred(intensity: 1)
+    }
+   
+    
     func updateInputColorField() {
         inputColor.text = colorToText(color: self.color, type: inputType)
     }

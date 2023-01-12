@@ -258,6 +258,15 @@
                                     <constraint firstItem="UEI-Lc-EvR" firstAttribute="leading" secondItem="MMt-fs-ATl" secondAttribute="trailing" constant="10" id="zSm-18-0OJ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-6V-6Bm">
+                                <rect key="frame" x="284" y="416" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="touched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dgM-pO-k51"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.5725490196078431" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -281,6 +290,7 @@
                         <imageReference key="selectedImage" image="repeat" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="aButton" destination="dhN-6V-6Bm" id="bFK-T7-8SA"/>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="kzt-Q2-yao"/>
                         <outlet property="colorSelector" destination="foV-mM-aTa" id="09m-6N-g6z"/>
                         <outlet property="inputColor" destination="Odm-vu-afW" id="gZh-D3-Q9B"/>
@@ -306,17 +316,22 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="jvT-wf-vf0">
                                 <rect key="frame" x="12.666666666666657" y="20" width="350" height="100"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLK-4e-b1l">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLK-4e-b1l">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="VDt-1C-wiF"/>
+                                        </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOC-ms-gAC">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOC-ms-gAC">
                                         <rect key="frame" x="0.0" y="50" width="350" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qL1-O3-zO6"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="Wxr-He-9Yl"/>
-                                    <constraint firstAttribute="height" constant="100" id="r6l-24-YoY"/>
                                 </constraints>
                             </stackView>
                         </subviews>

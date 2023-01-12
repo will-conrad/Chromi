@@ -113,12 +113,12 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         let b = Double(color.rgba.blue * 255.0)
         
         return "\(abs(ceil(r*100)/100)), \(abs(ceil(g*100)/100)), \(abs(ceil(b*100)/100))"
-    case .hsl:
+    case .hsv:
         var comps = color.hsbComponents
         let h = Double(comps.0 * 360)
         let s = Double(comps.1 * 100)
         let v = Double(comps.2 * 100)
-        return "\(h), \(s), \(v)"
+        return "\(abs(ceil(h*100)/100)), \(abs(ceil(s*100)/100)), \(abs(ceil(v*100)/100))"
     case .hex:
         return colorToHex(color: color)
     default:
@@ -132,7 +132,7 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
         if color.contains(", ") {
             let delimiter = ", "
             let values = color.components(separatedBy: delimiter)
-            print(values[0])
+            
             if values.count == 3 {
                 if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
                     if r <= 255 && g <= 255 && b <= 255 {
@@ -154,6 +154,36 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
             }
             return nil
         }
+    case .hsv:
+        if color.contains(", ") {
+            let delimiter = ", "
+            let values = color.components(separatedBy: delimiter)
+            if values.count == 3 {
+                print(values[0])
+                print(values[1])
+                print(values[2])
+                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
+                    if h <= 360 && s <= 100 && v <= 100 {
+                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
+                    }
+                    return nil
+                }
+                return nil
+            }
+            return nil
+        } else {
+            let delimiter = " "
+            let values = color.components(separatedBy: delimiter)
+            if values.count == 3 {
+                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
+                    if h <= 360 && s <= 100 && v <= 100 {
+                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
+                    }
+                    return nil
+                }
+            }
+            return nil
+        }
     case .hex:
         return UIColor(hexString: color)
         
@@ -162,3 +192,4 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
         return nil
     }
 }
+

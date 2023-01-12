@@ -164,6 +164,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
         outputTypeView.addSubview(outputTypeText)
         
         self.outputColorText.text = ""
+        self.outputColorText.textColor = UIColor.lightGray
         outputColorView.addSubview(outputColorText)
 
         //Add interactions to views, save pointers to compare when showing menus

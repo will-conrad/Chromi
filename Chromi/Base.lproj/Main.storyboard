@@ -174,8 +174,20 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxQ-iV-suk">
                                                         <rect key="frame" x="0.0" y="24" width="88" height="44"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-N5-Pf5">
+                                                                <rect key="frame" x="63" y="16.666666666666664" width="15" height="10"/>
+                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="EsQ-Gt-gbH"/>
+                                                                    <constraint firstAttribute="width" constant="15" id="Hdl-dG-lEK"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="KjM-N5-Pf5" secondAttribute="trailing" constant="10" id="dYR-Tc-jJT"/>
+                                                            <constraint firstItem="KjM-N5-Pf5" firstAttribute="centerY" secondItem="YxQ-iV-suk" secondAttribute="centerY" id="eAM-tR-AaX"/>
                                                             <constraint firstAttribute="height" constant="44" id="lYK-Oi-09D"/>
                                                             <constraint firstAttribute="width" constant="88" id="s6w-gb-XyJ"/>
                                                         </constraints>

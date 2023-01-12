@@ -63,9 +63,7 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
             print("RGB")
             self.inputTypeText.text = "RGB"
             self.inputType = .rgb
-            if !self.inputFromField {
-                self.updateInputColorField()
-            }
+            self.updateInputColorField()
         }
         let hslIn = UIAction(title: "HSL", state: inputType == .hsl ? .on : .off) { _ in
             print("HSL")
@@ -197,9 +195,10 @@ class ConvertViewController: UIViewController, UIContextMenuInteractionDelegate,
     @IBAction func keyboardDown(_ sender: Any) {
         mainStackBottomConstraint.constant = 130
         self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
-        }
+        }, completion: nil)
+        
     }
     
     @IBAction func copyToClipboard(_ sender: Any) {

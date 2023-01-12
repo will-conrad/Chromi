@@ -14,6 +14,16 @@ extension Double {
     }
 }
 extension UIColor {
+    var hsbComponents:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+            var hue:CGFloat = 0
+            var saturation:CGFloat = 0
+            var brightness:CGFloat = 0
+            var alpha:CGFloat = 0
+            if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
+                return (hue,saturation,brightness,alpha)
+            }
+            return (0,0,0,0)
+        }
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
             let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             let scanner = Scanner(string: hexString)
@@ -103,6 +113,12 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         let b = Double(color.rgba.blue * 255.0)
         
         return "\(abs(ceil(r*100)/100)), \(abs(ceil(g*100)/100)), \(abs(ceil(b*100)/100))"
+    case .hsl:
+        var comps = color.hsbComponents
+        let h = Double(comps.0 * 360)
+        let s = Double(comps.1 * 100)
+        let v = Double(comps.2 * 100)
+        return "\(h), \(s), \(v)"
     case .hex:
         return colorToHex(color: color)
     default:

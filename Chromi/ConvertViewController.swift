@@ -17,7 +17,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var colorSelector: UIColorWell!
     
-    
     @IBOutlet var inputTypeButton: UIButton!
     
     @IBOutlet var inputColor: UITextField!
@@ -194,6 +193,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
     func updateOutputColorField() {
         outputColorText.text = colorToText(color: self.color, type: outputType)
+        GlobalColor.type = outputType
         GlobalColor.color = self.color
     }
     func updateElementColors() {

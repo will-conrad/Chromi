@@ -11,6 +11,7 @@ class SchemesViewController: UIViewController {
     
     @IBOutlet var inputColorStack: UIStackView!
     @IBOutlet var colorBarContainerView: UIView!
+    @IBOutlet var inputColorLabel: UILabel!
     
     var colorBarView = UIView()
     override func viewDidLoad() {
@@ -31,10 +32,13 @@ class SchemesViewController: UIViewController {
         
         colorBarContainerView.addSubview(colorBarView)
         inputColorStack.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
     }
     override func viewWillAppear(_ animated: Bool) {
         colorBarView.backgroundColor = GlobalColor.color
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
+
     }
     
 

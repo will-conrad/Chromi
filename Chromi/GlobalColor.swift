@@ -10,5 +10,6 @@ import UIKit
 
 class GlobalColor {
     static var color = UIColor()
+    static var type = ColorType.hex
 }
 

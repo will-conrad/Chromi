@@ -10,8 +10,8 @@ import UIKit
 
 extension UIColor {
 
-    var complementary: UIColor {
-        return self.withHueOffset(0.5)
+    var complementary: [UIColor] {
+        return [self, self.withHueOffset(0.5)]
     }
 
     var splitComplementary: [UIColor] {

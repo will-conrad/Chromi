@@ -315,8 +315,8 @@
                                     <constraint firstAttribute="width" constant="350" id="Wxr-He-9Yl"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="49" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-in-hkG">
-                                <rect key="frame" x="0.0" y="193" width="375" height="200"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="49" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-in-hkG">
+                                <rect key="frame" x="0.0" y="211" width="375" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="NE4-g3-SvB"/>
@@ -364,7 +364,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJB-J1-6jd">
-                                <rect key="frame" x="12.666666666666657" y="131" width="350" height="50"/>
+                                <rect key="frame" x="12.666666666666657" y="141" width="350" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIZ-Dn-yqq">
                                         <rect key="frame" x="20" y="14.999999999999998" width="62" height="20.333333333333329"/>
@@ -373,9 +373,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35e-bA-7ai">
-                                        <rect key="frame" x="270" y="8" width="75" height="34"/>
+                                        <rect key="frame" x="321" y="18" width="24" height="14"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -397,8 +397,8 @@
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="EC4-bc-oPb"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="top" secondItem="uja-mz-kdF" secondAttribute="top" constant="20" id="Zj0-yI-Ufo"/>
                             <constraint firstItem="uja-mz-kdF" firstAttribute="trailing" secondItem="Dof-in-hkG" secondAttribute="trailing" id="mvz-JU-4rX"/>
-                            <constraint firstItem="Dof-in-hkG" firstAttribute="top" secondItem="KJB-J1-6jd" secondAttribute="bottom" constant="12" id="ooQ-kO-zHP"/>
-                            <constraint firstItem="KJB-J1-6jd" firstAttribute="top" secondItem="jvT-wf-vf0" secondAttribute="bottom" constant="10" id="y4R-ko-GMT"/>
+                            <constraint firstItem="Dof-in-hkG" firstAttribute="top" secondItem="KJB-J1-6jd" secondAttribute="bottom" constant="20" id="ooQ-kO-zHP"/>
+                            <constraint firstItem="KJB-J1-6jd" firstAttribute="top" secondItem="jvT-wf-vf0" secondAttribute="bottom" constant="20" id="y4R-ko-GMT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schemes" id="lhm-ao-sPq">
@@ -421,6 +421,7 @@
                         <outlet property="inputColorStack" destination="jvT-wf-vf0" id="wgA-oX-a1v"/>
                         <outlet property="schemeTable" destination="Dof-in-hkG" id="QeN-UZ-ll2"/>
                         <outlet property="schemeTypeButton" destination="35e-bA-7ai" id="bij-YA-xmN"/>
+                        <outlet property="schemeView" destination="KJB-J1-6jd" id="MF5-pX-Stl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTb-Wx-CaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

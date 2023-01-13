@@ -13,15 +13,51 @@ class SchemesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
     
+    @IBOutlet var schemeView: UIView!
     @IBOutlet var schemeTypeButton: UIButton!
     
     @IBOutlet var schemeTable: UITableView!
     
-    var schemeType: ColorScheme = .splitComplementary
+    var schemeType: ColorScheme = .complementary
     var schemeColors: [UIColor] = []
      
-    
     var colorBarView = UIView()
+
+    
+    func schemeTypeContextMenu() -> UIMenu {
+        let complementary = UIAction(title: "Complementary", state: schemeType == .complementary ? .on : .off) { _ in
+            self.schemeTypeButton.setTitle("Complementary", for: .normal)
+            self.schemeType = .complementary
+            
+        }
+//        let splitComplementary = UIAction(title: "HSL", state: GlobalColor.outputType == .hsl ? .on : .off) { _ in
+//            print("HSL")
+//            self.outputTypeButton.setTitle("HSL", for: .normal)
+//            GlobalColor.outputType = .hsl
+//            self.updateOutputColorField()
+//        }
+//        let hsvOut = UIAction(title: "HSV", state: GlobalColor.outputType == .hsv ? .on : .off) { _ in
+//            print("HSV")
+//            self.outputTypeButton.setTitle("HSV", for: .normal)
+//            GlobalColor.outputType = .hsv
+//            self.updateOutputColorField()
+//        }
+//        let cmykOut = UIAction(title: "CMYK", state: GlobalColor.outputType == .cmyk ? .on : .off) { _ in
+//            print("CMYK")
+//            self.outputTypeButton.setTitle("CMYK", for: .normal)
+//            GlobalColor.outputType = .cmyk
+//            self.updateOutputColorField()
+//        }
+//        let hexOut = UIAction(title: "HEX", state: GlobalColor.outputType == .hex ? .on : .off) { _ in
+//            print("HEX")
+//            self.outputTypeButton.setTitle("HEX", for: .normal)
+//            GlobalColor.outputType = .hex
+//            self.updateOutputColorField()
+//        }
+        let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [complementary])
+        return schemeTypeContextMenu
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         schemeTable.rowHeight = 49
@@ -37,7 +73,7 @@ class SchemesViewController: UIViewController {
                     y: padding,
                     width: colorBarContainerView.frame.width - 2*padding,
                     height: colorBarContainerView.frame.height - 2*padding))
-        
+        schemeView.layer.cornerRadius = 10
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
         
@@ -50,10 +86,23 @@ class SchemesViewController: UIViewController {
         schemeTable.delegate = self
         schemeTable.dataSource = self
         schemeTable.isScrollEnabled = false
-        schemeColors = GlobalColor.color.splitComplementary
         
-        schemeTypeButton.titleEdgeInsets.right = 0;
         
+        
+        schemeTypeButton.showsMenuAsPrimaryAction = true
+        schemeTypeButton.menu = schemeTypeContextMenu()
+        
+        schemeColors = getScheme(scheme: schemeType)
+    }
+    
+    func getScheme(scheme: ColorScheme)-> [UIColor] {
+        switch scheme {
+        case .complementary:
+            return GlobalColor.color.complementary
+            
+        default:
+            return []
+        }
     }
     
     
@@ -61,7 +110,7 @@ class SchemesViewController: UIViewController {
         schemeTable.reloadData()
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
-        schemeColors = GlobalColor.color.splitComplementary
+        schemeColors = getScheme(scheme: schemeType)
 
     }
     
@@ -72,6 +121,7 @@ extension SchemesViewController: UITableViewDelegate {
         print("Tapped")
         
     }
+    
 }
 extension SchemesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,5 +134,8 @@ extension SchemesViewController: UITableViewDataSource {
         cell.type = GlobalColor.inputType
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return schemeType.rawValue
     }
 }

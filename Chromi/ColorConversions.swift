@@ -8,58 +8,26 @@
 import Foundation
 import UIKit
 
-extension Double {
-    func truncate(places : Int)-> Double {
-        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
-    }
-}
 extension UIColor {
-    var hsbComponents:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
-            var hue:CGFloat = 0
-            var saturation:CGFloat = 0
-            var brightness:CGFloat = 0
-            var alpha:CGFloat = 0
-            if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
-                return (hue,saturation,brightness,alpha)
-            }
-            return (0,0,0,0)
-        }
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
-            let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            let scanner = Scanner(string: hexString)
-            if (hexString.hasPrefix("#")) {
-                scanner.scanLocation = 1
-            }
-            var color: UInt32 = 0
-            scanner.scanHexInt32(&color)
-            let mask = 0x000000FF
-            let r = Int(color >> 16) & mask
-            let g = Int(color >> 8) & mask
-            let b = Int(color) & mask
-            let red   = CGFloat(r) / 255.0
-            let green = CGFloat(g) / 255.0
-            let blue  = CGFloat(b) / 255.0
-            self.init(red:red, green:green, blue:blue, alpha:alpha)
+        let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let scanner = Scanner(string: hexString)
+        if (hexString.hasPrefix("#")) {
+            scanner.scanLocation = 1
         }
-        func toHexString() -> String {
-            var r:CGFloat = 0
-            var g:CGFloat = 0
-            var b:CGFloat = 0
-            var a:CGFloat = 0
-            getRed(&r, green: &g, blue: &b, alpha: &a)
-            let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
-            return String(format:"#%06x", rgb)
-        }
-    struct HSL: Hashable {
-
-            /// The hue component of the color, in the range [0, 360°].
-            var hue: CGFloat
-            /// The saturation component of the color, in the range [0, 100%].
-            var saturation: CGFloat
-            /// The lightness component of the color, in the range [0, 100%].
-            var lightness: CGFloat
-
+        var color: UInt64 = 0
+        scanner.scanHexInt64(&color)
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+        self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
+    
+    //Gets RGBA values
     var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -70,9 +38,18 @@ extension UIColor {
         return (red, green, blue, alpha)
     }
     
-
-        /// The HSL (hue, saturation, lightness) components of the color.
-    var hsl: HSL {
+    var hsba:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+            var hue:CGFloat = 0
+            var saturation:CGFloat = 0
+            var brightness:CGFloat = 0
+            var alpha:CGFloat = 0
+            if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
+                return (min(hue, 1),min(saturation, 1),min(1, brightness),min(1, alpha))
+            }
+            return (0,0,0,0)
+        }
+    
+    var hsl: (h: CGFloat, s: CGFloat, l: CGFloat) {
         var (h, s, b) = (CGFloat(), CGFloat(), CGFloat())
         getHue(&h, saturation: &s, brightness: &b, alpha: nil)
         
@@ -86,26 +63,19 @@ extension UIColor {
         default:
             s = (s * b) / (2.0 - l * 2.0)
         }
+        return (h * 360.0, s * 100.0, l * 100.0)
+    }
+    var hex: String {
+        let components = self.rgba
+        let r: CGFloat = components.0
+        let g: CGFloat = components.1
+        let b: CGFloat = components.2
 
-        return HSL(hue: h * 360.0,
-                   saturation: s * 100.0,
-                   lightness: l * 100.0)
+        let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
+        print(hexString)
+        return hexString
     }
 }
-func colorToHex(color: UIColor) -> String {
-    let components = color.rgba
-//    let r: CGFloat = components?[0] ?? 0.0
-//    let g: CGFloat = components?[1] ?? 0.0
-//    let b: CGFloat = components?[2] ?? 0.0
-    let r: CGFloat = components.0
-    let g: CGFloat = components.1
-    let b: CGFloat = components.2
-
-    let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
-    print(hexString)
-    return hexString
- }
-
 
 func colorToText(color: UIColor, type: ColorType) -> String {
     switch type {
@@ -116,17 +86,20 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         let b = Double(color.rgba.blue * 255.0)
         
         return "\(abs(ceil(r*100)/100)), \(abs(ceil(g*100)/100)), \(abs(ceil(b*100)/100))"
-    case .hsv:
-        var comps = color.hsbComponents
-        comps.0 = min(comps.0, 1)
-        comps.1 = min(comps.1, 1)
-        comps.2 = min(comps.2, 1)
+    case .hsl:
+        var hsl = color.hsl
+        
+        return "\(abs(ceil(hsl.0*100)/100)), \(abs(ceil(hsl.1*100)/100)), \(abs(ceil(hsl.2*100)/100))"
+        
+    case .hsv: //Same as HSB
+        var comps = color.hsba
+
         let h = Double(comps.0 * 360)
         let s = Double(comps.1 * 100)
         let v = Double(comps.2 * 100)
         return "\(abs(ceil(h*100)/100)), \(abs(ceil(s*100)/100)), \(abs(ceil(v*100)/100))"
     case .hex:
-        return colorToHex(color: color)
+        return color.hex
     default:
         return ""
     }

@@ -43,7 +43,7 @@ class SchemesViewController: UIViewController {
         colorBarContainerView.addSubview(colorBarView)
         inputColorStack.layer.cornerRadius = 10
         
-        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         
         
         schemeTable.delegate = self
@@ -58,7 +58,7 @@ class SchemesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         schemeTable.reloadData()
         colorBarView.backgroundColor = GlobalColor.color
-        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         schemeColors = GlobalColor.color.splitComplementary
 
     }
@@ -79,7 +79,7 @@ extension SchemesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! ColorCell
         
         cell.color = schemeColors[indexPath.row]
-        cell.type = GlobalColor.type
+        cell.type = GlobalColor.inputType
         
         return cell
     }

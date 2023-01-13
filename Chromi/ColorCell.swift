@@ -13,13 +13,13 @@ class ColorCell: UITableViewCell {
     @IBOutlet var textBackdropView: UIView!
     
     @IBOutlet public var colorLabel: SRCopyableLabel!
+    
     var color = UIColor()
     var type = ColorType.rgb
     var colorText = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

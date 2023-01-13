@@ -93,10 +93,13 @@ extension UIColor {
     }
 }
 func colorToHex(color: UIColor) -> String {
-    let components = color.cgColor.components
-    let r: CGFloat = components?[0] ?? 0.0
-    let g: CGFloat = components?[1] ?? 0.0
-    let b: CGFloat = components?[2] ?? 0.0
+    let components = color.rgba
+//    let r: CGFloat = components?[0] ?? 0.0
+//    let g: CGFloat = components?[1] ?? 0.0
+//    let b: CGFloat = components?[2] ?? 0.0
+    let r: CGFloat = components.0
+    let g: CGFloat = components.1
+    let b: CGFloat = components.2
 
     let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
     print(hexString)
@@ -115,6 +118,9 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         return "\(abs(ceil(r*100)/100)), \(abs(ceil(g*100)/100)), \(abs(ceil(b*100)/100))"
     case .hsv:
         var comps = color.hsbComponents
+        comps.0 = min(comps.0, 1)
+        comps.1 = min(comps.1, 1)
+        comps.2 = min(comps.2, 1)
         let h = Double(comps.0 * 360)
         let s = Double(comps.1 * 100)
         let v = Double(comps.2 * 100)

@@ -22,7 +22,7 @@
 		29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813D29704E7B00A25D69 /* GlobalColor.swift */; };
 		29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */; };
 		29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481412970EDA900A25D69 /* SchemeCalculations.swift */; };
-		29E481442970F35D00A25D69 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorScheme.swift */; };
+		29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorSchemes.swift */; };
 		29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481452970F4CD00A25D69 /* ColorCell.swift */; };
 		29E481492971CF3300A25D69 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E481482971CF3300A25D69 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		29E4813D29704E7B00A25D69 /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
 		29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCopyableLabel.swift; sourceTree = "<group>"; };
 		29E481412970EDA900A25D69 /* SchemeCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeCalculations.swift; sourceTree = "<group>"; };
-		29E481432970F35D00A25D69 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		29E481432970F35D00A25D69 /* ColorSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemes.swift; sourceTree = "<group>"; };
 		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		29E481482971CF3300A25D69 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 				299788F0296F82A200702107 /* ColorConversions.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
 				29A71719296F306000EB60BA /* ColorTypes.swift */,
-				29E481432970F35D00A25D69 /* ColorScheme.swift */,
+				29E481432970F35D00A25D69 /* ColorSchemes.swift */,
 				29A71717296F27E200EB60BA /* PaddingTextField.swift */,
 				2994E08B295A07CE00722665 /* Assets.xcassets */,
 				2994E08D295A07CE00722665 /* LaunchScreen.storyboard */,
@@ -184,7 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */,
-				29E481442970F35D00A25D69 /* ColorScheme.swift in Sources */,
+				29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */,
 				299788F1296F82A200702107 /* ColorConversions.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,
 				2994E087295A07CD00722665 /* ViewController.swift in Sources */,

@@ -19,33 +19,18 @@ extension UIColor {
         let b = self.withHueOffset(210 / 360)
         return [self, a, b]
     }
-//    var triadic0: UIColor {
-//        return self.withHueOffset(120 / 360)
-//    }
-//
-//    var triadic1: UIColor {
-//        return self.withHueOffset(240 / 360)
-//    }
-//
-//    var tetradic0: UIColor {
-//        return self.withHueOffset(0.25)
-//    }
-//
-//    var tetradic1: UIColor {
-//        return self.complementary
-//    }
-//
-//    var tetradic2: UIColor {
-//        return self.withHueOffset(0.75)
-//    }
-//
-//    var analagous0: UIColor {
-//        return self.withHueOffset(-1 / 12)
-//    }
-//
-//    var analagous1: UIColor {
-//        return self.withHueOffset(1 / 12)
-//    }
+    var triadic: [UIColor] {
+        return [self, self.withHueOffset(120 / 360), self.withHueOffset(240 / 360)]
+    }
+
+
+    var tetradic: [UIColor] {
+        return [self, self.withHueOffset(0.25), self.complementary[1], self.withHueOffset(0.75)]
+    }
+
+    var analagous: [UIColor] {
+        return [self, self.withHueOffset(-1 / 12), self.withHueOffset(1 / 12)]
+    }
 
     func withHueOffset(_ offset: CGFloat) -> UIColor {
         var h: CGFloat = 0

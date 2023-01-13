@@ -28,33 +28,24 @@ class SchemesViewController: UIViewController {
         let complementary = UIAction(title: "Complementary", state: schemeType == .complementary ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Complementary", for: .normal)
             self.schemeType = .complementary
-            
         }
-//        let splitComplementary = UIAction(title: "HSL", state: GlobalColor.outputType == .hsl ? .on : .off) { _ in
-//            print("HSL")
-//            self.outputTypeButton.setTitle("HSL", for: .normal)
-//            GlobalColor.outputType = .hsl
-//            self.updateOutputColorField()
-//        }
-//        let hsvOut = UIAction(title: "HSV", state: GlobalColor.outputType == .hsv ? .on : .off) { _ in
-//            print("HSV")
-//            self.outputTypeButton.setTitle("HSV", for: .normal)
-//            GlobalColor.outputType = .hsv
-//            self.updateOutputColorField()
-//        }
-//        let cmykOut = UIAction(title: "CMYK", state: GlobalColor.outputType == .cmyk ? .on : .off) { _ in
-//            print("CMYK")
-//            self.outputTypeButton.setTitle("CMYK", for: .normal)
-//            GlobalColor.outputType = .cmyk
-//            self.updateOutputColorField()
-//        }
-//        let hexOut = UIAction(title: "HEX", state: GlobalColor.outputType == .hex ? .on : .off) { _ in
-//            print("HEX")
-//            self.outputTypeButton.setTitle("HEX", for: .normal)
-//            GlobalColor.outputType = .hex
-//            self.updateOutputColorField()
-//        }
-        let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [complementary])
+        let splitComplementary = UIAction(title: "Split Complementary", state: schemeType == .splitComplementary ? .on : .off) { _ in
+            self.schemeTypeButton.setTitle("Split Complementary", for: .normal)
+            self.schemeType = .splitComplementary
+        }
+        let tetradic = UIAction(title: "Tetradic", state: schemeType == .tetradic ? .on : .off) { _ in
+            self.schemeTypeButton.setTitle("Tetradic", for: .normal)
+            self.schemeType = .tetradic
+        }
+        let triadic = UIAction(title: "Triadic", state: schemeType == .triadic ? .on : .off) { _ in
+            self.schemeTypeButton.setTitle("Triadic", for: .normal)
+            self.schemeType = .triadic
+        }
+        let analogous = UIAction(title: "Analogous", state: schemeType == .analogous ? .on : .off) { _ in
+            self.schemeTypeButton.setTitle("Analogous", for: .normal)
+            self.schemeType = .analogous
+        }
+        let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [complementary, splitComplementary, tetradic, triadic, analogous])
         return schemeTypeContextMenu
     }
     
@@ -93,13 +84,21 @@ class SchemesViewController: UIViewController {
         schemeTypeButton.menu = schemeTypeContextMenu()
         
         schemeColors = getScheme(scheme: schemeType)
+        
     }
     
     func getScheme(scheme: ColorScheme)-> [UIColor] {
         switch scheme {
         case .complementary:
             return GlobalColor.color.complementary
-            
+        case .splitComplementary:
+            return GlobalColor.color.splitComplementary
+        case .tetradic:
+            return GlobalColor.color.tetradic
+        case .triadic:
+            return GlobalColor.color.triadic
+        case .analogous:
+            return GlobalColor.color.analagous
         default:
             return []
         }

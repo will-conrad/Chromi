@@ -332,8 +332,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-xx-MN7">
                                                     <rect key="frame" x="10" y="7" width="200" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-gu-c2K" customClass="SRCopyableLabel" customModule="Chromi" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="7" width="138" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-gu-c2K" customClass="SRCopyableLabel" customModule="Chromi" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="7.3333333333333339" width="190" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -341,6 +341,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="NbL-gu-c2K" secondAttribute="trailing" id="Bq8-Nx-XVk"/>
                                                         <constraint firstItem="NbL-gu-c2K" firstAttribute="leading" secondItem="wLx-xx-MN7" secondAttribute="leading" constant="10" id="QrY-Y4-RAp"/>
                                                         <constraint firstItem="NbL-gu-c2K" firstAttribute="centerY" secondItem="wLx-xx-MN7" secondAttribute="centerY" id="mO4-vJ-CnS"/>
                                                         <constraint firstAttribute="height" constant="35" id="scu-rn-c6I"/>
@@ -358,7 +359,6 @@
                                             <outlet property="cellView" destination="9JK-a6-f6V" id="dlb-rP-euM"/>
                                             <outlet property="colorLabel" destination="NbL-gu-c2K" id="oos-AZ-L48"/>
                                             <outlet property="textBackdropView" destination="wLx-xx-MN7" id="CoE-C2-XfC"/>
-                                            <outlet property="textBackdropWidth" destination="vkb-QL-eSB" id="7SI-do-Stu"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

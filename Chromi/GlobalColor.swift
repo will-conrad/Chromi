@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class GlobalColor {
-    static var color = UIColor()
-    static var type = ColorType.hex
+    static var inputColor = UIColor()
+    static var inputType = ColorType.rgb
+    static var outputColor = UIColor()
+    static var outputType = ColorType.hex
 }
 

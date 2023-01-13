@@ -12,8 +12,6 @@ class ColorCell: UITableViewCell {
     @IBOutlet var cellView: UIView!
     @IBOutlet var textBackdropView: UIView!
     
-    @IBOutlet var textBackdropWidth: NSLayoutConstraint!
-    
     @IBOutlet public var colorLabel: SRCopyableLabel!
     var color = UIColor()
     var type = ColorType.rgb
@@ -21,8 +19,6 @@ class ColorCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        print("awakeFromNib")
 
     }
 
@@ -38,9 +34,7 @@ class ColorCell: UITableViewCell {
         colorLabel.text = colorText
         
         textBackdropView.layer.cornerRadius = 10
-        textBackdropWidth.constant = colorLabel.frame.width + 20
-        print(colorLabel.frame.width)
-
+        
         
         
         // Configure the view for the selected state

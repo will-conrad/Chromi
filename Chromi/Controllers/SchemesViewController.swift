@@ -13,6 +13,7 @@ class SchemesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
     
+    @IBOutlet var schemeTypeButton: UIButton!
     
     @IBOutlet var schemeTable: UITableView!
     
@@ -51,6 +52,7 @@ class SchemesViewController: UIViewController {
         schemeTable.isScrollEnabled = false
         schemeColors = GlobalColor.color.splitComplementary
         
+        schemeTypeButton.titleEdgeInsets.right = 0;
         
     }
     

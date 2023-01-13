@@ -24,6 +24,7 @@
 		29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481412970EDA900A25D69 /* SchemeCalculations.swift */; };
 		29E481442970F35D00A25D69 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorScheme.swift */; };
 		29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481452970F4CD00A25D69 /* ColorCell.swift */; };
+		29E481492971CF3300A25D69 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E481482971CF3300A25D69 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		29E481412970EDA900A25D69 /* SchemeCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeCalculations.swift; sourceTree = "<group>"; };
 		29E481432970F35D00A25D69 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		29E481482971CF3300A25D69 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2994E082295A07CD00722665 /* AppDelegate.swift */,
 				2994E084295A07CD00722665 /* SceneDelegate.swift */,
 				2994E088295A07CD00722665 /* Main.storyboard */,
+				29E481482971CF3300A25D69 /* Launch Screen.storyboard */,
 				29E4813D29704E7B00A25D69 /* GlobalColor.swift */,
 				29E481452970F4CD00A25D69 /* ColorCell.swift */,
 				29E481412970EDA900A25D69 /* SchemeCalculations.swift */,
@@ -168,6 +171,7 @@
 			files = (
 				2994E08F295A07CE00722665 /* LaunchScreen.storyboard in Resources */,
 				2994E08C295A07CE00722665 /* Assets.xcassets in Resources */,
+				29E481492971CF3300A25D69 /* Launch Screen.storyboard in Resources */,
 				2994E08A295A07CD00722665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

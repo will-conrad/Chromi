@@ -13,6 +13,12 @@ class SchemesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
     
+    @IBOutlet var tableViewTest: UITableView!
+    
+    var schemeType: ColorScheme = .splitComplementary
+    var schemeColors: [UIColor] = []
+     
+    
     var colorBarView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,22 +40,35 @@ class SchemesViewController: UIViewController {
         inputColorStack.layer.cornerRadius = 10
         
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
+        
+        
+        tableViewTest.delegate = self
+        tableViewTest.dataSource = self
+        tableViewTest.isScrollEnabled = false
+        schemeColors = GlobalColor.color.splitComplementary
+        
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
 
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SchemesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Tapped")
     }
-    */
-
+}
+extension SchemesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return schemeColors.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell") as! ColorCell
+        return cell
+    }
 }

@@ -315,12 +315,39 @@
                                     <constraint firstAttribute="width" constant="350" id="Wxr-He-9Yl"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-in-hkG">
+                                <rect key="frame" x="0.0" y="121" width="375" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NE4-g3-SvB"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="colorCell" id="Qad-g1-USm" customClass="ColorCell" customModule="Chromi" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.333332061767578" width="335" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qad-g1-USm" id="9JK-a6-f6V">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-xx-MN7">
+                                                    <rect key="frame" x="47" y="11" width="240" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uja-mz-kdF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Dof-in-hkG" firstAttribute="leading" secondItem="uja-mz-kdF" secondAttribute="leading" id="510-dB-hxZ"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="EC4-bc-oPb"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="top" secondItem="uja-mz-kdF" secondAttribute="top" constant="20" id="Zj0-yI-Ufo"/>
+                            <constraint firstItem="uja-mz-kdF" firstAttribute="trailing" secondItem="Dof-in-hkG" secondAttribute="trailing" id="mvz-JU-4rX"/>
+                            <constraint firstItem="Dof-in-hkG" firstAttribute="top" secondItem="jvT-wf-vf0" secondAttribute="bottom" id="z7m-yU-i9j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schemes" id="lhm-ao-sPq">
@@ -341,6 +368,7 @@
                         <outlet property="colorBarContainerView" destination="LLK-4e-b1l" id="iT2-bM-Evv"/>
                         <outlet property="inputColorLabel" destination="wdC-NS-97l" id="snL-uq-9td"/>
                         <outlet property="inputColorStack" destination="jvT-wf-vf0" id="wgA-oX-a1v"/>
+                        <outlet property="tableViewTest" destination="Dof-in-hkG" id="r49-y7-y7r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTb-Wx-CaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

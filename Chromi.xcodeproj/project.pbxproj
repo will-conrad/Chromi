@@ -21,6 +21,9 @@
 		29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813B2970401200A25D69 /* SchemesViewController.swift */; };
 		29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813D29704E7B00A25D69 /* GlobalColor.swift */; };
 		29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */; };
+		29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481412970EDA900A25D69 /* SchemeCalculations.swift */; };
+		29E481442970F35D00A25D69 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorScheme.swift */; };
+		29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481452970F4CD00A25D69 /* ColorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		29E4813B2970401200A25D69 /* SchemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemesViewController.swift; sourceTree = "<group>"; };
 		29E4813D29704E7B00A25D69 /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
 		29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCopyableLabel.swift; sourceTree = "<group>"; };
+		29E481412970EDA900A25D69 /* SchemeCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeCalculations.swift; sourceTree = "<group>"; };
+		29E481432970F35D00A25D69 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +78,34 @@
 		2994E081295A07CD00722665 /* Chromi */ = {
 			isa = PBXGroup;
 			children = (
+				29E481472970F63000A25D69 /* Controllers */,
+				29E481432970F35D00A25D69 /* ColorScheme.swift */,
 				2994E082295A07CD00722665 /* AppDelegate.swift */,
 				2994E084295A07CD00722665 /* SceneDelegate.swift */,
-				2994E086295A07CD00722665 /* ViewController.swift */,
 				2994E088295A07CD00722665 /* Main.storyboard */,
 				29E4813D29704E7B00A25D69 /* GlobalColor.swift */,
-				29E4813B2970401200A25D69 /* SchemesViewController.swift */,
-				29A71715296F097200EB60BA /* ConvertViewController.swift */,
+				29E481452970F4CD00A25D69 /* ColorCell.swift */,
+				29E481412970EDA900A25D69 /* SchemeCalculations.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
 				29A71719296F306000EB60BA /* ColorTypes.swift */,
 				299788F0296F82A200702107 /* ColorConversions.swift */,
 				29A71717296F27E200EB60BA /* PaddingTextField.swift */,
-				29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */,
 				2994E08B295A07CE00722665 /* Assets.xcassets */,
 				2994E08D295A07CE00722665 /* LaunchScreen.storyboard */,
 				2994E090295A07CE00722665 /* Info.plist */,
 			);
 			path = Chromi;
+			sourceTree = "<group>";
+		};
+		29E481472970F63000A25D69 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2994E086295A07CD00722665 /* ViewController.swift */,
+				29A71715296F097200EB60BA /* ConvertViewController.swift */,
+				29E4813B2970401200A25D69 /* SchemesViewController.swift */,
+				29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,12 +180,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */,
+				29E481442970F35D00A25D69 /* ColorScheme.swift in Sources */,
 				299788F1296F82A200702107 /* ColorConversions.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,
 				2994E087295A07CD00722665 /* ViewController.swift in Sources */,
+				29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */,
 				29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */,
 				29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */,
 				2994E083295A07CD00722665 /* AppDelegate.swift in Sources */,
+				29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */,
 				29A71716296F097200EB60BA /* ConvertViewController.swift in Sources */,
 				2994E085295A07CD00722665 /* SceneDelegate.swift in Sources */,
 				29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */,

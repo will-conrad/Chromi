@@ -132,7 +132,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
         outputColorView.layer.cornerRadius = 10
-        mainStack.layer.cornerRadius = 10
+        //mainStack.layer.cornerRadius = 10
         
         inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         inputColor.leftViewMode = .always
@@ -156,6 +156,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         colorSelectorUpdate()
         
         mainStackBottomConstraint.constant = 130
+        print(self.color.splitComplementary)
         
     }
     

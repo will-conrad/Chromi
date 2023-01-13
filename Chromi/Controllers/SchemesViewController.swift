@@ -47,6 +47,7 @@ class SchemesViewController: UIViewController {
         tableViewTest.isScrollEnabled = false
         schemeColors = GlobalColor.color.splitComplementary
         
+        
     }
     
     

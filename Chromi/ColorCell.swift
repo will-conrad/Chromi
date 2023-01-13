@@ -33,7 +33,8 @@ class ColorCell: UITableViewCell {
         colorLabel.text = colorText
         
         textBackdropView.layer.cornerRadius = 10
-        textBackdropWidth.constant = CGFloat(colorText.count * 12) + 15
+        print(cellView.frame.width)
+        textBackdropWidth.constant = cellView.frame.width / 2 - 10
         
         // Configure the view for the selected state
     }

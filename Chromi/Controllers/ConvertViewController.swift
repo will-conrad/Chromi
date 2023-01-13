@@ -178,10 +178,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         }, completion: nil)
         
     }
-    
-    @IBAction func copyToClipboard(_ sender: Any) {
-        UIPasteboard.general.string = outputColorText.text
-    }
+
     @objc private func colorSelectorUpdate() {
         self.color = colorSelector.selectedColor!
         backgroundView.backgroundColor = colorSelector.selectedColor

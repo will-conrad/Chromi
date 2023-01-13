@@ -53,6 +53,9 @@ class SchemesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
+        schemeColors = GlobalColor.color.splitComplementary
+        
+        tableViewTest.reloadData()
 
     }
     
@@ -69,6 +72,9 @@ extension SchemesViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell") as! ColorCell
+        
+        cell.color = schemeColors[indexPath.row]
+        cell.type = GlobalColor.type
         return cell
     }
 }

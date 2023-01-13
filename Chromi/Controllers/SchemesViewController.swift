@@ -13,7 +13,8 @@ class SchemesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
     
-    @IBOutlet var tableViewTest: UITableView!
+    
+    @IBOutlet var schemeTable: UITableView!
     
     var schemeType: ColorScheme = .splitComplementary
     var schemeColors: [UIColor] = []
@@ -22,10 +23,13 @@ class SchemesViewController: UIViewController {
     var colorBarView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        schemeTable.rowHeight = 49
+
         print(colorBarContainerView.frame.width)
         
         
         let padding: CGFloat = 7
+        
          colorBarView = UIView(
             frame: CGRect(
                     x: padding,
@@ -42,9 +46,9 @@ class SchemesViewController: UIViewController {
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
         
         
-        tableViewTest.delegate = self
-        tableViewTest.dataSource = self
-        tableViewTest.isScrollEnabled = false
+        schemeTable.delegate = self
+        schemeTable.dataSource = self
+        schemeTable.isScrollEnabled = false
         schemeColors = GlobalColor.color.splitComplementary
         
         
@@ -52,11 +56,10 @@ class SchemesViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        schemeTable.reloadData()
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.type)
         schemeColors = GlobalColor.color.splitComplementary
-        
-        tableViewTest.reloadData()
 
     }
     
@@ -65,6 +68,7 @@ class SchemesViewController: UIViewController {
 extension SchemesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Tapped")
+        
     }
 }
 extension SchemesViewController: UITableViewDataSource {
@@ -72,10 +76,11 @@ extension SchemesViewController: UITableViewDataSource {
         return schemeColors.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell") as! ColorCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! ColorCell
         
         cell.color = schemeColors[indexPath.row]
         cell.type = GlobalColor.type
+        
         return cell
     }
 }

@@ -28,22 +28,27 @@ class SchemesViewController: UIViewController {
         let complementary = UIAction(title: "Complementary", state: schemeType == .complementary ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Complementary", for: .normal)
             self.schemeType = .complementary
+            self.updateTabs()
         }
         let splitComplementary = UIAction(title: "Split Complementary", state: schemeType == .splitComplementary ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Split Complementary", for: .normal)
             self.schemeType = .splitComplementary
+            self.updateTabs()
         }
         let tetradic = UIAction(title: "Tetradic", state: schemeType == .tetradic ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Tetradic", for: .normal)
             self.schemeType = .tetradic
+            self.updateTabs()
         }
         let triadic = UIAction(title: "Triadic", state: schemeType == .triadic ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Triadic", for: .normal)
             self.schemeType = .triadic
+            self.updateTabs()
         }
         let analogous = UIAction(title: "Analogous", state: schemeType == .analogous ? .on : .off) { _ in
             self.schemeTypeButton.setTitle("Analogous", for: .normal)
             self.schemeType = .analogous
+            self.updateTabs()
         }
         let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [complementary, splitComplementary, tetradic, triadic, analogous])
         return schemeTypeContextMenu
@@ -99,18 +104,23 @@ class SchemesViewController: UIViewController {
             return GlobalColor.color.triadic
         case .analogous:
             return GlobalColor.color.analagous
-        default:
-            return []
         }
+        return []
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        schemeTable.reloadData()
+        
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         schemeColors = getScheme(scheme: schemeType)
+        schemeTable.reloadData()
 
+    }
+    
+    func updateTabs() {
+        schemeColors = getScheme(scheme: schemeType)
+        schemeTable.reloadData()
     }
     
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class GlobalColor {
-    static var color = UIColor.purple
+    static var color = UIColor(hexString: "#5865F2")
     static var inputType = ColorType.rgb
     static var outputType = ColorType.hex
 }

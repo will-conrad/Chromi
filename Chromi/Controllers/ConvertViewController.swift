@@ -24,7 +24,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var outputTypeButton: UIButton!
     @IBOutlet var outputColorView: UIView!
 
-    var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 170, height: 44))
+    var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

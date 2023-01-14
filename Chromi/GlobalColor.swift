@@ -12,7 +12,5 @@ class GlobalColor {
     static var color = UIColor.purple
     static var inputType = ColorType.rgb
     static var outputType = ColorType.hex
-    
-    
 }
 

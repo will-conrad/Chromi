@@ -316,11 +316,8 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="singleLineEtched" rowHeight="49" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-in-hkG">
-                                <rect key="frame" x="0.0" y="211" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="211" width="375" height="375"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="NE4-g3-SvB"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="colorCell" id="Qad-g1-USm" customClass="ColorCell" customModule="Chromi" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.333332061767578" width="335" height="49"/>
@@ -395,6 +392,7 @@
                             <constraint firstItem="Dof-in-hkG" firstAttribute="leading" secondItem="uja-mz-kdF" secondAttribute="leading" id="510-dB-hxZ"/>
                             <constraint firstItem="KJB-J1-6jd" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="Drt-Nh-XaU"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="EC4-bc-oPb"/>
+                            <constraint firstAttribute="bottom" secondItem="Dof-in-hkG" secondAttribute="bottom" id="MaU-Mv-hCd"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="top" secondItem="uja-mz-kdF" secondAttribute="top" constant="20" id="Zj0-yI-Ufo"/>
                             <constraint firstItem="uja-mz-kdF" firstAttribute="trailing" secondItem="Dof-in-hkG" secondAttribute="trailing" id="mvz-JU-4rX"/>
                             <constraint firstItem="Dof-in-hkG" firstAttribute="top" secondItem="KJB-J1-6jd" secondAttribute="bottom" constant="20" id="ooQ-kO-zHP"/>

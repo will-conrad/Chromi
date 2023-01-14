@@ -34,10 +34,6 @@ class ColorCell: UITableViewCell {
         colorLabel.text = colorText
         
         textBackdropView.layer.cornerRadius = 10
-        
-        
-        
-        // Configure the view for the selected state
     }
 
 }

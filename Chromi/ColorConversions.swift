@@ -85,7 +85,7 @@ extension UIColor {
         return (h * 360.0, s * 100.0, l * 100.0)
     }
     var cmyk: (c: CGFloat, m: CGFloat, y: CGFloat, k: CGFloat) {
-        var rgba = self.rgba
+        let rgba = self.rgba
         
         let k = 1.0 - max(rgba.0, rgba.1, rgba.2)
         var c = (1.0 - rgba.0 - k) / (1.0 - k)
@@ -138,7 +138,6 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         return "\(abs(ceil(cmyk.0*100)/100)), \(abs(ceil(cmyk.1*100)/100)), \(abs(ceil(cmyk.2*100)/100)), \(abs(ceil(cmyk.3*100)/100))"
     case .hex:
         return color.hex
-        return ""
     }
 }
     

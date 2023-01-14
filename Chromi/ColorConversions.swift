@@ -28,6 +28,18 @@ extension UIColor {
         
         self.init(hue: hue, saturation: newSaturation, brightness: brightness, alpha: alpha)
     }
+    convenience init(cmyk: [Double], alpha: CGFloat = 1.0) {
+            let c = cmyk[0] / 100.0
+            let m = cmyk[1] / 100.0
+            let y = cmyk[2] / 100.0
+            let k = cmyk[3] / 100.0
+
+            let r = (1.0 - c) * (1.0 - k)
+            let g = (1.0 - m) * (1.0 - k)
+            let b = (1.0 - y) * (1.0 - k)
+
+            self.init(red: r, green: g, blue: b, alpha: alpha)
+        }
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
         let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
@@ -57,16 +69,7 @@ extension UIColor {
         return (red, green, blue, alpha)
     }
     
-    var hsba:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
-        var hue:CGFloat = 0
-        var saturation:CGFloat = 0
-        var brightness:CGFloat = 0
-        var alpha:CGFloat = 0
-        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
-            return (min(hue, 1),min(saturation, 1),min(1, brightness),min(1, alpha))
-        }
-        return (0,0,0,0)
-    }
+    
     
     var hsl: (h: CGFloat, s: CGFloat, l: CGFloat) {
         var (h, s, b) = (CGFloat(), CGFloat(), CGFloat())
@@ -83,6 +86,16 @@ extension UIColor {
             s = (s * b) / (2.0 - l * 2.0)
         }
         return (h * 360.0, s * 100.0, l * 100.0)
+    }
+    var hsba:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+        var hue:CGFloat = 0
+        var saturation:CGFloat = 0
+        var brightness:CGFloat = 0
+        var alpha:CGFloat = 0
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
+            return (min(hue, 1),min(saturation, 1),min(1, brightness),min(1, alpha))
+        }
+        return (0,0,0,0)
     }
     var cmyk: (c: CGFloat, m: CGFloat, y: CGFloat, k: CGFloat) {
         let rgba = self.rgba
@@ -116,15 +129,17 @@ extension UIColor {
 func colorToText(color: UIColor, type: ColorType) -> String {
     switch type {
     case .rgb:
-        print(color.rgba.red * 255.0)
         let r = Double(color.rgba.red * 255.0)
         let g = Double(color.rgba.green * 255.0)
         let b = Double(color.rgba.blue * 255.0)
         
-        return "\(abs(ceil(r*100)/100)), \(abs(ceil(g*100)/100)), \(abs(ceil(b*100)/100))"
+        return "\(truncate(r)), \(truncate(g)), \(truncate(b))"
     case .hsl:
         let hsl = color.hsl
-        return "\(abs(ceil(hsl.0*100)/100)), \(abs(ceil(hsl.1*100)/100)), \(abs(ceil(hsl.2*100)/100))"
+        let h = hsl.0
+        let s = hsl.1
+        let l = hsl.2
+        return "\(truncate(h)), \(truncate(s)), \(truncate(l))"
         
     case .hsv: //Same as HSB
         let comps = color.hsba
@@ -132,10 +147,15 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         let h = Double(comps.0 * 360)
         let s = Double(comps.1 * 100)
         let v = Double(comps.2 * 100)
-        return "\(abs(ceil(h*100)/100)), \(abs(ceil(s*100)/100)), \(abs(ceil(v*100)/100))"
+        
+        return "\(truncate(h)), \(truncate(s)), \(truncate(v))"
     case .cmyk:
         let cmyk = color.cmyk
-        return "\(abs(ceil(cmyk.0*100)/100)), \(abs(ceil(cmyk.1*100)/100)), \(abs(ceil(cmyk.2*100)/100)), \(abs(ceil(cmyk.3*100)/100))"
+        let c = cmyk.0
+        let m = cmyk.1
+        let y = cmyk.2
+        let k = cmyk.3
+        return "\(truncate(c)), \(truncate(m)), \(truncate(y)), \(truncate(k))"
     case .hex:
         return color.hex
     }
@@ -144,79 +164,31 @@ func colorToText(color: UIColor, type: ColorType) -> String {
 func parseInputColor(color: String, type: ColorType) -> UIColor? {
     switch type {
     case .rgb:
-//        if color.contains(", ") {
-//            let delimiter = ", "
-//            let values = color.components(separatedBy: delimiter)
-//
-//            if values.count == 3 {
-//                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
-//                    if r <= 255 && g <= 255 && b <= 255 {
-//                        return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
-//                    }
-//                    return nil
-//                }
-//                return nil
-//            }
-//            return nil
-//        } else {
-//            let delimiter = " "
-//            let values = color.components(separatedBy: delimiter)
-//            if values.count == 3 {
-//                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
-//                    return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
-//                }
-//                return nil
-//            }
-//            return nil
-//        }
         if let values = getSeparatedValues(numValues: 3, expectedValues: [255, 255, 255], color: color) {
             return UIColor(red: values[0], green: values[1], blue: values[2], alpha: 1)
         }
         return nil
+        
     case .hsv://SAME AS HSB
         if let values = getSeparatedValues(numValues: 3, expectedValues: [360, 100, 100], color: color) {
             return UIColor(hue: values[0], saturation: values[1], brightness: values[2], alpha: 1)
         }
         return nil
         
-//        if color.contains(", ") {
-//            let delimiter = ", "
-//            let values = color.components(separatedBy: delimiter)
-//            if values.count == 3 {
-//                print(values[0])
-//                print(values[1])
-//                print(values[2])
-//                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
-//                    if h <= 360 && s <= 100 && v <= 100 {
-//                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
-//                    }
-//                    return nil
-//                }
-//                return nil
-//            }
-//            return nil
-//        } else {
-//            let delimiter = " "
-//            let values = color.components(separatedBy: delimiter)
-//            if values.count == 3 {
-//                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
-//                    if h <= 360 && s <= 100 && v <= 100 {
-//                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
-//                    }
-//                    return nil
-//                }
-//            }
-//            return nil
-//        }
-        
     case .hsl:
+        if let values = getSeparatedValues(numValues: 3, expectedValues: [360, 100, 100], color: color) {
+            return UIColor(hue: values[0], saturation: values[1], lightness: values[2], alpha: 1)
+        }
         return nil
         
-    
+    case .cmyk:
+        if let values = getSeparatedValues(numValues: 4, expectedValues: [100, 100, 100, 100], color: color) {
+            return UIColor(cmyk: values)
+        }
+        return nil
+        
     case .hex:
         return UIColor(hexString: color)
-    default:
-        return nil
     }
 }
 
@@ -260,4 +232,6 @@ func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: Str
     return valueArr
 }
     
-
+func truncate(_ x: Double) -> Double {
+    return abs(ceil(x*100)/100)
+}

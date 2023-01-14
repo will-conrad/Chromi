@@ -144,66 +144,120 @@ func colorToText(color: UIColor, type: ColorType) -> String {
 func parseInputColor(color: String, type: ColorType) -> UIColor? {
     switch type {
     case .rgb:
-        if color.contains(", ") {
-            let delimiter = ", "
-            let values = color.components(separatedBy: delimiter)
-            
-            if values.count == 3 {
-                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
-                    if r <= 255 && g <= 255 && b <= 255 {
-                        return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
-                    }
-                    return nil
-                }
-                return nil
-            }
-            return nil
-        } else {
-            let delimiter = " "
-            let values = color.components(separatedBy: delimiter)
-            if values.count == 3 {
-                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
-                    return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
-                }
-                return nil
-            }
-            return nil
+//        if color.contains(", ") {
+//            let delimiter = ", "
+//            let values = color.components(separatedBy: delimiter)
+//
+//            if values.count == 3 {
+//                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
+//                    if r <= 255 && g <= 255 && b <= 255 {
+//                        return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1.0)
+//                    }
+//                    return nil
+//                }
+//                return nil
+//            }
+//            return nil
+//        } else {
+//            let delimiter = " "
+//            let values = color.components(separatedBy: delimiter)
+//            if values.count == 3 {
+//                if let r = Double(values[0]), let g = Double(values[1]), let b = Double(values[2]) {
+//                    return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
+//                }
+//                return nil
+//            }
+//            return nil
+//        }
+        if let values = getSeparatedValues(numValues: 3, expectedValues: [255, 255, 255], color: color) {
+            return UIColor(red: values[0], green: values[1], blue: values[2], alpha: 1)
         }
+        return nil
     case .hsv://SAME AS HSB
-        if color.contains(", ") {
-            let delimiter = ", "
-            let values = color.components(separatedBy: delimiter)
-            if values.count == 3 {
-                print(values[0])
-                print(values[1])
-                print(values[2])
-                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
-                    if h <= 360 && s <= 100 && v <= 100 {
-                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
-                    }
-                    return nil
-                }
-                return nil
-            }
-            return nil
-        } else {
-            let delimiter = " "
-            let values = color.components(separatedBy: delimiter)
-            if values.count == 3 {
-                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
-                    if h <= 360 && s <= 100 && v <= 100 {
-                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
-                    }
-                    return nil
-                }
-            }
-            return nil
+        if let values = getSeparatedValues(numValues: 3, expectedValues: [360, 100, 100], color: color) {
+            return UIColor(hue: values[0], saturation: values[1], brightness: values[2], alpha: 1)
         }
+        return nil
+        
+//        if color.contains(", ") {
+//            let delimiter = ", "
+//            let values = color.components(separatedBy: delimiter)
+//            if values.count == 3 {
+//                print(values[0])
+//                print(values[1])
+//                print(values[2])
+//                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
+//                    if h <= 360 && s <= 100 && v <= 100 {
+//                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
+//                    }
+//                    return nil
+//                }
+//                return nil
+//            }
+//            return nil
+//        } else {
+//            let delimiter = " "
+//            let values = color.components(separatedBy: delimiter)
+//            if values.count == 3 {
+//                if let h = Double(values[0]), let s = Double(values[1]), let v = Double(values[2]) {
+//                    if h <= 360 && s <= 100 && v <= 100 {
+//                        return UIColor(hue: h/360, saturation: s/100, brightness: v/100, alpha: 1)
+//                    }
+//                    return nil
+//                }
+//            }
+//            return nil
+//        }
+        
+    case .hsl:
+        return nil
+        
+    
     case .hex:
         return UIColor(hexString: color)
     default:
         return nil
     }
+}
+
+func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: String) -> [Double]? {
+    var valueArr: [Double] = []
+    if color.contains(", ") {
+        let delimiter = ", "
+        let values = color.components(separatedBy: delimiter)
+        if values.count == num {
+            for i in 0...num - 1 {
+                if let value = Double(values[i]) {
+                    if value <= expectedValues[i] {
+                        valueArr.append(value / expectedValues[i])
+                    } else {
+                        return nil
+                    }
+                } else {
+                    return nil
+                }
+            }
+        } else {
+            return nil
+        }
+    } else {
+        let delimiter = " "
+        let values = color.components(separatedBy: delimiter)
+        if values.count == num {
+            for i in 0...num-1 {
+                if let value = Double(values[i]) {
+                    if value <= expectedValues[i] {
+                        valueArr.append(value / expectedValues[i])
+                    } else {
+                        return nil
+                    }
+                } else {
+                    return nil
+                }
+            }
+        } else { return nil }
+    }
+    return valueArr
 }
     
 

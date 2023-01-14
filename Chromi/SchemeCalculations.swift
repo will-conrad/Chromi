@@ -25,11 +25,11 @@ extension UIColor {
 
 
     var tetradic: [UIColor] {
-        return [self, self.withHueOffset(0.25), self.complementary[1], self.withHueOffset(0.75)]
+        return [self, self.withHueOffset(0.25), self.withHueOffset(0.75), self.complementary[1]]
     }
 
     var analagous: [UIColor] {
-        return [self, self.withHueOffset(-1 / 12), self.withHueOffset(1 / 12)]
+        return [self.withHueOffset(-1 / 12), self, self.withHueOffset(1 / 12)]
     }
 
     func withHueOffset(_ offset: CGFloat) -> UIColor {

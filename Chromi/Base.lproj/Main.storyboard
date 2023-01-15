@@ -427,6 +427,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="colorBarContainerView" destination="LLK-4e-b1l" id="iT2-bM-Evv"/>
+                        <outlet property="copyAllButton" destination="bfx-LF-fh6" id="KCe-JE-oUN"/>
                         <outlet property="inputColorLabel" destination="wdC-NS-97l" id="snL-uq-9td"/>
                         <outlet property="inputColorStack" destination="jvT-wf-vf0" id="wgA-oX-a1v"/>
                         <outlet property="schemeTable" destination="Dof-in-hkG" id="QeN-UZ-ll2"/>

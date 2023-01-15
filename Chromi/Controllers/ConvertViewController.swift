@@ -136,8 +136,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         self.outputColorText.textColor = UIColor.lightGray
         outputColorView.addSubview(outputColorText)
 
-        //Add interactions to views, save pointers to compare when showing menus
-
         inputTypeButton.showsMenuAsPrimaryAction = true
         inputTypeButton.menu = colorInputTypeContextMenu()
         outputTypeButton.showsMenuAsPrimaryAction = true
@@ -154,7 +152,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func keyboardUp(_ sender: Any) {
-
         mainStackBottomConstraint.constant = 70
         self.view.setNeedsLayout()
         UIView.animate(withDuration: 0.3) {
@@ -168,7 +165,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
     }
 
     @objc private func colorSelectorUpdate() {
@@ -176,8 +172,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         backgroundView.backgroundColor = colorSelector.selectedColor
         updateInputColorField()
         updateOutputColorField()
-        
     }
+    
     func updateInputColorField() {
         inputColor.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
     }

@@ -18,6 +18,7 @@ class SchemesViewController: UIViewController {
     
     @IBOutlet var schemeTable: UITableView!
     
+    @IBOutlet var copyAllButton: UIButton!
     var schemeType: ColorScheme = .complementary
     var schemeColors: [UIColor] = []
      
@@ -124,6 +125,14 @@ class SchemesViewController: UIViewController {
             schemeString = schemeString + colorToText(color: color, type: GlobalColor.inputType) + "\n"
         }
         UIPasteboard.general.string = schemeString
+        self.copyAllButton.setTitle("Copied!", for: .normal)
+        self.copyAllButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.copyAllButton.setTitle("Copy All", for: .normal)
+            self.copyAllButton.setImage(UIImage(systemName: "doc.on.clipboard"), for: .normal)
+        }
+        
     }
     func updateTabs() {
         schemeColors = getScheme(scheme: schemeType)

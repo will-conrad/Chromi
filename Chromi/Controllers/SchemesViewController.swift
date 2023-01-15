@@ -16,6 +16,7 @@ class SchemesViewController: UIViewController {
     @IBOutlet var schemeView: UIView!
     @IBOutlet var schemeTypeButton: UIButton!
     
+    @IBOutlet var schemeTypeText: UILabel!
     @IBOutlet var schemeTable: UITableView!
     
     @IBOutlet var copyAllButton: UIButton!
@@ -79,10 +80,12 @@ class SchemesViewController: UIViewController {
         
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         
+        self.schemeTable.contentInset = UIEdgeInsets.init(top: -30, left: 0, bottom: 0, right: 0)
+        schemeTypeText.text = schemeType.rawValue.uppercased()
         
-        schemeTable.delegate = self
-        schemeTable.dataSource = self
-        schemeTable.isScrollEnabled = false
+        
+        self.schemeTable.dataSource = self
+        self.schemeTable.isScrollEnabled = true
         
         
         
@@ -115,6 +118,8 @@ class SchemesViewController: UIViewController {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         schemeColors = getScheme(scheme: schemeType)
+        schemeTypeText.text = schemeType.rawValue.uppercased()
+
         schemeTable.reloadData()
 
     }
@@ -136,21 +141,22 @@ class SchemesViewController: UIViewController {
     }
     func updateTabs() {
         schemeColors = getScheme(scheme: schemeType)
+        schemeTypeText.text = schemeType.rawValue.uppercased()
+
         schemeTable.reloadData()
     }
     
 }
 
-extension SchemesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped")
-        
-    }
-    
-}
+//extension SchemesViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("Tapped")
+//    }
+//}
 extension SchemesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return schemeColors.count
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! ColorCell
@@ -160,7 +166,7 @@ extension SchemesViewController: UITableViewDataSource {
         
         return cell
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return schemeType.rawValue
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return schemeType.rawValue
+//    }
 }

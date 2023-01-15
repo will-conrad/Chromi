@@ -11,9 +11,12 @@ class SwatchesViewController: UIViewController {
 
     
     @IBOutlet var colorBarContainerView: UIView!
+    @IBOutlet var swatchContainerView: UIView!
+    
     @IBOutlet var inputColorStack: UIStackView!
     
     @IBOutlet var inputColorLabel: SRCopyableLabel!
+    
     var colorBarView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,7 @@ class SwatchesViewController: UIViewController {
                    width: colorBarContainerView.frame.width - 2*padding,
                    height: colorBarContainerView.frame.height - 2*padding))
        colorBarView.layer.cornerRadius = 10
+        swatchContainerView.layer.cornerRadius = 10
        colorBarView.backgroundColor = GlobalColor.color
        
        colorBarContainerView.addSubview(colorBarView)
@@ -44,3 +48,4 @@ class SwatchesViewController: UIViewController {
     }
     
 }
+

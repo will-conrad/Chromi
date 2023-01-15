@@ -6,18 +6,26 @@
 //
 
 import UIKit
-
+enum SwatchType {
+    case gel
+    case pantone
+}
 class SwatchesViewController: UIViewController {
 
     
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var swatchContainerView: UIView!
     
+    @IBOutlet var swatchTable: UITableView!
     @IBOutlet var inputColorStack: UIStackView!
     
     @IBOutlet var inputColorLabel: SRCopyableLabel!
     
     var colorBarView = UIView()
+    
+    let testDataTitles: [String] = ["R21", "R50", "R62"]
+    let testDataDescs: [String] = ["Midnight Blue", "Bastard Amber", "Forrest Green"]
+    let testDataColors: [UIColor] = [UIColor(hexString: "00015B"), UIColor(hexString: "FFA588"), UIColor(hexString: "007802")]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,15 +37,16 @@ class SwatchesViewController: UIViewController {
                    y: padding,
                    width: colorBarContainerView.frame.width - 2*padding,
                    height: colorBarContainerView.frame.height - 2*padding))
-       colorBarView.layer.cornerRadius = 10
+        colorBarView.layer.cornerRadius = 10
         swatchContainerView.layer.cornerRadius = 10
-       colorBarView.backgroundColor = GlobalColor.color
+        colorBarView.backgroundColor = GlobalColor.color
        
-       colorBarContainerView.addSubview(colorBarView)
-       inputColorStack.layer.cornerRadius = 10
+        colorBarContainerView.addSubview(colorBarView)
+        inputColorStack.layer.cornerRadius = 10
        
-       inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
-       
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
+        swatchTable.rowHeight = 65
+        self.swatchTable.dataSource = self
 
         // Do any additional setup after loading the view.
     }
@@ -47,5 +56,20 @@ class SwatchesViewController: UIViewController {
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
     }
     
+}
+
+extension SwatchesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "swatchCell", for: indexPath) as! SwatchCell
+        cell.cellType = .gel
+        cell.titleText = testDataTitles[indexPath.row]
+        cell.descText = testDataDescs[indexPath.row]
+        cell.color = testDataColors[indexPath.row]
+        return cell
+        
+    }
 }
 

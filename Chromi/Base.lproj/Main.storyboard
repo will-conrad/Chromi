@@ -487,7 +487,7 @@
         <!--Swatches-->
         <scene sceneID="iYU-RY-8Re">
             <objects>
-                <viewController id="76K-EL-vyg" sceneMemberID="viewController">
+                <viewController id="76K-EL-vyg" customClass="SwatchesViewController" customModule="Chromi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qjz-I2-v22">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="586"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -560,6 +560,11 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="colorBarContainerView" destination="b4R-JF-9zy" id="eAD-iQ-S1l"/>
+                        <outlet property="inputColorLabel" destination="eyU-ZT-KpA" id="H0J-on-AHn"/>
+                        <outlet property="inputColorStack" destination="LQp-QM-9t4" id="XqN-L0-D2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBB-n0-5EK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -617,7 +622,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fcB-Se-Gnd"/>
+        <segue reference="QZC-IO-pG7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>

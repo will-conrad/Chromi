@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295695C32973C3FC0024A85F /* SwatchesViewController.swift */; };
 		2994E083295A07CD00722665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E082295A07CD00722665 /* AppDelegate.swift */; };
 		2994E085295A07CD00722665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E084295A07CD00722665 /* SceneDelegate.swift */; };
 		2994E087295A07CD00722665 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E086295A07CD00722665 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		295695C32973C3FC0024A85F /* SwatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchesViewController.swift; sourceTree = "<group>"; };
 		2994E07F295A07CD00722665 /* Chromi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chromi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2994E082295A07CD00722665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2994E084295A07CD00722665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				2994E086295A07CD00722665 /* ViewController.swift */,
 				29A71715296F097200EB60BA /* ConvertViewController.swift */,
 				29E4813B2970401200A25D69 /* SchemesViewController.swift */,
+				295695C32973C3FC0024A85F /* SwatchesViewController.swift */,
 				29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */,
+				295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */,
 				29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */,
 				299788F1296F82A200702107 /* ColorConversions.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,

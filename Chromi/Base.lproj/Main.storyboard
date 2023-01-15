@@ -116,7 +116,7 @@
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-tE-jQe">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-tE-jQe">
                                                         <rect key="frame" x="0.0" y="24.000000000000057" width="90" height="44"/>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
@@ -162,7 +162,7 @@
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-wK-IbK">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-wK-IbK">
                                                         <rect key="frame" x="0.0" y="24" width="90" height="44"/>
                                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         <constraints>
@@ -316,8 +316,11 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="49" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-in-hkG">
-                                <rect key="frame" x="0.0" y="211" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="211" width="375" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="bE1-Vt-Dw9"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="colorCell" id="Qad-g1-USm" customClass="ColorCell" customModule="Chromi" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.333332061767578" width="335" height="49"/>
@@ -385,18 +388,27 @@
                                     <constraint firstAttribute="width" constant="350" id="pwQ-B2-JXE"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfx-LF-fh6">
+                                <rect key="frame" x="130.33333333333334" y="521" width="114.33333333333334" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="doc.on.clipboard" catalog="system" title="Copy All"/>
+                                <connections>
+                                    <action selector="copyAll:" destination="7KN-7N-yVU" eventType="touchUpInside" id="h4e-sI-gbp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uja-mz-kdF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bfx-LF-fh6" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="4ci-St-HqV"/>
                             <constraint firstItem="Dof-in-hkG" firstAttribute="leading" secondItem="uja-mz-kdF" secondAttribute="leading" id="510-dB-hxZ"/>
                             <constraint firstItem="KJB-J1-6jd" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="Drt-Nh-XaU"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="centerX" secondItem="00Z-np-m8K" secondAttribute="centerX" id="EC4-bc-oPb"/>
-                            <constraint firstAttribute="bottom" secondItem="Dof-in-hkG" secondAttribute="bottom" id="MaU-Mv-hCd"/>
                             <constraint firstItem="jvT-wf-vf0" firstAttribute="top" secondItem="uja-mz-kdF" secondAttribute="top" constant="20" id="Zj0-yI-Ufo"/>
                             <constraint firstItem="uja-mz-kdF" firstAttribute="trailing" secondItem="Dof-in-hkG" secondAttribute="trailing" id="mvz-JU-4rX"/>
                             <constraint firstItem="Dof-in-hkG" firstAttribute="top" secondItem="KJB-J1-6jd" secondAttribute="bottom" constant="20" id="ooQ-kO-zHP"/>
                             <constraint firstItem="KJB-J1-6jd" firstAttribute="top" secondItem="jvT-wf-vf0" secondAttribute="bottom" constant="20" id="y4R-ko-GMT"/>
+                            <constraint firstItem="bfx-LF-fh6" firstAttribute="top" secondItem="Dof-in-hkG" secondAttribute="bottom" constant="10" id="zzr-Sn-Tp2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schemes" id="lhm-ao-sPq">
@@ -607,6 +619,7 @@
         <segue reference="fcB-Se-Gnd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
         <image name="paintpalette" catalog="system" width="128" height="105"/>
         <image name="repeat" catalog="system" width="128" height="98"/>

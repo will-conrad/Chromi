@@ -118,6 +118,13 @@ class SchemesViewController: UIViewController {
 
     }
     
+    @IBAction func copyAll(_ sender: Any) {
+        var schemeString = ""
+        for color in schemeColors {
+            schemeString = schemeString + colorToText(color: color, type: GlobalColor.inputType) + "\n"
+        }
+        UIPasteboard.general.string = schemeString
+    }
     func updateTabs() {
         schemeColors = getScheme(scheme: schemeType)
         schemeTable.reloadData()

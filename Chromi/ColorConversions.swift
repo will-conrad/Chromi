@@ -80,6 +80,7 @@ extension UIColor {
         default:
             s = (s * b) / (2.0 - l * 2.0)
         }
+        s = min(1, s)
         return (h * 360.0, s * 100.0, l * 100.0)
     }
     var hsba:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {

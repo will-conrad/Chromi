@@ -68,5 +68,53 @@
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1131F9A3-BBE4-4956-87FF-B13E66369CDD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/GlobalColor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1131F9A3-BBE4-4956-87FF-B13E66369CDD - 2e6bc717673dbb45"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.GlobalColor.__allocating_init() -&gt; Chromi.GlobalColor"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/GlobalColor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "1131F9A3-BBE4-4956-87FF-B13E66369CDD - 8476616ddf07892f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.GlobalColor.init() -&gt; Chromi.GlobalColor"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/GlobalColor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -569,11 +569,11 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGl-s0-n7a">
-                                                            <rect key="frame" x="20" y="7.6666666666666643" width="50" height="50"/>
+                                                            <rect key="frame" x="20" y="12.666666666666664" width="40" height="40"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="pxN-yX-cvw"/>
-                                                                <constraint firstAttribute="width" constant="50" id="yUJ-MX-Lt1"/>
+                                                                <constraint firstAttribute="height" constant="40" id="pxN-yX-cvw"/>
+                                                                <constraint firstAttribute="width" constant="40" id="yUJ-MX-Lt1"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-fB-EjX">
@@ -594,8 +594,8 @@
                                                         <constraint firstItem="SGl-s0-n7a" firstAttribute="centerY" secondItem="Ssv-ng-D5L" secondAttribute="centerY" id="FeO-cA-ioX"/>
                                                         <constraint firstItem="A0y-uX-Qns" firstAttribute="top" secondItem="Zyc-fB-EjX" secondAttribute="bottom" constant="5" id="KRR-lM-DE3"/>
                                                         <constraint firstItem="SGl-s0-n7a" firstAttribute="leading" secondItem="Ssv-ng-D5L" secondAttribute="leading" constant="20" id="Kx1-0o-2kH"/>
-                                                        <constraint firstItem="A0y-uX-Qns" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="10" id="fLj-HR-MKq"/>
-                                                        <constraint firstItem="Zyc-fB-EjX" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="10" id="mot-NZ-Y2V"/>
+                                                        <constraint firstItem="A0y-uX-Qns" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="20" id="fLj-HR-MKq"/>
+                                                        <constraint firstItem="Zyc-fB-EjX" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="20" id="mot-NZ-Y2V"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -651,6 +651,7 @@
                         <outlet property="inputColorStack" destination="LQp-QM-9t4" id="XqN-L0-D2g"/>
                         <outlet property="swatchContainerView" destination="o1U-JC-tLd" id="FM9-vp-nID"/>
                         <outlet property="swatchTable" destination="a9i-HT-RRz" id="StH-8p-OP6"/>
+                        <outlet property="swatchTypeControl" destination="fcl-lp-Ia5" id="tB5-eC-lpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBB-n0-5EK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -709,7 +710,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QZC-IO-pG7"/>
+        <segue reference="tzS-om-u4c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>

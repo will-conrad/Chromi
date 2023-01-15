@@ -26,6 +26,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
 
+    let defaults = UserDefaults.standard
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -37,9 +39,16 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func inputColorUpdated(_ sender: Any) {
         if let color = parseInputColor(color: inputColor.text!, type: GlobalColor.inputType) {
+            // MARK: Global color changed
             GlobalColor.color = color
+
+            defaults.set(GlobalColor.getData(), forKey: "color")
+            if let cl = defaults.object(forKey: "color") {
+                print("DEFAULT: \(cl)")
+            }
         }
-        self.updateElementColors()
+        colorSelector.selectedColor = GlobalColor.color
+        backgroundView.backgroundColor = GlobalColor.color
         self.updateOutputColorField()
     }
     
@@ -120,6 +129,13 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         inputColor.delegate = self
         
+        
+        if let cl = defaults.object(forKey: "color") {
+            print("DEFAULT: \(cl)")
+            
+        }
+
+        
         inputTypeButton.layer.cornerRadius = 10
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
@@ -168,6 +184,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc private func colorSelectorUpdate() {
+        // MARK: Global color changed
         GlobalColor.color = colorSelector.selectedColor!
         backgroundView.backgroundColor = colorSelector.selectedColor
         updateInputColorField()
@@ -180,11 +197,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     func updateOutputColorField() {
         outputColorText.text = colorToText(color: GlobalColor.color, type: GlobalColor.outputType)
     }
-    func updateElementColors() {
-        colorSelector.selectedColor = GlobalColor.color
-        backgroundView.backgroundColor = GlobalColor.color
-    }
-
     
     
    

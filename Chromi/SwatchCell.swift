@@ -19,7 +19,7 @@ class SwatchCell: UITableViewCell {
     @IBOutlet var descLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        colorCircleView.layer.cornerRadius = 25
+        colorCircleView.layer.cornerRadius = colorCircleView.frame.width / 2
         colorCircleView.backgroundColor = color
         titleLabel.text = titleText
         descLabel.text = descText

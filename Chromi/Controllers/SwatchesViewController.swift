@@ -16,6 +16,7 @@ class SwatchesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var swatchContainerView: UIView!
     
+    @IBOutlet var swatchTypeControl: UISegmentedControl!
     @IBOutlet var swatchTable: UITableView!
     @IBOutlet var inputColorStack: UIStackView!
     
@@ -68,6 +69,7 @@ extension SwatchesViewController: UITableViewDataSource {
         cell.titleText = testDataTitles[indexPath.row]
         cell.descText = testDataDescs[indexPath.row]
         cell.color = testDataColors[indexPath.row]
+
         return cell
         
     }

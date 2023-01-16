@@ -55,72 +55,34 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
     
     func colorInputTypeContextMenu() -> UIMenu {
-        let rgbIn = UIAction(title: "RGB", state: GlobalColor.inputType == .rgb ? .on : .off) { _ in
-            print("RGB")
-            self.inputTypeButton.setTitle("RGB", for: .normal)
-            GlobalColor.inputType = .rgb
-            self.updateInputColorField()
+        let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
+        var actions: [UIAction] = []
+        for type in types {
+            let name = type.rawValue.uppercased()
+            actions.append(UIAction(
+                title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
+                    self.inputTypeButton.setTitle(name, for: .normal)
+                GlobalColor.inputType = type
+                self.updateInputColorField()
+            })
         }
-        let hslIn = UIAction(title: "HSL", state: GlobalColor.inputType == .hsl ? .on : .off) { _ in
-            print("HSL")
-            self.inputTypeButton.setTitle("HSL", for: .normal)
-            GlobalColor.inputType = .hsl
-            self.updateInputColorField()
-        }
-        let hsvIn = UIAction(title: "HSV", state: GlobalColor.inputType == .hsv ? .on : .off) { _ in
-            print("HSV")
-            self.inputTypeButton.setTitle("HSV", for: .normal)
-            GlobalColor.inputType = .hsv
-            self.updateInputColorField()
-        }
-        let cmykIn = UIAction(title: "CMYK", state: GlobalColor.inputType == .cmyk ? .on : .off) { _ in
-            print("CMYK")
-            self.inputTypeButton.setTitle("CMYK", for: .normal)
-            GlobalColor.inputType = .cmyk
-            self.updateInputColorField()
-        }
-        let hexIn = UIAction(title: "HEX", state: GlobalColor.inputType == .hex ? .on : .off) { _ in
-            print("HEX")
-            self.inputTypeButton.setTitle("HEX", for: .normal)
-            GlobalColor.inputType = .hex
-            self.updateInputColorField()
-        }
-        let colorInputTypeMenu = UIMenu(title: "Input Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [rgbIn, hslIn, hsvIn, cmykIn, hexIn])
+        let colorInputTypeMenu = UIMenu(title: "Input Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return colorInputTypeMenu
     }
     
     func colorOutputTypeContextMenu() -> UIMenu {
-        let rgbOut = UIAction(title: "RGB", state: GlobalColor.outputType == .rgb ? .on : .off) { _ in
-            print("RGB")
-            self.outputTypeButton.setTitle("RGB", for: .normal)
-            GlobalColor.outputType = .rgb
-            self.updateOutputColorField()
+        let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
+        var actions: [UIAction] = []
+        for type in types {
+            let name = type.rawValue.uppercased()
+            actions.append(UIAction(
+                title: name, state: GlobalColor.outputType == type ? .on : .off) { _ in
+                    self.outputTypeButton.setTitle(name, for: .normal)
+                GlobalColor.outputType = type
+                self.updateOutputColorField()
+            })
         }
-        let hslOut = UIAction(title: "HSL", state: GlobalColor.outputType == .hsl ? .on : .off) { _ in
-            print("HSL")
-            self.outputTypeButton.setTitle("HSL", for: .normal)
-            GlobalColor.outputType = .hsl
-            self.updateOutputColorField()
-        }
-        let hsvOut = UIAction(title: "HSV", state: GlobalColor.outputType == .hsv ? .on : .off) { _ in
-            print("HSV")
-            self.outputTypeButton.setTitle("HSV", for: .normal)
-            GlobalColor.outputType = .hsv
-            self.updateOutputColorField()
-        }
-        let cmykOut = UIAction(title: "CMYK", state: GlobalColor.outputType == .cmyk ? .on : .off) { _ in
-            print("CMYK")
-            self.outputTypeButton.setTitle("CMYK", for: .normal)
-            GlobalColor.outputType = .cmyk
-            self.updateOutputColorField()
-        }
-        let hexOut = UIAction(title: "HEX", state: GlobalColor.outputType == .hex ? .on : .off) { _ in
-            print("HEX")
-            self.outputTypeButton.setTitle("HEX", for: .normal)
-            GlobalColor.outputType = .hex
-            self.updateOutputColorField()
-        }
-        let colorOutputTypeMenu = UIMenu(title: "Ouptut Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [rgbOut, hslOut, hsvOut, cmykOut, hexOut])
+        let colorOutputTypeMenu = UIMenu(title: "Ouptut Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return colorOutputTypeMenu
     }
     
@@ -142,10 +104,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         inputColor.leftViewMode = .always
         
-//        self.inputTypeButton.setTitle("RGB", for: .normal)
-//        self.outputTypeButton.setTitle("HEX", for: .normal)
-        
-//        self.outputColorText.text = ""
         self.outputColorText.textColor = UIColor.lightGray
         outputColorView.addSubview(outputColorText)
 

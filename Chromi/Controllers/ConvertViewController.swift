@@ -26,6 +26,14 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
     
+    
+    @objc func reload (notification: NSNotification){ //add stuff here}
+        updateElementColors()
+        reloadTypes()
+        updateInputColorField()
+        updateOutputColorField()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -39,8 +47,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
             GlobalColor.color = color
             setDefaultColor()
         }
-        colorSelector.selectedColor = GlobalColor.color
-        backgroundView.backgroundColor = GlobalColor.color
+        updateElementColors()
         self.updateOutputColorField()
     }
     
@@ -121,6 +128,9 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         inputColor.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+
+        
         inputTypeButton.layer.cornerRadius = 10
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
@@ -173,6 +183,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateInputColorField() {
+        print(GlobalColor.color)
         inputColor.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         setDefaultInputType()
     }
@@ -180,14 +191,22 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         outputColorText.text = colorToText(color: GlobalColor.color, type: GlobalColor.outputType)
         setDefaultOutputType()
     }
+    func updateElementColors() {
+        backgroundView.backgroundColor = GlobalColor.color
+        colorSelector.selectedColor = GlobalColor.color
+    }
+    func reloadTypes() {
+        self.inputTypeButton.setTitle(GlobalColor.inputType.rawValue.uppercased(), for: .normal)
+        self.outputTypeButton.setTitle(GlobalColor.outputType.rawValue.uppercased(), for: .normal)
+    }
     
     func setDefaultColor() {
-        UserDefaults.standard.set(GlobalColor.getData(), forKey: "hexColor")
+        UserDefaults.standard.set(GlobalColor.colorNS, forKey: "color")
     }
     func setDefaultInputType() {
-        UserDefaults.standard.set(GlobalColor.inputType.rawValue, forKey: "inType")
+        UserDefaults.standard.set(GlobalColor.inTypeNS, forKey: "inType")
     }
     func setDefaultOutputType() {
-        UserDefaults.standard.set(GlobalColor.outputType.rawValue, forKey: "outType")
+        UserDefaults.standard.set(GlobalColor.outTypeNS, forKey: "outType")
     }
 }

@@ -34,10 +34,14 @@ extension UIColor {
             self.init(red: r, green: g, blue: b, alpha: alpha)
         }
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
-        let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        var hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         let scanner = Scanner(string: hexString)
         if (hexString.hasPrefix("#")) {
-            scanner.scanLocation = 1
+//            hexString = String(hexString.suffix(from: hexString.index(after: hexString.lastIndex(of: "#")!)
+//                )
+//            )
+            //scanner.scanLocation = 1
+            scanner.currentIndex = scanner.string.index(after: scanner.currentIndex)
         }
         var color: UInt64 = 0
         scanner.scanHexInt64(&color)

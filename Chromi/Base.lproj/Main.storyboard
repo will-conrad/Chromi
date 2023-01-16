@@ -463,6 +463,15 @@
                                     <navigationItem title="Settings" largeTitleDisplayMode="always" id="no7-HI-gWY"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJp-R9-3BY">
+                                <rect key="frame" x="121" y="88" width="133" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset defaults"/>
+                                <connections>
+                                    <action selector="resetDefaults:" destination="KGd-Sg-8Wk" eventType="touchUpInside" id="fVV-KI-75a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VWD-z8-aNV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

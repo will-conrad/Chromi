@@ -15,7 +15,18 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func resetDefaults(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.set(GlobalColor.defaultColorNS, forKey: "color")
+        defaults.set(GlobalColor.defaultInputTypeNS, forKey: "inType")
+        defaults.set(GlobalColor.defaultOutputTypeNS, forKey: "outType")
+        
+        GlobalColor().reset()
+        NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
 
+        print(GlobalColor.color)
+    }
+    
     /*
     // MARK: - Navigation
 

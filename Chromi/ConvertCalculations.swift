@@ -10,17 +10,15 @@ import UIKit
 
 extension UIColor {
     convenience init(hue: CGFloat, saturation: CGFloat, lightness: CGFloat, alpha: CGFloat) {
-        //From HSL TO HSB ---------
         var newSaturation: CGFloat = 0.0
         
         let brightness = lightness + saturation * min(lightness, 1-lightness)
         
-        if brightness == 0 { newSaturation = 0.0 }
-        else {
+        if brightness == 0 {
+            newSaturation = 0.0
+        } else {
             newSaturation = 2 * (1 - lightness / brightness)
         }
-        //---------
-        
         self.init(hue: hue, saturation: newSaturation, brightness: brightness, alpha: alpha)
     }
     convenience init(cmyk: [Double], alpha: CGFloat = 1.0) {
@@ -54,18 +52,15 @@ extension UIColor {
     }
     
     //Gets RGBA values
-    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        getRed(&red, green: &green, blue: &blue, alpha: nil)
         
-        return (red, green, blue, alpha)
+        return (min(1, red), min(1, green), min(1, blue))
     }
-    
-    
-    
+
     var hsl: (h: CGFloat, s: CGFloat, l: CGFloat) {
         var (h, s, b) = (CGFloat(), CGFloat(), CGFloat())
         getHue(&h, saturation: &s, brightness: &b, alpha: nil)
@@ -83,15 +78,12 @@ extension UIColor {
         s = min(1, s)
         return (h * 360.0, s * 100.0, l * 100.0)
     }
-    var hsba:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+    var hsb:(hue: CGFloat, saturation: CGFloat, brightness: CGFloat) {
         var hue:CGFloat = 0
         var saturation:CGFloat = 0
         var brightness:CGFloat = 0
-        var alpha:CGFloat = 0
-        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha){
-            return (min(hue, 1),min(saturation, 1),min(1, brightness),min(1, alpha))
-        }
-        return (0,0,0,0)
+        getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: nil)
+        return (min(hue, 1),min(saturation, 1),min(1, brightness))
     }
     var cmyk: (c: CGFloat, m: CGFloat, y: CGFloat, k: CGFloat) {
         let rgba = self.rgba
@@ -138,7 +130,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         return "\(truncate(h)), \(truncate(s)), \(truncate(l))"
         
     case .hsv: //Same as HSB
-        let comps = color.hsba
+        let comps = color.hsb
         
         let h = Double(comps.0 * 360)
         let s = Double(comps.1 * 100)

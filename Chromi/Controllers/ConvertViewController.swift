@@ -25,8 +25,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var outputColorView: UIView!
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
-
-    let defaults = UserDefaults.standard
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -36,16 +34,10 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
-    
     @IBAction func inputColorUpdated(_ sender: Any) {
         if let color = parseInputColor(color: inputColor.text!, type: GlobalColor.inputType) {
-            // MARK: Global color changed
             GlobalColor.color = color
-
-            defaults.set(GlobalColor.getData(), forKey: "color")
-            if let cl = defaults.object(forKey: "color") {
-                print("DEFAULT: \(cl)")
-            }
+            setDefaultColor()
         }
         colorSelector.selectedColor = GlobalColor.color
         backgroundView.backgroundColor = GlobalColor.color
@@ -129,26 +121,18 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tap)
         inputColor.delegate = self
         
-        
-        if let cl = defaults.object(forKey: "color") {
-            print("DEFAULT: \(cl)")
-            
-        }
-
-        
         inputTypeButton.layer.cornerRadius = 10
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
         outputColorView.layer.cornerRadius = 10
-        //mainStack.layer.cornerRadius = 10
         
         inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         inputColor.leftViewMode = .always
         
-        self.inputTypeButton.setTitle("RGB", for: .normal)
-        self.outputTypeButton.setTitle("HEX", for: .normal)
+//        self.inputTypeButton.setTitle("RGB", for: .normal)
+//        self.outputTypeButton.setTitle("HEX", for: .normal)
         
-        self.outputColorText.text = ""
+//        self.outputColorText.text = ""
         self.outputColorText.textColor = UIColor.lightGray
         outputColorView.addSubview(outputColorText)
 
@@ -159,14 +143,11 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
         colorSelector.addTarget(self, action: #selector(colorSelectorUpdate), for: .valueChanged)
         colorSelector.selectedColor = GlobalColor.color
+        
         colorSelectorUpdate()
         
         mainStackBottomConstraint.constant = 130
-        
-        
     }
-    
-    
     @IBAction func keyboardUp(_ sender: Any) {
         mainStackBottomConstraint.constant = 70
         self.view.setNeedsLayout()
@@ -174,7 +155,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     @IBAction func keyboardDown(_ sender: Any) {
         mainStackBottomConstraint.constant = 130
         self.view.setNeedsLayout()
@@ -184,8 +165,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc private func colorSelectorUpdate() {
-        // MARK: Global color changed
         GlobalColor.color = colorSelector.selectedColor!
+        setDefaultColor()
         backgroundView.backgroundColor = colorSelector.selectedColor
         updateInputColorField()
         updateOutputColorField()
@@ -193,12 +174,20 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     func updateInputColorField() {
         inputColor.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
+        setDefaultInputType()
     }
     func updateOutputColorField() {
         outputColorText.text = colorToText(color: GlobalColor.color, type: GlobalColor.outputType)
+        setDefaultOutputType()
     }
     
-    
-   
-    
+    func setDefaultColor() {
+        UserDefaults.standard.set(GlobalColor.getData(), forKey: "hexColor")
+    }
+    func setDefaultInputType() {
+        UserDefaults.standard.set(GlobalColor.inputType.rawValue, forKey: "inType")
+    }
+    func setDefaultOutputType() {
+        UserDefaults.standard.set(GlobalColor.outputType.rawValue, forKey: "outType")
+    }
 }

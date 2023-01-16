@@ -6,10 +6,10 @@
 //
 
 import Foundation
-enum ColorType {
-    case rgb
-    case hsl
-    case hsv
-    case cmyk
-    case hex
+enum ColorType: String {
+    case rgb = "rgb"
+    case hsl = "hsl"
+    case hsv = "hsv"
+    case cmyk = "cmyk"
+    case hex = "hex"
 }

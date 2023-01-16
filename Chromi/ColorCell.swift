@@ -11,25 +11,18 @@ class ColorCell: UITableViewCell {
 
     @IBOutlet var cellView: UIView!
     @IBOutlet var textBackdropView: UIView!
-    
     @IBOutlet public var colorLabel: SRCopyableLabel!
     
     var color = UIColor()
     var type = ColorType.rgb
     var colorText = String()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        print("setSelected")
         
         cellView.backgroundColor = color
         colorText = colorToText(color: color, type: type)
 
-        
         colorLabel.textColor = UIColor.lightGray
         colorLabel.text = colorText
         

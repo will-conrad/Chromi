@@ -28,6 +28,9 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func reload (notification: NSNotification){ //add stuff here}
+        reset()
+    }
+    func reset() {
         updateElementColors()
         reloadTypes()
         updateInputColorField()
@@ -157,6 +160,9 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         colorSelectorUpdate()
         
         mainStackBottomConstraint.constant = 130
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        reset()
     }
     @IBAction func keyboardUp(_ sender: Any) {
         mainStackBottomConstraint.constant = 70

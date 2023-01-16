@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController {
 
         print(GlobalColor.color)
     }
+
     
     /*
     // MARK: - Navigation

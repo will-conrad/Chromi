@@ -32,6 +32,8 @@ class SwatchesViewController: UIViewController {
         
         let padding: CGFloat = 7
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        
         colorBarView = UIView(
            frame: CGRect(
                    x: padding,
@@ -53,6 +55,13 @@ class SwatchesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        reset()
+    }
+    
+    @objc func reload (notification: NSNotification) {
+        reset()
+    }
+    func reset() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
     }

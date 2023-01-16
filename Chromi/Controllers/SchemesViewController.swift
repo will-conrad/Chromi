@@ -58,9 +58,9 @@ class SchemesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        schemeTable.rowHeight = 49
+        schemeTable.rowHeight = 50
 
-        print(colorBarContainerView.frame.width)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
         
         let padding: CGFloat = 7
@@ -86,9 +86,7 @@ class SchemesViewController: UIViewController {
         
         self.schemeTable.dataSource = self
         self.schemeTable.isScrollEnabled = true
-        
-        
-        
+
         schemeTypeButton.showsMenuAsPrimaryAction = true
         schemeTypeButton.menu = schemeTypeContextMenu()
         
@@ -109,19 +107,21 @@ class SchemesViewController: UIViewController {
         case .analogous:
             return GlobalColor.color.analagous
         }
-        return []
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
+        reset()
+    }
+    @objc func reload (notification: NSNotification){
+       reset()
         
+    }
+    func reset() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         schemeColors = getScheme(scheme: schemeType)
         schemeTypeText.text = schemeType.rawValue.uppercased()
-
         schemeTable.reloadData()
-
     }
     
     @IBAction func copyAll(_ sender: Any) {
@@ -148,11 +148,6 @@ class SchemesViewController: UIViewController {
     
 }
 
-//extension SchemesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Tapped")
-//    }
-//}
 extension SchemesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return schemeColors.count

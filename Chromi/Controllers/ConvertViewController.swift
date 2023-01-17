@@ -10,41 +10,18 @@ import UIKit
 class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var mainStackBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet var mainStack: UITableView!
-    
     @IBOutlet var backgroundView: UIView!
-    
     @IBOutlet var colorSelector: UIColorWell!
-    
     @IBOutlet var inputTypeButton: UIButton!
-    
     @IBOutlet var inputColor: UITextField!
-    
     @IBOutlet var outputTypeButton: UIButton!
     @IBOutlet var outputColorView: UIView!
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
     
+    let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
     
-    @objc func reload (notification: NSNotification){ //add stuff here}
-        reset()
-    }
-    func reset() {
-        updateElementColors()
-        reloadTypes()
-        updateInputColorField()
-        updateOutputColorField()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-
     @IBAction func inputColorUpdated(_ sender: Any) {
         if let color = parseInputColor(color: inputColor.text!, type: GlobalColor.inputType) {
             GlobalColor.color = color
@@ -53,37 +30,20 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         updateElementColors()
         self.updateOutputColorField()
     }
-    
-    func colorInputTypeContextMenu() -> UIMenu {
-        let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
-        var actions: [UIAction] = []
-        for type in types {
-            let name = type.rawValue.uppercased()
-            actions.append(UIAction(
-                title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
-                    self.inputTypeButton.setTitle(name, for: .normal)
-                GlobalColor.inputType = type
-                self.updateInputColorField()
-            })
+    @IBAction func keyboardUp(_ sender: Any) {
+        mainStackBottomConstraint.constant = 70
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
-        let colorInputTypeMenu = UIMenu(title: "Input Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
-        return colorInputTypeMenu
     }
-    
-    func colorOutputTypeContextMenu() -> UIMenu {
-        let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
-        var actions: [UIAction] = []
-        for type in types {
-            let name = type.rawValue.uppercased()
-            actions.append(UIAction(
-                title: name, state: GlobalColor.outputType == type ? .on : .off) { _ in
-                    self.outputTypeButton.setTitle(name, for: .normal)
-                GlobalColor.outputType = type
-                self.updateOutputColorField()
-            })
-        }
-        let colorOutputTypeMenu = UIMenu(title: "Ouptut Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
-        return colorOutputTypeMenu
+
+    @IBAction func keyboardDown(_ sender: Any) {
+        mainStackBottomConstraint.constant = 130
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -95,7 +55,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
 
-        
         inputTypeButton.layer.cornerRadius = 10
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
@@ -122,21 +81,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         reset()
     }
-    @IBAction func keyboardUp(_ sender: Any) {
-        mainStackBottomConstraint.constant = 70
-        self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
-        }
-    }
-
-    @IBAction func keyboardDown(_ sender: Any) {
-        mainStackBottomConstraint.constant = 130
-        self.view.setNeedsLayout()
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
-    }
+    
+    
 
     @objc private func colorSelectorUpdate() {
         GlobalColor.color = colorSelector.selectedColor!
@@ -145,6 +91,53 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         updateInputColorField()
         updateOutputColorField()
     }
+    @objc func reload (notification: NSNotification){ //add stuff here}
+        reset()
+    }
+    func reset() {
+        updateElementColors()
+        reloadTypes()
+        updateInputColorField()
+        updateOutputColorField()
+    }
+    
+    func colorInputTypeContextMenu() -> UIMenu {
+        var actions: [UIAction] = []
+        for type in types {
+            let name = type.rawValue.uppercased()
+            actions.append(UIAction(
+                title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
+                    self.inputTypeButton.setTitle(name, for: .normal)
+                GlobalColor.inputType = type
+                self.updateInputColorField()
+            })
+        }
+        let colorInputTypeMenu = UIMenu(title: "Input Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
+        return colorInputTypeMenu
+    }
+    
+    func colorOutputTypeContextMenu() -> UIMenu {
+        var actions: [UIAction] = []
+        for type in types {
+            let name = type.rawValue.uppercased()
+            actions.append(UIAction(
+                title: name, state: GlobalColor.outputType == type ? .on : .off) { _ in
+                    self.outputTypeButton.setTitle(name, for: .normal)
+                GlobalColor.outputType = type
+                self.updateOutputColorField()
+            })
+        }
+        let colorOutputTypeMenu = UIMenu(title: "Ouptut Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
+        return colorOutputTypeMenu
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     
     func updateInputColorField() {
         print(GlobalColor.color)

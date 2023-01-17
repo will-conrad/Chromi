@@ -24,6 +24,7 @@ class SchemesViewController: UIViewController {
     
     let schemes: [ColorScheme] = [.complementary, .splitComplementary, .tetradic, .triadic, .analogous]
     
+    // MARK: IBACTIONS
     @IBAction func copyAll(_ sender: Any) {
         var schemeString = ""
         for color in schemeColors {
@@ -115,7 +116,6 @@ class SchemesViewController: UIViewController {
         let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return schemeTypeContextMenu
     }
-  
     func reset() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)

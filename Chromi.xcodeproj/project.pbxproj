@@ -65,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		295A0F8729770A9600E5C796 /* Calculators */ = {
+			isa = PBXGroup;
+			children = (
+				299788F0296F82A200702107 /* ConvertCalculations.swift */,
+				29E481412970EDA900A25D69 /* SchemeCalculations.swift */,
+			);
+			path = Calculators;
+			sourceTree = "<group>";
+		};
 		2994E076295A07CD00722665 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +93,7 @@
 		2994E081295A07CD00722665 /* Chromi */ = {
 			isa = PBXGroup;
 			children = (
+				295A0F8729770A9600E5C796 /* Calculators */,
 				29E481472970F63000A25D69 /* Controllers */,
 				2994E088295A07CD00722665 /* Main.storyboard */,
 				29E481482971CF3300A25D69 /* Launch Screen.storyboard */,
@@ -92,8 +102,6 @@
 				29E4813D29704E7B00A25D69 /* GlobalColor.swift */,
 				29E481452970F4CD00A25D69 /* ColorCell.swift */,
 				297C835129747F6800703160 /* SwatchCell.swift */,
-				29E481412970EDA900A25D69 /* SchemeCalculations.swift */,
-				299788F0296F82A200702107 /* ConvertCalculations.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
 				29A71719296F306000EB60BA /* ColorTypes.swift */,
 				29E481432970F35D00A25D69 /* ColorSchemes.swift */,

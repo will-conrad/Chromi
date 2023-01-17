@@ -12,50 +12,34 @@ class SchemesViewController: UIViewController {
     @IBOutlet var inputColorStack: UIStackView!
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
-    
     @IBOutlet var schemeView: UIView!
     @IBOutlet var schemeTypeButton: UIButton!
-    
     @IBOutlet var schemeTypeText: UILabel!
     @IBOutlet var schemeTable: UITableView!
-    
     @IBOutlet var copyAllButton: UIButton!
+    
     var schemeType: ColorScheme = .complementary
     var schemeColors: [UIColor] = []
-     
     var colorBarView = UIView()
-
     
-    func schemeTypeContextMenu() -> UIMenu {
-        let complementary = UIAction(title: "Complementary", state: schemeType == .complementary ? .on : .off) { _ in
-            self.schemeTypeButton.setTitle("Complementary", for: .normal)
-            self.schemeType = .complementary
-            self.updateTabs()
+    let schemes: [ColorScheme] = [.complementary, .splitComplementary, .tetradic, .triadic, .analogous]
+    
+    @IBAction func copyAll(_ sender: Any) {
+        var schemeString = ""
+        for color in schemeColors {
+            schemeString = schemeString + colorToText(color: color, type: GlobalColor.inputType) + "\n"
         }
-        let splitComplementary = UIAction(title: "Split Complementary", state: schemeType == .splitComplementary ? .on : .off) { _ in
-            self.schemeTypeButton.setTitle("Split Complementary", for: .normal)
-            self.schemeType = .splitComplementary
-            self.updateTabs()
+        UIPasteboard.general.string = schemeString
+        self.copyAllButton.setTitle("Copied!", for: .normal)
+        self.copyAllButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.copyAllButton.setTitle("Copy All", for: .normal)
+            self.copyAllButton.setImage(UIImage(systemName: "doc.on.clipboard"), for: .normal)
         }
-        let tetradic = UIAction(title: "Tetradic", state: schemeType == .tetradic ? .on : .off) { _ in
-            self.schemeTypeButton.setTitle("Tetradic", for: .normal)
-            self.schemeType = .tetradic
-            self.updateTabs()
-        }
-        let triadic = UIAction(title: "Triadic", state: schemeType == .triadic ? .on : .off) { _ in
-            self.schemeTypeButton.setTitle("Triadic", for: .normal)
-            self.schemeType = .triadic
-            self.updateTabs()
-        }
-        let analogous = UIAction(title: "Analogous", state: schemeType == .analogous ? .on : .off) { _ in
-            self.schemeTypeButton.setTitle("Analogous", for: .normal)
-            self.schemeType = .analogous
-            self.updateTabs()
-        }
-        let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [complementary, splitComplementary, tetradic, triadic, analogous])
-        return schemeTypeContextMenu
     }
     
+    // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
         schemeTable.rowHeight = 50
@@ -93,7 +77,16 @@ class SchemesViewController: UIViewController {
         schemeColors = getScheme(scheme: schemeType)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        reset()
+    }
     
+    // MARK: OBJC
+    @objc func reload (notification: NSNotification){
+       reset()
+    }
+    
+    // MARK: FUNCS
     func getScheme(scheme: ColorScheme)-> [UIColor] {
         switch scheme {
         case .complementary:
@@ -108,44 +101,32 @@ class SchemesViewController: UIViewController {
             return GlobalColor.color.analagous
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        reset()
+    func schemeTypeContextMenu() -> UIMenu {
+        var actions: [UIAction] = []
+        for scheme in schemes {
+            let name = scheme.rawValue
+            actions.append(
+                UIAction(title: name, state: schemeType == scheme ? .on : .off) { _ in
+                    self.schemeTypeButton.setTitle(scheme.rawValue, for: .normal)
+                    self.schemeType = scheme
+                    self.updateTabs()
+            })
+        }
+        let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
+        return schemeTypeContextMenu
     }
-    @objc func reload (notification: NSNotification){
-       reset()
-        
-    }
+  
     func reset() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
-        schemeColors = getScheme(scheme: schemeType)
-        schemeTypeText.text = schemeType.rawValue.uppercased()
-        schemeTable.reloadData()
+        updateTabs()
     }
     
-    @IBAction func copyAll(_ sender: Any) {
-        var schemeString = ""
-        for color in schemeColors {
-            schemeString = schemeString + colorToText(color: color, type: GlobalColor.inputType) + "\n"
-        }
-        UIPasteboard.general.string = schemeString
-        self.copyAllButton.setTitle("Copied!", for: .normal)
-        self.copyAllButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.copyAllButton.setTitle("Copy All", for: .normal)
-            self.copyAllButton.setImage(UIImage(systemName: "doc.on.clipboard"), for: .normal)
-        }
-        
-    }
     func updateTabs() {
         schemeColors = getScheme(scheme: schemeType)
         schemeTypeText.text = schemeType.rawValue.uppercased()
-
         schemeTable.reloadData()
     }
-    
 }
 
 extension SchemesViewController: UITableViewDataSource {
@@ -161,7 +142,4 @@ extension SchemesViewController: UITableViewDataSource {
         
         return cell
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return schemeType.rawValue
-//    }
 }

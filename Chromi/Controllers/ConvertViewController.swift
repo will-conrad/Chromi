@@ -22,6 +22,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
     
+    // MARK: IBACTIONS
     @IBAction func inputColorUpdated(_ sender: Any) {
         if let color = parseInputColor(color: inputColor.text!, type: GlobalColor.inputType) {
             GlobalColor.color = color
@@ -37,7 +38,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }
     }
-
     @IBAction func keyboardDown(_ sender: Any) {
         mainStackBottomConstraint.constant = 130
         self.view.setNeedsLayout()
@@ -45,7 +45,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
-    
+    // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,9 +81,11 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         reset()
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
-    
-
+    // MARK: OBJC FUNCS
     @objc private func colorSelectorUpdate() {
         GlobalColor.color = colorSelector.selectedColor!
         setDefaultColor()
@@ -94,6 +96,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     @objc func reload (notification: NSNotification){ //add stuff here}
         reset()
     }
+    // MARK: FUNCS
     func reset() {
         updateElementColors()
         reloadTypes()
@@ -134,10 +137,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-
     
     func updateInputColorField() {
         print(GlobalColor.color)
@@ -156,7 +155,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         self.inputTypeButton.setTitle(GlobalColor.inputType.rawValue.uppercased(), for: .normal)
         self.outputTypeButton.setTitle(GlobalColor.outputType.rawValue.uppercased(), for: .normal)
     }
-    
+    // MARK: DEFAULTS
     func setDefaultColor() {
         UserDefaults.standard.set(GlobalColor.colorNS, forKey: "color")
     }

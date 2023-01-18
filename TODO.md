@@ -12,3 +12,4 @@
   - P and Q are three, 3-dimentional points
       - P = input color
       - Q = compared color in .csv
+- [ ] 

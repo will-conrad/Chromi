@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    // MARK: UICOLOR INITIALIZERS
+    // MARK: UIColor Convenience Inits
     
     /// Initializes a color from HSLA
     /// - parameter hue:
@@ -80,8 +80,8 @@ extension UIColor {
         
         self.init(red: r, green: g, blue: b, alpha: alpha)
     }
-    // MARK: - UICOLOR PROPERTIES
-
+    
+    // MARK: - UIColor Variables
     //Gets RGBA values
     var rgb: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var (r, g, b) = (CGFloat(), CGFloat(), CGFloat())
@@ -158,7 +158,7 @@ extension UIColor {
 }
 
 
-
+// MARK: UIColor -> String
 func colorToText(color: UIColor, type: ColorType) -> String {
     switch type {
     case .rgb:
@@ -206,7 +206,8 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         
     }
 }
-    
+
+// MARK: String -> UIColor
 func parseInputColor(color: String, type: ColorType) -> UIColor? {
     switch type {
     case .rgb:
@@ -263,7 +264,7 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
         return nil
     }
 }
-
+// MARK: Helpers
 func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: String) -> [Double]? {
     var valueArr: [Double] = []
     if color.contains(", ") {
@@ -303,7 +304,6 @@ func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: Str
     }
     return valueArr
 }
-    
 func truncate(_ x: Double) -> Double {
     return abs(ceil(x*100)/100)
 }

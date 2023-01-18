@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIColor {
-
     var complementary: [UIColor] {
         return [self, self.withHueOffset(0.5)]
     }
@@ -22,8 +21,6 @@ extension UIColor {
     var triadic: [UIColor] {
         return [self, self.withHueOffset(120 / 360), self.withHueOffset(240 / 360)]
     }
-
-
     var tetradic: [UIColor] {
         return [self, self.withHueOffset(0.25), self.withHueOffset(0.75), self.complementary[1]]
     }

@@ -52,29 +52,29 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
-        inputColor.delegate = self
- 
-        inputTypeButton.layer.cornerRadius = 10
-        outputTypeButton.layer.cornerRadius = 10
-        inputColor.layer.cornerRadius = 10
-        outputColorView.layer.cornerRadius = 10
-        
-        inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
-        inputColor.leftViewMode = .always
-        
-        self.outputColorText.textColor = UIColor.lightGray
-        outputColorView.addSubview(outputColorText)
-
-        inputTypeButton.showsMenuAsPrimaryAction = true
-        inputTypeButton.menu = colorInputTypeContextMenu()
-        outputTypeButton.showsMenuAsPrimaryAction = true
-        outputTypeButton.menu = colorOutputTypeContextMenu()
-
         colorSelector.addTarget(self, action: #selector(colorSelectorUpdate), for: .valueChanged)
         colorSelector.selectedColor = GlobalColor.color
-        
         colorSelectorUpdate()
         
+        inputTypeButton.layer.cornerRadius = 10
+        inputTypeButton.showsMenuAsPrimaryAction = true
+        inputTypeButton.menu = colorInputTypeContextMenu()
+        
+        inputColor.layer.cornerRadius = 10
+        inputColor.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
+        inputColor.leftViewMode = .always
+        inputColor.delegate = self
+        
+        outputTypeButton.layer.cornerRadius = 10
+        outputTypeButton.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
+        outputTypeButton.showsMenuAsPrimaryAction = true
+        outputTypeButton.menu = colorOutputTypeContextMenu()
+        outputTypeButton.titleLabel!.adjustsFontSizeToFitWidth = true
+
+        outputColorView.layer.cornerRadius = 10
+        outputColorText.textColor = UIColor.lightGray
+        outputColorView.addSubview(outputColorText)
+
         mainStackBottomConstraint.constant = 130
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -109,9 +109,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         var actions: [UIAction] = []
         for type in types {
             let name = type.rawValue.uppercased()
-            actions.append(UIAction(
-                title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
-                    self.inputTypeButton.setTitle(name, for: .normal)
+            actions.append(UIAction(title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
+                self.inputTypeButton.setTitle(name, for: .normal)
                 GlobalColor.inputType = type
                 self.updateInputColorField()
             })
@@ -124,9 +123,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         var actions: [UIAction] = []
         for type in types {
             let name = type.rawValue.uppercased()
-            actions.append(UIAction(
-                title: name, state: GlobalColor.outputType == type ? .on : .off) { _ in
-                    self.outputTypeButton.setTitle(name, for: .normal)
+            actions.append(UIAction(title: name, state: GlobalColor.outputType == type ? .on : .off) { _ in
                 GlobalColor.outputType = type
                 self.updateOutputColorField()
             })

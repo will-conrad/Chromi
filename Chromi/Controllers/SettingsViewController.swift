@@ -23,7 +23,8 @@ class SettingsViewController: UIViewController {
         
         useDecimalsSwitch.isOn = defaults.bool(forKey: "useDecimals")
         
-        settingsTable.frame = CGRect(x: 0, y: 100, width: superView.frame.width, height: superView.frame.height)
+        let yOffset: CGFloat = 110
+        settingsTable.frame = CGRect(x: 0, y: yOffset, width: superView.frame.width, height: superView.frame.height - yOffset)
         settingsTable.delegate = self
         settingsTable.dataSource = self
         superView.addSubview(settingsTable)
@@ -72,6 +73,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return "TEST"
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")

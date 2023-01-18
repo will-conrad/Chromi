@@ -22,8 +22,6 @@ class SchemesViewController: UIViewController {
     var schemeColors: [UIColor] = []
     var colorBarView = UIView()
     
-    let schemes: [ColorScheme] = [.complementary, .splitComplementary, .tetradic, .triadic, .analogous]
-    
     // MARK: IBACTIONS
     @IBAction func copyAll(_ sender: Any) {
         var schemeString = ""
@@ -104,7 +102,7 @@ class SchemesViewController: UIViewController {
     }
     func schemeTypeContextMenu() -> UIMenu {
         var actions: [UIAction] = []
-        for scheme in schemes {
+        for scheme in ColorScheme.allCases {
             let name = scheme.rawValue
             actions.append(
                 UIAction(title: name, state: schemeType == scheme ? .on : .off) { _ in

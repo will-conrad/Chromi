@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+let delta: CGFloat = 6.0 / 29.0
+let deltaQ = delta * delta * delta
+let deltaSQ3 = delta * delta * 3
+
+let d50: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (95.0489, 100.000, 108.8840)
+let d65: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (96.4212, 100.000, 82.5188)
+
 extension UIColor {
     // MARK: UIColor Convenience Inits
     
@@ -80,6 +87,27 @@ extension UIColor {
         
         self.init(red: r, green: g, blue: b, alpha: alpha)
     }
+    /// Initializes a color from CIELAB components.
+   /// - parameter lab: The components used to initialize the color.
+   /// - parameter alpha: The alpha value of the color.
+   convenience init(lab: [Double], alpha: CGFloat = 1.0) {
+       func fn(_ t: CGFloat) -> CGFloat {
+           if t > delta { return pow(t, 3.0) }
+           return deltaSQ3 * (t - (4.0/29.0))
+       }
+
+       let ref = GlobalColor.illuminant == .d65 ? d65 : d50
+
+       let L = (lab[0] + 16.0) / 116.0
+       let a = L + (lab[1] / 500.0)
+       let b = L - (lab[2] / 200.0)
+
+       let X = fn(a) * ref.X
+       let Y = fn(L) * ref.Y
+       let Z = fn(b) * ref.Z
+
+       self.init(xyz: [X, Y, Z], alpha: alpha)
+   }
     
     // MARK: - UIColor Variables
     //Gets RGBA values
@@ -155,6 +183,26 @@ extension UIColor {
         Z = min(1, Z)
         return (X, Y, Z)
     }
+    /// UIColor to LAB.
+    var lab: (l: CGFloat, a: CGFloat, b:CGFloat) {
+        func fn(_ t: CGFloat) -> CGFloat {
+            if t > deltaQ { return pow(t, (1/3)) }
+            return (t / deltaSQ3) + (4.0 / 29.0)
+        }
+
+        let XYZ = self.xyz
+        let ref = GlobalColor.illuminant == .d65 ? d65 : d50
+
+        let X = fn(XYZ.0 / ref.X)
+        let Y = fn(XYZ.1 / ref.Y)
+        let Z = fn(XYZ.2 / ref.Z)
+
+        let l = (116.0 * Y) - 16.0
+        let a = 500.0 * (X - Y)
+        let b = 200.0 * (Y - Z)
+        print(a)
+        return (l, a, b)
+    }
 }
 
 
@@ -195,7 +243,6 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         
     case .hex:
         return color.hex
-
     case .ciexyz:
         let (x, y, z) = color.xyz
         if GlobalColor.useDecimals {
@@ -203,7 +250,13 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         } else {
             return "\(truncate(x * 100)), \(truncate(y * 100)), \(truncate(z * 100))"
         }
-        
+    case .cielab:
+        let (l, a, b) = color.lab
+        if GlobalColor.useDecimals {
+            return "\(truncate(l)), \(truncate(a)), \(truncate(b))"
+        } else {
+            return "\(truncate(l * 100)), \(truncate(a * 127)), \(truncate(b * 127))"
+        }
     }
 }
 
@@ -223,7 +276,7 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
     case .hsv://SAME AS HSB
         if let values = getSeparatedValues(
             numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [360, 100, 100],
+            expectedValues: GlobalColor.useDecimals ? [360, 1, 1] : [360, 100, 100],
             color: color)
         {
             return UIColor(hue: values[0], saturation: values[1], brightness: values[2], alpha: 1)
@@ -260,6 +313,15 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
         {
             print(values)
             return UIColor(xyz: values)
+        }
+        return nil
+    case .cielab:
+        if let values = getSeparatedValues(
+            numValues: 3,
+            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [100, 127, 127],
+            color: color)
+        {
+            return UIColor(lab: values)
         }
         return nil
     }
@@ -304,13 +366,16 @@ func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: Str
     }
     return valueArr
 }
+
 extension Decimal {
     var doubleValue:Double {
         return NSDecimalNumber(decimal:self).doubleValue
     }
 }
 func truncate(_ x: Double) -> Double {
+    let negative = x<0
     let decimals = 3
     let n = pow(10.0, decimals).doubleValue
-    return abs(ceil(x * n)/n)
+    let trunc = abs(ceil(x * n)/n)
+    return negative ? -1 * trunc : trunc
 }

@@ -6,10 +6,4 @@
 //
 
 import Foundation
-enum ColorScheme: String {
-    case complementary = "Complementary"
-    case splitComplementary = "Split Complementary"
-    case tetradic = "Tetradic"
-    case triadic = "Triadic"
-    case analogous = "Analogous"
-}
+

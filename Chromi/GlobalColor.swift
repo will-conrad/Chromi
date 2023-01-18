@@ -10,6 +10,7 @@ import UIKit
 
 class GlobalColor {
     static var useDecimals = true
+    static var illuminant = Illuminant.d65
     
     static var color = defaultColor
     static var inputType = defaultInputType
@@ -34,10 +35,10 @@ class GlobalColor {
     static let defaultOutputType = ColorType.hex
     static let defaultOutputTypeNS = defaultOutputType.rawValue as NSString
     
+    let defaults = UserDefaults.standard
+    
     //Pull defaults from UserDefaults
     init() {
-        let defaults = UserDefaults.standard
-        
         if let color = defaults.object(forKey: "color") as? String {
             GlobalColor.color = UIColor(hex: color)
         }
@@ -48,6 +49,10 @@ class GlobalColor {
             GlobalColor.outputType = ColorType(rawValue: outType) ?? .hex
         }
         GlobalColor.useDecimals = defaults.bool(forKey: "useDecimals")
+        
+        if let illuminant = defaults.object(forKey: "illuminant") as? String {
+            GlobalColor.illuminant = Illuminant(rawValue: illuminant) ?? .d65
+        }
     }
     
     func reset() {
@@ -55,6 +60,13 @@ class GlobalColor {
         GlobalColor.inputType = GlobalColor.defaultInputType
         GlobalColor.outputType = GlobalColor.defaultOutputType
         GlobalColor.useDecimals = false
+        GlobalColor.illuminant = .d65
+        
+        defaults.set(GlobalColor.defaultColorNS, forKey: "color")
+        defaults.set(GlobalColor.defaultInputTypeNS, forKey: "inType")
+        defaults.set(GlobalColor.defaultOutputTypeNS, forKey: "outType")
+        defaults.set(false, forKey: "useDecimals")
+        defaults.set("d65", forKey: "illuminant")
     }
 }
 

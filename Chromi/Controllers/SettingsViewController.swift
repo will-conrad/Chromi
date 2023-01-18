@@ -22,17 +22,12 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     @IBAction func resetDefaults(_ sender: Any) {
-        defaults.set(GlobalColor.defaultColorNS, forKey: "color")
-        defaults.set(GlobalColor.defaultInputTypeNS, forKey: "inType")
-        defaults.set(GlobalColor.defaultOutputTypeNS, forKey: "outType")
-        defaults.set(false, forKey: "useDecimals")
-        useDecimalsSwitch.isOn = false
         
+        
+        useDecimalsSwitch.isOn = false
         GlobalColor().reset()
         
         NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
-        
-        print(GlobalColor.color)
     }
     @IBAction func displayTypeSwitched(_ sender: Any) {
         if useDecimalsSwitch.isOn {

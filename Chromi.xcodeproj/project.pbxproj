@@ -16,13 +16,12 @@
 		299788F1296F82A200702107 /* ColorCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299788F0296F82A200702107 /* ColorCalculations.swift */; };
 		29A71716296F097200EB60BA /* ConvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71715296F097200EB60BA /* ConvertViewController.swift */; };
 		29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71717296F27E200EB60BA /* PaddingTextField.swift */; };
-		29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71719296F306000EB60BA /* ColorTypes.swift */; };
+		29A7171A296F306000EB60BA /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71719296F306000EB60BA /* Enumerations.swift */; };
 		29D6D887295A1BFD0061FEF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */; };
 		29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813B2970401200A25D69 /* SchemesViewController.swift */; };
 		29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813D29704E7B00A25D69 /* GlobalColor.swift */; };
 		29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */; };
 		29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481412970EDA900A25D69 /* SchemeCalculations.swift */; };
-		29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorSchemes.swift */; };
 		29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481452970F4CD00A25D69 /* ColorCell.swift */; };
 		29E481492971CF3300A25D69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E481482971CF3300A25D69 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,13 +38,12 @@
 		299788F0296F82A200702107 /* ColorCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCalculations.swift; sourceTree = "<group>"; };
 		29A71715296F097200EB60BA /* ConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewController.swift; sourceTree = "<group>"; };
 		29A71717296F27E200EB60BA /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
-		29A71719296F306000EB60BA /* ColorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTypes.swift; sourceTree = "<group>"; };
+		29A71719296F306000EB60BA /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		29E4813B2970401200A25D69 /* SchemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemesViewController.swift; sourceTree = "<group>"; };
 		29E4813D29704E7B00A25D69 /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
 		29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRCopyableLabel.swift; sourceTree = "<group>"; };
 		29E481412970EDA900A25D69 /* SchemeCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeCalculations.swift; sourceTree = "<group>"; };
-		29E481432970F35D00A25D69 /* ColorSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemes.swift; sourceTree = "<group>"; };
 		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		29E481482971CF3300A25D69 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E93B3729777B230085CBE9 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
@@ -101,8 +99,7 @@
 				29E481452970F4CD00A25D69 /* ColorCell.swift */,
 				297C835129747F6800703160 /* SwatchCell.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
-				29A71719296F306000EB60BA /* ColorTypes.swift */,
-				29E481432970F35D00A25D69 /* ColorSchemes.swift */,
+				29A71719296F306000EB60BA /* Enumerations.swift */,
 				29A71717296F27E200EB60BA /* PaddingTextField.swift */,
 				2994E08B295A07CE00722665 /* Assets.xcassets */,
 				2994E090295A07CE00722665 /* Info.plist */,
@@ -192,9 +189,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */,
+				29A7171A296F306000EB60BA /* Enumerations.swift in Sources */,
 				295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */,
-				29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */,
 				299788F1296F82A200702107 /* ColorCalculations.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,
 				297C835229747F6800703160 /* SwatchCell.swift in Sources */,

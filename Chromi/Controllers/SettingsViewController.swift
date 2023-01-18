@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         useDecimalsSwitch.isOn = defaults.bool(forKey: "useDecimals")
         
-        settingsTable.frame = CGRect(x: 0, y: 0, width: superView.frame.width, height: superView.frame.height)
+        settingsTable.frame = CGRect(x: 0, y: 100, width: superView.frame.width, height: superView.frame.height)
         settingsTable.delegate = self
         settingsTable.dataSource = self
         superView.addSubview(settingsTable)

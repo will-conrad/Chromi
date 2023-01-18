@@ -465,7 +465,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                                 <items>
                                     <navigationItem title="Settings" largeTitleDisplayMode="always" id="no7-HI-gWY">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="xyr-rz-8pO">
+                                        <barButtonItem key="leftBarButtonItem" id="xyr-rz-8pO">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KzM-aL-Cuy">
                                                 <rect key="frame" x="16" y="6" width="83" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

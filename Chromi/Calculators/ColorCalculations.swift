@@ -72,12 +72,21 @@ extension UIColor {
         let X = xyz[0]
         let Y = xyz[1]
         let Z = xyz[2]
+        var r: Double = 0
+        var g: Double = 0
+        var b: Double = 0
 
-        // sRGB (D65) matrix transformation
+        // sRGB matrix transformation
         // http://www.brucelindbloom.com/index.html?Eqn_RGB_XYZ_Matrix.html
-        var r =  (3.2404542 * X) - (1.5371385 * Y) - (0.4985314 * Z)
-        var g = (-0.9692660 * X) + (1.8760108 * Y) + (0.0415560 * Z)
-        var b =  (0.0556434 * X) - (0.2040259 * Y) + (1.0572252 * Z)
+        if GlobalColor.illuminant == .d65 {
+             r =  (3.2404542 * X) - (1.5371385 * Y) - (0.4985314 * Z)
+             g = (-0.9692660 * X) + (1.8760108 * Y) + (0.0415560 * Z)
+             b =  (0.0556434 * X) - (0.2040259 * Y) + (1.0572252 * Z)
+        } else { //d50
+             r =  (3.1338561 * X) - (1.6168667 * Y) - (0.4906146 * Z)
+             g = (-0.9787684 * X) + (1.9161415 * Y) + (0.0334540 * Z)
+             b =  (0.0719453 * X) - (0.2289914 * Y) + (1.4052427 * Z)
+        }
         
         // sRGB (D65) gamma correction - companding to get non-linear values
         let k: CGFloat = 1.0 / 2.4
@@ -167,16 +176,26 @@ extension UIColor {
     var xyz: (x: CGFloat, y: CGFloat, z: CGFloat) {
         var (r, g, b) = self.rgb
         
-        // sRGB (D65) gamma correction - inverse companding to get linear values
+        // sRGB gamma correction - inverse companding to get linear values
         r = (r > 0.03928) ? pow((r + 0.055) / 1.055, 2.4) : (r / 12.92)
         g = (g > 0.03928) ? pow((g + 0.055) / 1.055, 2.4) : (g / 12.92)
         b = (b > 0.03928) ? pow((b + 0.055) / 1.055, 2.4) : (b / 12.92)
 
-        // sRGB (D65) matrix transformation
+        var X: Double = 0
+        var Y: Double = 0
+        var Z: Double = 0
+        
+        // sRGB matrix transformation
         // http://www.brucelindbloom.com/index.html?Eqn_RGB_XYZ_Matrix.html
-        var X = (0.4124564 * r) + (0.3575761 * g) + (0.1804375 * b)
-        var Y = (0.2126729 * r) + (0.7151522 * g) + (0.0721750 * b)
-        var Z = (0.0193339 * r) + (0.1191920 * g) + (0.9503041 * b)
+        if GlobalColor.illuminant == .d65 {
+            X = (0.4124564 * r) + (0.3575761 * g) + (0.1804375 * b)
+            Y = (0.2126729 * r) + (0.7151522 * g) + (0.0721750 * b)
+            Z = (0.0193339 * r) + (0.1191920 * g) + (0.9503041 * b)
+        } else { //d50
+            X = (0.4360747 * r) + (0.3850649 * g) + (0.1430804 * b)
+            Y = (0.2225045 * r) + (0.7168786 * g) + (0.0606169 * b)
+            Z = (0.0139322 * r) + (0.0971045 * g) + (0.7141733 * b)
+        }
         
         X = min(1, X)
         Y = min(1, Y)
@@ -206,7 +225,7 @@ extension UIColor {
 }
 
 
-// MARK: UIColor -> String
+// MARK: - UIColor -> String
 func colorToText(color: UIColor, type: ColorType) -> String {
     switch type {
     case .rgb:

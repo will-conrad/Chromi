@@ -1,7 +1,9 @@
 # Things to do
 
 ## ColorConversions
-- [ ] Implement other luminant (D60) for RGB-XYZ Transformations
+- [x] Implement other luminant (D50) for RGB-XYZ Transformations
+    - [x] Add global illuminant
+    - [ ] 
 - [ ] Add CIELab from [Here](http://www.brucelindbloom.com/index.html) 
 - [ ] Create test data for gel swatches
 

@@ -478,7 +478,6 @@
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
-                                <navigationBarAppearance key="scrollEdgeAppearance"/>
                             </navigationBar>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DkM-bn-jJj">
                                 <rect key="frame" x="163" y="209" width="49" height="31"/>
@@ -513,6 +512,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="superView" destination="ZxW-Ef-Jid" id="38M-QZ-r5b"/>
                         <outlet property="useDecimalsSwitch" destination="DkM-bn-jJj" id="xXk-VC-aGo"/>
                     </connections>
                 </viewController>
@@ -757,7 +757,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tzS-om-u4c"/>
+        <segue reference="QZC-IO-pG7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>

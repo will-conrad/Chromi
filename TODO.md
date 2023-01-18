@@ -20,4 +20,4 @@
       - Q = compared color in .csv
 
 ## Settings
-- [x] Create list layout for settings page
+- [x] Create list layout for settings page     

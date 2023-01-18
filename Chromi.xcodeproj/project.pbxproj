@@ -11,11 +11,10 @@
 		297C835229747F6800703160 /* SwatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C835129747F6800703160 /* SwatchCell.swift */; };
 		2994E083295A07CD00722665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E082295A07CD00722665 /* AppDelegate.swift */; };
 		2994E085295A07CD00722665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E084295A07CD00722665 /* SceneDelegate.swift */; };
-		2994E087295A07CD00722665 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E086295A07CD00722665 /* ViewController.swift */; };
 		2994E08A295A07CD00722665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2994E088295A07CD00722665 /* Main.storyboard */; };
 		2994E08C295A07CE00722665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2994E08B295A07CE00722665 /* Assets.xcassets */; };
 		2994E08F295A07CE00722665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2994E08D295A07CE00722665 /* LaunchScreen.storyboard */; };
-		299788F1296F82A200702107 /* ConvertCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299788F0296F82A200702107 /* ConvertCalculations.swift */; };
+		299788F1296F82A200702107 /* ColorCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299788F0296F82A200702107 /* ColorCalculations.swift */; };
 		29A71716296F097200EB60BA /* ConvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71715296F097200EB60BA /* ConvertViewController.swift */; };
 		29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71717296F27E200EB60BA /* PaddingTextField.swift */; };
 		29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71719296F306000EB60BA /* ColorTypes.swift */; };
@@ -35,12 +34,11 @@
 		2994E07F295A07CD00722665 /* Chromi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chromi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2994E082295A07CD00722665 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2994E084295A07CD00722665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2994E086295A07CD00722665 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2994E089295A07CD00722665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2994E08B295A07CE00722665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2994E08E295A07CE00722665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2994E090295A07CE00722665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		299788F0296F82A200702107 /* ConvertCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCalculations.swift; sourceTree = "<group>"; };
+		299788F0296F82A200702107 /* ColorCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCalculations.swift; sourceTree = "<group>"; };
 		29A71715296F097200EB60BA /* ConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewController.swift; sourceTree = "<group>"; };
 		29A71717296F27E200EB60BA /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		29A71719296F306000EB60BA /* ColorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTypes.swift; sourceTree = "<group>"; };
@@ -68,7 +66,7 @@
 		295A0F8729770A9600E5C796 /* Calculators */ = {
 			isa = PBXGroup;
 			children = (
-				299788F0296F82A200702107 /* ConvertCalculations.swift */,
+				299788F0296F82A200702107 /* ColorCalculations.swift */,
 				29E481412970EDA900A25D69 /* SchemeCalculations.swift */,
 			);
 			path = Calculators;
@@ -116,7 +114,6 @@
 		29E481472970F63000A25D69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2994E086295A07CD00722665 /* ViewController.swift */,
 				29A71715296F097200EB60BA /* ConvertViewController.swift */,
 				29E4813B2970401200A25D69 /* SchemesViewController.swift */,
 				295695C32973C3FC0024A85F /* SwatchesViewController.swift */,
@@ -200,10 +197,9 @@
 				29A7171A296F306000EB60BA /* ColorTypes.swift in Sources */,
 				295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */,
 				29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */,
-				299788F1296F82A200702107 /* ConvertCalculations.swift in Sources */,
+				299788F1296F82A200702107 /* ColorCalculations.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,
 				297C835229747F6800703160 /* SwatchCell.swift in Sources */,
-				2994E087295A07CD00722665 /* ViewController.swift in Sources */,
 				29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */,
 				29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */,
 				29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */,

@@ -12,4 +12,5 @@ enum ColorType: String {
     case hsv = "hsv"
     case cmyk = "cmyk"
     case hex = "hex"
+    case ciexyz = "cie xyz"
 }

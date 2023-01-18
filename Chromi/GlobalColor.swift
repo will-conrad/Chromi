@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class GlobalColor {
+    static var useDecimals = true
+    
     static var color = defaultColor
     static var inputType = defaultInputType
     static var outputType = defaultOutputType
@@ -23,7 +25,7 @@ class GlobalColor {
         return self.outputType.rawValue as NSString
     }
     
-    static let defaultColor = UIColor(hexString: "#5865F2")
+    static let defaultColor = UIColor(hex: "#5865F2")
     static let defaultColorNS = defaultColor.hex as NSString
     
     static let defaultInputType = ColorType.rgb
@@ -37,7 +39,7 @@ class GlobalColor {
         let defaults = UserDefaults.standard
         
         if let color = defaults.object(forKey: "color") as? String {
-            GlobalColor.color = UIColor(hexString: color)
+            GlobalColor.color = UIColor(hex: color)
         }
         if let inType = defaults.object(forKey: "inType") as? String {
             GlobalColor.inputType = ColorType(rawValue: inType) ?? .rgb
@@ -45,12 +47,14 @@ class GlobalColor {
         if let outType = defaults.object(forKey: "outType") as? String {
             GlobalColor.outputType = ColorType(rawValue: outType) ?? .hex
         }
+        GlobalColor.useDecimals = defaults.bool(forKey: "useDecimals")
     }
     
     func reset() {
         GlobalColor.color = GlobalColor.defaultColor
         GlobalColor.inputType = GlobalColor.defaultInputType
         GlobalColor.outputType = GlobalColor.defaultOutputType
+        GlobalColor.useDecimals = false
     }
 }
 

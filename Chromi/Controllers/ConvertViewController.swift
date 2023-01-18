@@ -20,7 +20,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
     
-    let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex]
+    let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .hex, .ciexyz]
     
     // MARK: IBACTIONS
     @IBAction func inputColorUpdated(_ sender: Any) {
@@ -99,9 +99,13 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     // MARK: FUNCS
     func reset() {
         updateElementColors()
-        reloadTypes()
         updateInputColorField()
         updateOutputColorField()
+        reloadTypes()
+        
+        inputTypeButton.menu = colorInputTypeContextMenu()
+        outputTypeButton.menu = colorOutputTypeContextMenu()
+        print(GlobalColor.inputType)
     }
     
     func colorInputTypeContextMenu() -> UIMenu {

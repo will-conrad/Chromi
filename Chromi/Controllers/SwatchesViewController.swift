@@ -26,7 +26,7 @@ class SwatchesViewController: UIViewController {
     
     let testDataTitles: [String] = ["R21", "R50", "R62"]
     let testDataDescs: [String] = ["Midnight Blue", "Bastard Amber", "Forrest Green"]
-    let testDataColors: [UIColor] = [UIColor(hexString: "00015B"), UIColor(hexString: "FFA588"), UIColor(hexString: "007802")]
+    let testDataColors: [UIColor] = [UIColor(hex: "00015B"), UIColor(hex: "FFA588"), UIColor(hex: "007802")]
     override func viewDidLoad() {
         super.viewDidLoad()
         

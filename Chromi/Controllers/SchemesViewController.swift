@@ -43,51 +43,51 @@ class SchemesViewController: UIViewController {
     // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
-        schemeTable.rowHeight = 50
-
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
-        
         
         let padding: CGFloat = 7
         
-         colorBarView = UIView(
+        //Color display bar
+        colorBarView = UIView(
             frame: CGRect(
                     x: padding,
                     y: padding,
                     width: colorBarContainerView.frame.width - 2*padding,
                     height: colorBarContainerView.frame.height - 2*padding))
-        schemeView.layer.cornerRadius = 10
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
-        
         colorBarContainerView.addSubview(colorBarView)
-        inputColorStack.layer.cornerRadius = 10
         
+        //Input color text
+        inputColorStack.layer.cornerRadius = 10
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         
-        self.schemeTable.contentInset = UIEdgeInsets.init(top: -30, left: 0, bottom: 0, right: 0)
+        //Scheme table
+        schemeView.layer.cornerRadius = 10
         schemeTypeText.text = schemeType.rawValue.uppercased()
-        
-        
-        self.schemeTable.dataSource = self
-        self.schemeTable.isScrollEnabled = true
-
         schemeTypeButton.showsMenuAsPrimaryAction = true
         schemeTypeButton.menu = schemeTypeContextMenu()
         
+        schemeTable.contentInset = UIEdgeInsets.init(top: -30, left: 0, bottom: 0, right: 0)
+        schemeTable.dataSource = self
+        schemeTable.isScrollEnabled = true
+
         schemeColors = getScheme(scheme: schemeType)
-        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        reset()
-    }
-    
-    // MARK: OBJC
-    @objc func reload (notification: NSNotification){
-       reset()
-    }
+    override func viewWillAppear(_ animated: Bool) { reset() }
+    @objc func reload (notification: NSNotification){ reset() }
     
     // MARK: FUNCS
+    func reset() {
+        colorBarView.backgroundColor = GlobalColor.color
+        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
+        updateTabs()
+    }
+    func updateTabs() {
+        schemeColors = getScheme(scheme: schemeType)
+        schemeTypeText.text = schemeType.rawValue.uppercased()
+        schemeTable.reloadData()
+    }
     func getScheme(scheme: ColorScheme)-> [UIColor] {
         switch scheme {
         case .complementary:
@@ -116,19 +116,9 @@ class SchemesViewController: UIViewController {
         let schemeTypeContextMenu = UIMenu(title: "Scheme Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return schemeTypeContextMenu
     }
-    func reset() {
-        colorBarView.backgroundColor = GlobalColor.color
-        inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
-        updateTabs()
-    }
-    
-    func updateTabs() {
-        schemeColors = getScheme(scheme: schemeType)
-        schemeTypeText.text = schemeType.rawValue.uppercased()
-        schemeTable.reloadData()
-    }
 }
 
+// MARK: - INIT CELLS
 extension SchemesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return schemeColors.count

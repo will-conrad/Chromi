@@ -48,13 +48,12 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-        inputColor.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
-
+        inputColor.delegate = self
+ 
         inputTypeButton.layer.cornerRadius = 10
         outputTypeButton.layer.cornerRadius = 10
         inputColor.layer.cornerRadius = 10
@@ -93,9 +92,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         updateInputColorField()
         updateOutputColorField()
     }
-    @objc func reload (notification: NSNotification){ //add stuff here}
-        reset()
-    }
+    @objc func reload (notification: NSNotification){ reset() }
+    
     // MARK: FUNCS
     func reset() {
         updateElementColors()
@@ -105,7 +103,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         
         inputTypeButton.menu = colorInputTypeContextMenu()
         outputTypeButton.menu = colorOutputTypeContextMenu()
-        print(GlobalColor.inputType)
     }
     
     func colorInputTypeContextMenu() -> UIMenu {
@@ -151,6 +148,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         outputColorText.text = colorToText(color: GlobalColor.color, type: GlobalColor.outputType)
         setDefaultOutputType()
     }
+    /// Sets background color and color selector color to GlobalColor.color
     func updateElementColors() {
         backgroundView.backgroundColor = GlobalColor.color
         colorSelector.selectedColor = GlobalColor.color

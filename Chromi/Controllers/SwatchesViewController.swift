@@ -11,15 +11,11 @@ enum SwatchType {
     case pantone
 }
 class SwatchesViewController: UIViewController {
-
-    
     @IBOutlet var colorBarContainerView: UIView!
     @IBOutlet var swatchContainerView: UIView!
-    
     @IBOutlet var swatchTypeControl: UISegmentedControl!
     @IBOutlet var swatchTable: UITableView!
     @IBOutlet var inputColorStack: UIStackView!
-    
     @IBOutlet var inputColorLabel: SRCopyableLabel!
     
     var colorBarView = UIView()
@@ -27,13 +23,12 @@ class SwatchesViewController: UIViewController {
     let testDataTitles: [String] = ["R21", "R50", "R62"]
     let testDataDescs: [String] = ["Midnight Blue", "Bastard Amber", "Forrest Green"]
     let testDataColors: [UIColor] = [UIColor(hex: "00015B"), UIColor(hex: "FFA588"), UIColor(hex: "007802")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let padding: CGFloat = 7
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
         
+        let padding: CGFloat = 7
         colorBarView = UIView(
            frame: CGRect(
                    x: padding,
@@ -41,33 +36,24 @@ class SwatchesViewController: UIViewController {
                    width: colorBarContainerView.frame.width - 2*padding,
                    height: colorBarContainerView.frame.height - 2*padding))
         colorBarView.layer.cornerRadius = 10
-        swatchContainerView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
-       
         colorBarContainerView.addSubview(colorBarView)
+        
         inputColorStack.layer.cornerRadius = 10
-       
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
-        swatchTable.rowHeight = 65
-        self.swatchTable.dataSource = self
-
-        // Do any additional setup after loading the view.
+        
+        swatchContainerView.layer.cornerRadius = 10
+        swatchTable.dataSource = self
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        reset()
-    }
-    
-    @objc func reload (notification: NSNotification) {
-        reset()
-    }
+    override func viewWillAppear(_ animated: Bool) { reset() }
+    @objc func reload (notification: NSNotification) { reset() }
     func reset() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
     }
     
 }
-
+// MARK: - INIT CELLS
 extension SwatchesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3

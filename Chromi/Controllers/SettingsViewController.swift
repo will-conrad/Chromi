@@ -65,6 +65,7 @@ extension SettingsViewController: UITableViewDelegate {
                 break
             }
         }
+        refreshControllers()
         settingsTable.reloadData()
     }
 }

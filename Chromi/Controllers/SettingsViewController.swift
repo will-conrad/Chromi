@@ -8,15 +8,19 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+
+    @IBOutlet var backButton: UIButton!
     @IBOutlet var useDecimalsSwitch: UISwitch!
-    
     @IBOutlet var superView: UIView!
+    
     var settingsTable =  UITableView(frame: CGRect(), style: .insetGrouped)
     
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.frame.origin = CGPoint(x: -10, y: 0)
+        
         useDecimalsSwitch.isOn = defaults.bool(forKey: "useDecimals")
         
         settingsTable.frame = CGRect(x: 0, y: 100, width: superView.frame.width, height: superView.frame.height)

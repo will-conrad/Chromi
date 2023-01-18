@@ -239,7 +239,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     case .hsl:
         let (h, s, l) = color.hsl
         if GlobalColor.useDecimals {
-            return "\(truncate(h * 360)), \(truncate(s)), \(truncate(l))"
+            return "\(truncate(h)), \(truncate(s)), \(truncate(l))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(l * 100))"
         }
@@ -247,7 +247,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     case .hsv: //Same as HSB
         let (h, s, b) = color.hsb
         if GlobalColor.useDecimals {
-            return "\(truncate(h * 360)), \(truncate(s)), \(truncate(b))"
+            return "\(truncate(h)), \(truncate(s)), \(truncate(b))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(b * 100))"
         }
@@ -274,7 +274,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         if GlobalColor.useDecimals {
             return "\(truncate(l)), \(truncate(a)), \(truncate(b))"
         } else {
-            return "\(truncate(l * 100)), \(truncate(a * 127)), \(truncate(b * 127))"
+            return "\(truncate(l * 100)), \(truncate(a * 128)), \(truncate(b * 128))"
         }
     }
 }

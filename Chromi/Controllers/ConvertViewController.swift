@@ -46,7 +46,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
@@ -74,7 +74,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         mainStackBottomConstraint.constant = 130
     }
     override func viewWillAppear(_ animated: Bool) {
-        reset()
+        reload()
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -88,10 +88,10 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         updateInputColorField()
         updateOutputColorField()
     }
-    @objc func reload (notification: NSNotification){ reset() }
+    @objc func refresh (notification: NSNotification){ reload() }
     
     // MARK: FUNCS
-    func reset() {
+    func reload() {
         updateElementColors()
         updateInputColorField()
         updateOutputColorField()

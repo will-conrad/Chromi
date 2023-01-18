@@ -26,7 +26,7 @@ class SwatchesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         
         let padding: CGFloat = 7
         colorBarView = UIView(
@@ -45,9 +45,9 @@ class SwatchesViewController: UIViewController {
         swatchContainerView.layer.cornerRadius = 10
         swatchTable.dataSource = self
     }
-    override func viewWillAppear(_ animated: Bool) { reset() }
-    @objc func reload (notification: NSNotification) { reset() }
-    func reset() {
+    override func viewWillAppear(_ animated: Bool) { reload() }
+    @objc func refresh (notification: NSNotification) { reload() }
+    func reload() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
     }

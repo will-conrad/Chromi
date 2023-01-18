@@ -41,7 +41,7 @@ class SchemesViewController: UIViewController {
     // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Notification.Name("reload"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         
         let padding: CGFloat = 7
         
@@ -72,11 +72,11 @@ class SchemesViewController: UIViewController {
 
         schemeColors = getScheme(scheme: schemeType)
     }
-    override func viewWillAppear(_ animated: Bool) { reset() }
-    @objc func reload (notification: NSNotification){ reset() }
+    override func viewWillAppear(_ animated: Bool) { reload() }
+    @objc func refresh (notification: NSNotification){ reload() }
     
     // MARK: FUNCS
-    func reset() {
+    func reload() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         updateTabs()

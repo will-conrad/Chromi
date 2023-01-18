@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
         
         useDecimalsSwitch.isOn = defaults.bool(forKey: "useDecimals")
         
-        let yOffset: CGFloat = 110
+        let yOffset: CGFloat = 160
         settingsTable.frame = CGRect(x: 0, y: yOffset, width: superView.frame.width, height: superView.frame.height - yOffset)
         settingsTable.delegate = self
         settingsTable.dataSource = self
@@ -37,50 +37,113 @@ class SettingsViewController: UIViewController {
     @IBAction func resetDefaults(_ sender: Any) {
         useDecimalsSwitch.isOn = false
         GlobalColor().reset()
-        
-        NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
+        refreshControllers()
     }
-    @IBAction func displayTypeSwitched(_ sender: Any) {
-        if useDecimalsSwitch.isOn {
+    
+    func refreshControllers() {
+        NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
+    }
+}
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = settingsTable.cellForRow(at: indexPath) {
+            
+            switch indexPath.section {
+            case 0:
+                if indexPath.row == 0 && GlobalColor.illuminant != .d65 {
+                    cell.accessoryType = .checkmark
+                    GlobalColor.illuminant = .d65
+                    defaults.set("d65", forKey: "illuminant")
+                    
+                }
+                else if indexPath.row == 1 && GlobalColor.illuminant != .d50 {
+                    cell.accessoryType = .checkmark
+                    GlobalColor.illuminant = .d50
+                    defaults.set("d50", forKey: "illuminant")
+                }
+            default:
+                break
+            }
+        }
+        settingsTable.reloadData()
+    }
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    //NUM ROWS
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 2 //Illuminant
+        case 1:
+            return 2 //Use decimals
+        default:
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //HEADER TITLE
+        switch section {
+        case 0:
+            return "Illuminant"
+        case 1:
+            return ""
+        default:
+            return ""
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        //FOOTER
+        switch section {
+        case 0:
+            return "The reference illuminant to use when calculating CIEXYZ and CIELAB values"
+        case 1:
+            return GlobalColor.useDecimals ? "Example: RGB = (0, 0.5, 1)" : "Example: RGB = (0, 128, 255)"
+        default:
+            return ""
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
+        switch indexPath.section {
+        case 0: // D65
+            if indexPath.row == 0 {
+                cell.textLabel!.text = "D65 (Default)"
+                cell.accessoryType = GlobalColor.illuminant == .d65 ? .checkmark : .none
+            }
+            else if indexPath.row == 1 {
+                cell.textLabel!.text = "D50"
+                cell.accessoryType = GlobalColor.illuminant == .d50 ? .checkmark : .none
+            }
+        case 1:
+            var toggle = UISwitch(frame: .zero)
+            toggle.isOn = GlobalColor.useDecimals
+            cell.textLabel!.text = "Use decimal values"
+            toggle.addTarget(self, action: #selector(self.toggled), for: .valueChanged)
+            cell.accessoryView = toggle
+            
+        default:
+            break
+        }
+        return cell
+    }
+    
+    @objc func toggled(_ sender : UISwitch!){
+        if sender.isOn {
             GlobalColor.useDecimals = true
         } else {
             GlobalColor.useDecimals = false
         }
-        defaults.set(useDecimalsSwitch.isOn, forKey: "useDecimals")
-        NotificationCenter.default.post(name: Notification.Name("reload"), object: nil)
+        defaults.set(sender.isOn, forKey: "useDecimals")
+        settingsTable.reloadData()
+        refreshControllers()
     }
-}
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch section {
-//        case 0:
-//            return 2
-//        case 1:
-//            return 1
-//        default:
-//            return 0
-//        }
-        return 3
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//        case 0:
-//            return "Illuminant Reference"
-//        default:
-//            return ""
-//        }
-        return "TEST"
-    }
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "TEST"
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
-        
-        return cell
-    }
+
     
 }

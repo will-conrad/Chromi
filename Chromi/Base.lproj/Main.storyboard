@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-468"/>
+            <point key="canvasLocation" x="1900" y="-494"/>
         </scene>
         <!--Schemes-->
         <scene sceneID="Xhe-ZK-tYt">
@@ -446,7 +446,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTb-Wx-CaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="212.80788177339903"/>
+            <point key="canvasLocation" x="1900" y="191"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Kab-mz-oAa">
@@ -533,7 +533,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9r3-cd-BJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="541"/>
+            <point key="canvasLocation" x="111" y="191"/>
         </scene>
         <!--Swatches-->
         <scene sceneID="iYU-RY-8Re">
@@ -599,7 +599,7 @@
                                             <segment title="Pantone"/>
                                         </segments>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-HT-RRz">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-HT-RRz">
                                         <rect key="frame" x="0.0" y="51" width="350" height="349"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
@@ -726,7 +726,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blG-U6-MO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.60000000000002" y="212.80788177339903"/>
+            <point key="canvasLocation" x="1039" y="270"/>
         </scene>
         <!--Swatches-->
         <scene sceneID="QaL-mX-pnD">
@@ -748,11 +748,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgZ-RN-6Ql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957.60000000000002" y="924.38423645320199"/>
+            <point key="canvasLocation" x="111" y="924"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QZC-IO-pG7"/>
+        <segue reference="tzS-om-u4c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>

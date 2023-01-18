@@ -13,7 +13,6 @@
 		2994E085295A07CD00722665 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E084295A07CD00722665 /* SceneDelegate.swift */; };
 		2994E08A295A07CD00722665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2994E088295A07CD00722665 /* Main.storyboard */; };
 		2994E08C295A07CE00722665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2994E08B295A07CE00722665 /* Assets.xcassets */; };
-		2994E08F295A07CE00722665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2994E08D295A07CE00722665 /* LaunchScreen.storyboard */; };
 		299788F1296F82A200702107 /* ColorCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299788F0296F82A200702107 /* ColorCalculations.swift */; };
 		29A71716296F097200EB60BA /* ConvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71715296F097200EB60BA /* ConvertViewController.swift */; };
 		29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71717296F27E200EB60BA /* PaddingTextField.swift */; };
@@ -25,7 +24,7 @@
 		29E481422970EDA900A25D69 /* SchemeCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481412970EDA900A25D69 /* SchemeCalculations.swift */; };
 		29E481442970F35D00A25D69 /* ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481432970F35D00A25D69 /* ColorSchemes.swift */; };
 		29E481462970F4CD00A25D69 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E481452970F4CD00A25D69 /* ColorCell.swift */; };
-		29E481492971CF3300A25D69 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E481482971CF3300A25D69 /* Launch Screen.storyboard */; };
+		29E481492971CF3300A25D69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E481482971CF3300A25D69 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		2994E084295A07CD00722665 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2994E089295A07CD00722665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2994E08B295A07CE00722665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2994E08E295A07CE00722665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2994E090295A07CE00722665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		299788F0296F82A200702107 /* ColorCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCalculations.swift; sourceTree = "<group>"; };
 		29A71715296F097200EB60BA /* ConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +47,7 @@
 		29E481412970EDA900A25D69 /* SchemeCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeCalculations.swift; sourceTree = "<group>"; };
 		29E481432970F35D00A25D69 /* ColorSchemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemes.swift; sourceTree = "<group>"; };
 		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
-		29E481482971CF3300A25D69 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		29E481482971CF3300A25D69 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E93B3729777B230085CBE9 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +94,7 @@
 				295A0F8729770A9600E5C796 /* Calculators */,
 				29E481472970F63000A25D69 /* Controllers */,
 				2994E088295A07CD00722665 /* Main.storyboard */,
-				29E481482971CF3300A25D69 /* Launch Screen.storyboard */,
+				29E481482971CF3300A25D69 /* LaunchScreen.storyboard */,
 				2994E082295A07CD00722665 /* AppDelegate.swift */,
 				2994E084295A07CD00722665 /* SceneDelegate.swift */,
 				29E4813D29704E7B00A25D69 /* GlobalColor.swift */,
@@ -107,7 +105,6 @@
 				29E481432970F35D00A25D69 /* ColorSchemes.swift */,
 				29A71717296F27E200EB60BA /* PaddingTextField.swift */,
 				2994E08B295A07CE00722665 /* Assets.xcassets */,
-				2994E08D295A07CE00722665 /* LaunchScreen.storyboard */,
 				2994E090295A07CE00722665 /* Info.plist */,
 			);
 			path = Chromi;
@@ -182,9 +179,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2994E08F295A07CE00722665 /* LaunchScreen.storyboard in Resources */,
 				2994E08C295A07CE00722665 /* Assets.xcassets in Resources */,
-				29E481492971CF3300A25D69 /* Launch Screen.storyboard in Resources */,
+				29E481492971CF3300A25D69 /* LaunchScreen.storyboard in Resources */,
 				2994E08A295A07CD00722665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,14 +219,6 @@
 				2994E089295A07CD00722665 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2994E08D295A07CE00722665 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2994E08E295A07CE00722665 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -362,10 +350,9 @@
 				INFOPLIST_FILE = Chromi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chromi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,9 +360,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ConradUX.Chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -391,10 +381,9 @@
 				INFOPLIST_FILE = Chromi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Chromi;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,9 +391,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ConradUX.Chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

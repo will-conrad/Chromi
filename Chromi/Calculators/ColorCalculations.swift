@@ -119,7 +119,7 @@ extension UIColor {
         return (h, s, b)
     }
     var cmyk: (c: CGFloat, m: CGFloat, y: CGFloat, k: CGFloat) {
-        var (r, g, b) = self.rgb
+        let (r, g, b) = self.rgb
         
         let k = 1.0 - max(r, g, b)
         let c = (1.0 - r - k) / (1.0 - k)
@@ -130,7 +130,7 @@ extension UIColor {
     }
     
     var hex: String {
-        var (r, g, b) = self.rgb
+        let (r, g, b) = self.rgb
         
         let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
         return hexString
@@ -172,7 +172,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     case .hsl:
         let (h, s, l) = color.hsl
         if GlobalColor.useDecimals {
-            return "\(truncate(h)), \(truncate(s)), \(truncate(l))"
+            return "\(truncate(h * 360)), \(truncate(s)), \(truncate(l))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(l * 100))"
         }
@@ -180,7 +180,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     case .hsv: //Same as HSB
         let (h, s, b) = color.hsb
         if GlobalColor.useDecimals {
-            return "\(truncate(h)), \(truncate(s)), \(truncate(b))"
+            return "\(truncate(h * 360)), \(truncate(s)), \(truncate(b))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(b * 100))"
         }
@@ -304,6 +304,13 @@ func getSeparatedValues(numValues num: Int, expectedValues: [Double], color: Str
     }
     return valueArr
 }
+extension Decimal {
+    var doubleValue:Double {
+        return NSDecimalNumber(decimal:self).doubleValue
+    }
+}
 func truncate(_ x: Double) -> Double {
-    return abs(ceil(x*100)/100)
+    let decimals = 3
+    let n = pow(10.0, decimals).doubleValue
+    return abs(ceil(x * n)/n)
 }

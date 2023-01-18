@@ -66,10 +66,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         inputColor.delegate = self
         
         outputTypeButton.layer.cornerRadius = 10
-        outputTypeButton.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
         outputTypeButton.showsMenuAsPrimaryAction = true
         outputTypeButton.menu = colorOutputTypeContextMenu()
-        outputTypeButton.titleLabel!.adjustsFontSizeToFitWidth = true
 
         outputColorView.layer.cornerRadius = 10
         outputColorText.textColor = UIColor.lightGray
@@ -110,7 +108,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         for type in types {
             let name = type.rawValue.uppercased()
             actions.append(UIAction(title: name, state: GlobalColor.inputType == type ? .on : .off) { _ in
-                self.inputTypeButton.setTitle(name, for: .normal)
                 GlobalColor.inputType = type
                 self.updateInputColorField()
             })

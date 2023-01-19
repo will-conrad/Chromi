@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     var settingsTable =  UITableView(frame: CGRect(), style: .insetGrouped)
     
     let defaults = UserDefaults.standard
+    let types: [ColorType] = [.rgb, .hsl, .hsv, .cmyk, .ciexyz, .cielab]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,8 @@ extension SettingsViewController: UITableViewDataSource {
         case 0:
             return 2 //Illuminant
         case 1:
-            return 2 //Use decimals
+            return types.count //Use decimals
+        
         default:
             return 0
         }
@@ -101,8 +103,8 @@ extension SettingsViewController: UITableViewDataSource {
         switch section {
         case 0:
             return "The reference illuminant to use when calculating CIEXYZ and CIELAB values"
-        case 1:
-            return GlobalColor.useDecimals ? "Example: RGB = (0, 0.5, 1)" : "Example: RGB = (0, 128, 255)"
+//        case 1:
+//            return GlobalColor.useDecimals ? "Example: RGB = (0, 0.5, 1)" : "Example: RGB = (0, 128, 255)"
         default:
             return ""
         }
@@ -123,11 +125,17 @@ extension SettingsViewController: UITableViewDataSource {
                 cell.accessoryType = GlobalColor.illuminant == .d50 ? .checkmark : .none
             }
         case 1:
-            var toggle = UISwitch(frame: .zero)
-            toggle.isOn = GlobalColor.useDecimals
-            cell.textLabel!.text = "Use decimal values"
+            let type = types[indexPath.row]
+            cell.textLabel!.text = "Use decimals for \(type.rawValue.uppercased()) values"
+            let toggle = ColorSwitch(frame: .zero, type: type)
+            toggle.isOn = GlobalColor.useDecimals[type.rawValue]!
             toggle.addTarget(self, action: #selector(self.toggled), for: .valueChanged)
             cell.accessoryView = toggle
+//            var toggle = UISwitch(frame: .zero)
+//            toggle.isOn = GlobalColor.useDecimals
+//            cell.textLabel!.text = "Use decimal values"
+//            toggle.addTarget(self, action: #selector(self.toggled), for: .valueChanged)
+//            cell.accessoryView = toggle
             
         default:
             break
@@ -135,13 +143,13 @@ extension SettingsViewController: UITableViewDataSource {
         return cell
     }
     
-    @objc func toggled(_ sender : UISwitch!){
+    @objc func toggled(_ sender : ColorSwitch!){
         if sender.isOn {
-            GlobalColor.useDecimals = true
+            GlobalColor.useDecimals[sender.type.rawValue] = true
         } else {
-            GlobalColor.useDecimals = false
+            GlobalColor.useDecimals[sender.type.rawValue] = false
         }
-        defaults.set(sender.isOn, forKey: "useDecimals")
+        defaults.set(GlobalColor.useDecimalsNS, forKey: "useDecimals")
         settingsTable.reloadData()
         refreshControllers()
     }

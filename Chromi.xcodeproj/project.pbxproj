@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291454FD2978AFB1005FD825 /* ColorSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291454FC2978AFA7005FD825 /* ColorSwitch.swift */; };
 		295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295695C32973C3FC0024A85F /* SwatchesViewController.swift */; };
 		297C835229747F6800703160 /* SwatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C835129747F6800703160 /* SwatchCell.swift */; };
 		2994E083295A07CD00722665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2994E082295A07CD00722665 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		291454FC2978AFA7005FD825 /* ColorSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwitch.swift; sourceTree = "<group>"; };
 		295695C32973C3FC0024A85F /* SwatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchesViewController.swift; sourceTree = "<group>"; };
 		297C835129747F6800703160 /* SwatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchCell.swift; sourceTree = "<group>"; };
 		2994E07F295A07CD00722665 /* Chromi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chromi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				29E481452970F4CD00A25D69 /* ColorCell.swift */,
 				297C835129747F6800703160 /* SwatchCell.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
+				291454FC2978AFA7005FD825 /* ColorSwitch.swift */,
 				29A71719296F306000EB60BA /* Enumerations.swift */,
 				29A71717296F27E200EB60BA /* PaddingTextField.swift */,
 				2994E08B295A07CE00722665 /* Assets.xcassets */,
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A7171A296F306000EB60BA /* Enumerations.swift in Sources */,
+				291454FD2978AFB1005FD825 /* ColorSwitch.swift in Sources */,
 				295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */,
 				299788F1296F82A200702107 /* ColorCalculations.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,

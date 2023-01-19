@@ -12,8 +12,8 @@ let delta: CGFloat = 6.0 / 29.0
 let deltaQ = delta * delta * delta
 let deltaSQ3 = delta * delta * 3
 
-let d50: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (95.0489, 100.000, 108.8840)
-let d65: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (96.4212, 100.000, 82.5188)
+let d65: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (95.0489, 100.000, 108.8840)
+let d50: (X: CGFloat, Y: CGFloat, Z: CGFloat) = (96.4212, 100.000, 82.5188)
 
 extension UIColor {
     // MARK: UIColor Convenience Inits
@@ -205,7 +205,7 @@ extension UIColor {
     /// UIColor to LAB.
     var lab: (l: CGFloat, a: CGFloat, b:CGFloat) {
         func fn(_ t: CGFloat) -> CGFloat {
-            if t > deltaQ { return pow(t, (1/3)) }
+            if t > deltaQ { return pow(t, (1.0/3.0)) }
             return (t / deltaSQ3) + (4.0 / 29.0)
         }
 
@@ -230,7 +230,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     switch type {
     case .rgb:
         let (r, g, b) = color.rgb
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["rgb"]! {
             return "\(truncate(r)), \(truncate(g)), \(truncate(b))"
         } else {
             return "\(truncate(r * 255)), \(truncate(g * 255)), \(truncate(b * 255))"
@@ -238,7 +238,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         
     case .hsl:
         let (h, s, l) = color.hsl
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["hsl"]! {
             return "\(truncate(h)), \(truncate(s)), \(truncate(l))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(l * 100))"
@@ -246,7 +246,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         
     case .hsv: //Same as HSB
         let (h, s, b) = color.hsb
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["hsv"]! {
             return "\(truncate(h)), \(truncate(s)), \(truncate(b))"
         } else {
             return "\(truncate(h * 360)), \(truncate(s * 100)), \(truncate(b * 100))"
@@ -254,7 +254,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         
     case .cmyk:
         let (c, m, y, k) = color.cmyk
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["cmyk"]! {
             return "\(truncate(c)), \(truncate(m)), \(truncate(y)), \(truncate(k))"
         } else {
             return "\(truncate(c * 100)), \(truncate(m * 100)), \(truncate(y * 100)), \(truncate(k * 100))"
@@ -264,14 +264,14 @@ func colorToText(color: UIColor, type: ColorType) -> String {
         return color.hex
     case .ciexyz:
         let (x, y, z) = color.xyz
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["ciexyz"]! {
             return "\(truncate(x)), \(truncate(y)), \(truncate(z))"
         } else {
             return "\(truncate(x * 100)), \(truncate(y * 100)), \(truncate(z * 100))"
         }
     case .cielab:
         let (l, a, b) = color.lab
-        if GlobalColor.useDecimals {
+        if GlobalColor.useDecimals["cielab"]! {
             return "\(truncate(l)), \(truncate(a)), \(truncate(b))"
         } else {
             return "\(truncate(l * 100)), \(truncate(a * 128)), \(truncate(b * 128))"
@@ -285,37 +285,37 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
     case .rgb:
         if let values = getSeparatedValues(
             numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [255, 255, 255],
+            expectedValues: GlobalColor.useDecimals["rgb"]! ? [1, 1, 1] : [255, 255, 255],
             color: color)
         {
             return UIColor(red: values[0], green: values[1], blue: values[2], alpha: 1)
         }
         return nil
         
-    case .hsv://SAME AS HSB
-        if let values = getSeparatedValues(
-            numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [360, 1, 1] : [360, 100, 100],
-            color: color)
-        {
-            return UIColor(hue: values[0], saturation: values[1], brightness: values[2], alpha: 1)
-        }
-        return nil
-        
     case .hsl:
         if let values = getSeparatedValues(
             numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [360, 100, 100],
+            expectedValues: GlobalColor.useDecimals["hsl"]! ? [1, 1, 1] : [360, 100, 100],
             color: color)
         {
             return UIColor(hue: values[0], saturation: values[1], lightness: values[2], alpha: 1)
         }
         return nil
         
+    case .hsv://SAME AS HSB
+        if let values = getSeparatedValues(
+            numValues: 3,
+            expectedValues: GlobalColor.useDecimals["hsv"]! ? [360, 1, 1] : [360, 100, 100],
+            color: color)
+        {
+            return UIColor(hue: values[0], saturation: values[1], brightness: values[2], alpha: 1)
+        }
+        return nil
+
     case .cmyk:
         if let values = getSeparatedValues(
             numValues: 4,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1, 1] : [100, 100, 100, 100],
+            expectedValues: GlobalColor.useDecimals["cmyk"]! ? [1, 1, 1, 1] : [100, 100, 100, 100],
             color: color)
         {
             return UIColor(cmyk: values)
@@ -327,7 +327,7 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
     case .ciexyz:
         if let values = getSeparatedValues(
             numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [100, 100, 100],
+            expectedValues: GlobalColor.useDecimals["ciexyz"]! ? [1, 1, 1] : [100, 100, 100],
             color: color)
         {
             print(values)
@@ -337,7 +337,7 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
     case .cielab:
         if let values = getSeparatedValues(
             numValues: 3,
-            expectedValues: GlobalColor.useDecimals ? [1, 1, 1] : [100, 127, 127],
+            expectedValues: GlobalColor.useDecimals["cielab"]! ? [1, 1, 1] : [100, 127, 127],
             color: color)
         {
             return UIColor(lab: values)

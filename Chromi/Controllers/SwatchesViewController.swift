@@ -86,12 +86,18 @@ class SwatchesViewController: UIViewController {
         return SavedCSVData.roscoCSV
     }
     func getSwatches() {
+        let diff = 0.2
         if swatchType == .gel {
-            //
+            for line in SavedCSVData.roscoCSV {
+                print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
+                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < diff {
+                    data.append(line)
+                }
+            }
         } else {
             for line in SavedCSVData.pantoneCSV {
                 print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
-                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < 0.2 {
+                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < diff {
                     data.append(line)
                 }
             }
@@ -107,17 +113,24 @@ class SwatchesViewController: UIViewController {
 // MARK: - INIT CELLS
 extension SwatchesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return max(1, data.count)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "swatchCell", for: indexPath) as! SwatchCell
-        cell.cellType = swatchType
-        cell.titleText = data[indexPath.row][0]
-        cell.color = UIColor(hex: data[indexPath.row][1])
-        if data[indexPath.row].count == 3 {
-            cell.descText = data[indexPath.row][2]
-        } else {
+        
+        if data.count == 0 {
+            cell.cellType = .pantone
+            cell.titleText = "No Swatches Found"
             cell.descText = ""
+        } else {
+            cell.cellType = swatchType
+            cell.titleText = data[indexPath.row][0]
+            cell.color = UIColor(hex: data[indexPath.row][1])
+            if data[indexPath.row].count == 3 {
+                cell.descText = data[indexPath.row][2]
+            } else {
+                cell.descText = ""
+            }
         }
         
         return cell

@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         backButton.frame.origin = CGPoint(x: -10, y: 0)
         
-        let yOffset: CGFloat = 110
+        let yOffset: CGFloat = 0
         settingsTable.frame = CGRect(x: 0, y: yOffset, width: superView.frame.width, height: superView.frame.height - yOffset)
         settingsTable.delegate = self
         settingsTable.dataSource = self

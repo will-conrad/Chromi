@@ -11,7 +11,13 @@ class SavedCSVData {
     static var pantoneCSV = [[String]]()
     static var roscoCSV = [[String]]()
     init() {
-        SavedCSVData.pantoneCSV = CSVParser(path: "/Users/willconrad/Downloads/Data/Pantone.csv", separator: ",").data
-        SavedCSVData.roscoCSV = CSVParser(path: "/Users/willconrad/Downloads/Data/Rosco.csv", separator: ",").data
+        if let path = Bundle.main.path(forResource: "Pantone", ofType: "csv") {
+            SavedCSVData.pantoneCSV = CSVParser(path: path, separator: ",").data
+        }
+        if let path = Bundle.main.path(forResource: "Rosco", ofType: "csv") {
+            SavedCSVData.roscoCSV = CSVParser(path: path, separator: ",").data
+        }
+        
+        
     }
 }

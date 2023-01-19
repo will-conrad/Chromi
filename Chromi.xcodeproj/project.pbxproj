@@ -18,10 +18,10 @@
 		29A71716296F097200EB60BA /* ConvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71715296F097200EB60BA /* ConvertViewController.swift */; };
 		29A71718296F27E200EB60BA /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71717296F27E200EB60BA /* PaddingTextField.swift */; };
 		29A7171A296F306000EB60BA /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71719296F306000EB60BA /* Enumerations.swift */; };
-		29AB71982979112E001F0B36 /* Rosco.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB71962979112E001F0B36 /* Rosco.csv */; };
-		29AB71992979112E001F0B36 /* Pantone.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB71972979112E001F0B36 /* Pantone.csv */; };
 		29AB719B29797E02001F0B36 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB719A29797DC9001F0B36 /* CSVParser.swift */; };
 		29AB719D29798CA6001F0B36 /* SavedCSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB719C29798C14001F0B36 /* SavedCSVData.swift */; };
+		29AB71A029799E3C001F0B36 /* Pantone.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB719E29799E3C001F0B36 /* Pantone.csv */; };
+		29AB71A129799E3C001F0B36 /* Rosco.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB719F29799E3C001F0B36 /* Rosco.csv */; };
 		29D6D887295A1BFD0061FEF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */; };
 		29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813B2970401200A25D69 /* SchemesViewController.swift */; };
 		29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813D29704E7B00A25D69 /* GlobalColor.swift */; };
@@ -45,10 +45,10 @@
 		29A71715296F097200EB60BA /* ConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertViewController.swift; sourceTree = "<group>"; };
 		29A71717296F27E200EB60BA /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 		29A71719296F306000EB60BA /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
-		29AB71962979112E001F0B36 /* Rosco.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rosco.csv; path = ../../../../Downloads/Data/Rosco.csv; sourceTree = "<group>"; };
-		29AB71972979112E001F0B36 /* Pantone.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pantone.csv; path = ../../../../Downloads/Data/Pantone.csv; sourceTree = "<group>"; };
 		29AB719A29797DC9001F0B36 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		29AB719C29798C14001F0B36 /* SavedCSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCSVData.swift; sourceTree = "<group>"; };
+		29AB719E29799E3C001F0B36 /* Pantone.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pantone.csv; sourceTree = "<group>"; };
+		29AB719F29799E3C001F0B36 /* Rosco.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rosco.csv; sourceTree = "<group>"; };
 		29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		29E4813B2970401200A25D69 /* SchemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemesViewController.swift; sourceTree = "<group>"; };
 		29E4813D29704E7B00A25D69 /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 		2994E081295A07CD00722665 /* Chromi */ = {
 			isa = PBXGroup;
 			children = (
-				29AB719529791121001F0B36 /* Data */,
+				29AB71A229799E49001F0B36 /* Data */,
 				295A0F8729770A9600E5C796 /* Calculators */,
 				29E481472970F63000A25D69 /* Controllers */,
 				2994E088295A07CD00722665 /* Main.storyboard */,
@@ -121,11 +121,11 @@
 			path = Chromi;
 			sourceTree = "<group>";
 		};
-		29AB719529791121001F0B36 /* Data */ = {
+		29AB71A229799E49001F0B36 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				29AB71972979112E001F0B36 /* Pantone.csv */,
-				29AB71962979112E001F0B36 /* Rosco.csv */,
+				29AB719E29799E3C001F0B36 /* Pantone.csv */,
+				29AB719F29799E3C001F0B36 /* Rosco.csv */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2994E08C295A07CE00722665 /* Assets.xcassets in Resources */,
-				29AB71982979112E001F0B36 /* Rosco.csv in Resources */,
-				29AB71992979112E001F0B36 /* Pantone.csv in Resources */,
+				29AB71A129799E3C001F0B36 /* Rosco.csv in Resources */,
 				29E481492971CF3300A25D69 /* LaunchScreen.storyboard in Resources */,
+				29AB71A029799E3C001F0B36 /* Pantone.csv in Resources */,
 				2994E08A295A07CD00722665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

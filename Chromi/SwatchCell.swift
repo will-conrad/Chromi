@@ -31,8 +31,7 @@ class SwatchCell: UITableViewCell {
         if descText == "" {
             descLabel.text = color.hex
         } else {
-            descLabel.text = descText
-
+            descLabel.text = "\(color.hex) - \(descText)"
         }
     }
 }

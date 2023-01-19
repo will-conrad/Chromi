@@ -20,6 +20,8 @@
 		29A7171A296F306000EB60BA /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A71719296F306000EB60BA /* Enumerations.swift */; };
 		29AB71982979112E001F0B36 /* Rosco.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB71962979112E001F0B36 /* Rosco.csv */; };
 		29AB71992979112E001F0B36 /* Pantone.csv in Resources */ = {isa = PBXBuildFile; fileRef = 29AB71972979112E001F0B36 /* Pantone.csv */; };
+		29AB719B29797E02001F0B36 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB719A29797DC9001F0B36 /* CSVParser.swift */; };
+		29AB719D29798CA6001F0B36 /* SavedCSVData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB719C29798C14001F0B36 /* SavedCSVData.swift */; };
 		29D6D887295A1BFD0061FEF9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */; };
 		29E4813C2970401200A25D69 /* SchemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813B2970401200A25D69 /* SchemesViewController.swift */; };
 		29E4813E29704E7B00A25D69 /* GlobalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E4813D29704E7B00A25D69 /* GlobalColor.swift */; };
@@ -45,6 +47,8 @@
 		29A71719296F306000EB60BA /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		29AB71962979112E001F0B36 /* Rosco.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rosco.csv; path = ../../../../Downloads/Data/Rosco.csv; sourceTree = "<group>"; };
 		29AB71972979112E001F0B36 /* Pantone.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Pantone.csv; path = ../../../../Downloads/Data/Pantone.csv; sourceTree = "<group>"; };
+		29AB719A29797DC9001F0B36 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
+		29AB719C29798C14001F0B36 /* SavedCSVData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCSVData.swift; sourceTree = "<group>"; };
 		29D6D886295A1BFD0061FEF9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		29E4813B2970401200A25D69 /* SchemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemesViewController.swift; sourceTree = "<group>"; };
 		29E4813D29704E7B00A25D69 /* GlobalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColor.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				29E4813D29704E7B00A25D69 /* GlobalColor.swift */,
 				29E481452970F4CD00A25D69 /* ColorCell.swift */,
 				297C835129747F6800703160 /* SwatchCell.swift */,
+				29AB719A29797DC9001F0B36 /* CSVParser.swift */,
+				29AB719C29798C14001F0B36 /* SavedCSVData.swift */,
 				29E4813F29707A3100A25D69 /* SRCopyableLabel.swift */,
 				291454FC2978AFA7005FD825 /* ColorSwitch.swift */,
 				29A71719296F306000EB60BA /* Enumerations.swift */,
@@ -211,6 +217,8 @@
 				29A7171A296F306000EB60BA /* Enumerations.swift in Sources */,
 				291454FD2978AFB1005FD825 /* ColorSwitch.swift in Sources */,
 				295695C42973C3FC0024A85F /* SwatchesViewController.swift in Sources */,
+				29AB719D29798CA6001F0B36 /* SavedCSVData.swift in Sources */,
+				29AB719B29797E02001F0B36 /* CSVParser.swift in Sources */,
 				299788F1296F82A200702107 /* ColorCalculations.swift in Sources */,
 				29E4814029707A3100A25D69 /* SRCopyableLabel.swift in Sources */,
 				297C835229747F6800703160 /* SwatchCell.swift in Sources */,

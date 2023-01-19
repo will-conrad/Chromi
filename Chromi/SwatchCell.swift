@@ -21,7 +21,18 @@ class SwatchCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         colorCircleView.layer.cornerRadius = colorCircleView.frame.width / 2
         colorCircleView.backgroundColor = color
-        titleLabel.text = titleText
-        descLabel.text = descText
+    
+        if cellType == .gel {
+            titleLabel.text = "R\(titleText)"
+        } else {
+            titleLabel.text = titleText
+        }
+
+        if descText == "" {
+            descLabel.text = color.hex
+        } else {
+            descLabel.text = descText
+
+        }
     }
 }

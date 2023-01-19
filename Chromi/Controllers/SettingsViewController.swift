@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
         
         useDecimalsSwitch.isOn = defaults.bool(forKey: "useDecimals")
         
-        let yOffset: CGFloat = 160
+        let yOffset: CGFloat = 110
         settingsTable.frame = CGRect(x: 0, y: yOffset, width: superView.frame.width, height: superView.frame.height - yOffset)
         settingsTable.delegate = self
         settingsTable.dataSource = self
@@ -34,11 +34,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true)
-    }
-    @IBAction func resetDefaults(_ sender: Any) {
-        useDecimalsSwitch.isOn = false
-        GlobalColor().reset()
-        refreshControllers()
     }
     
     func refreshControllers() {
@@ -73,7 +68,7 @@ extension SettingsViewController: UITableViewDelegate {
 
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     //NUM ROWS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +77,8 @@ extension SettingsViewController: UITableViewDataSource {
             return 2 //Illuminant
         case 1:
             return types.count //Use decimals
+        case 2:
+            return 1
         
         default:
             return 0
@@ -93,7 +90,7 @@ extension SettingsViewController: UITableViewDataSource {
         case 0:
             return "Illuminant"
         case 1:
-            return ""
+            return "Decimals"
         default:
             return ""
         }
@@ -102,15 +99,15 @@ extension SettingsViewController: UITableViewDataSource {
         //FOOTER
         switch section {
         case 0:
-            return "The reference illuminant to use when calculating CIEXYZ and CIELAB values"
-//        case 1:
-//            return GlobalColor.useDecimals ? "Example: RGB = (0, 0.5, 1)" : "Example: RGB = (0, 128, 255)"
+            return "The reference illuminant to use when calculating CIEXYZ and CIELAB values."
+        case 1:
+            return "Whether or not to scale values from 0-1.\n\(GlobalColor.useDecimals["rgb"]! ? "Example: RGB = (0, 0.5, 1)" : "Example: RGB = (0, 128, 255)")"
         default:
             return ""
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return section == 0 ? 30 : 50
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
@@ -127,22 +124,31 @@ extension SettingsViewController: UITableViewDataSource {
         case 1:
             let type = types[indexPath.row]
             cell.textLabel!.text = "Use decimals for \(type.rawValue.uppercased()) values"
+            
             let toggle = ColorSwitch(frame: .zero, type: type)
             toggle.isOn = GlobalColor.useDecimals[type.rawValue]!
             toggle.addTarget(self, action: #selector(self.toggled), for: .valueChanged)
-            cell.accessoryView = toggle
-//            var toggle = UISwitch(frame: .zero)
-//            toggle.isOn = GlobalColor.useDecimals
-//            cell.textLabel!.text = "Use decimal values"
-//            toggle.addTarget(self, action: #selector(self.toggled), for: .valueChanged)
-//            cell.accessoryView = toggle
             
+            cell.accessoryView = toggle
+        case 2:
+            var button = UIButton(type: .system)
+            button.frame = cell.frame
+            
+            button.setTitle("Reset App Defaults", for: .normal)
+            button.titleLabel?.font = UIFont(name: "body", size: 1)
+            button.addTarget(self, action: #selector(self.resetButton), for: .touchUpInside)
+           
+            cell.accessoryView = button
         default:
             break
         }
         return cell
     }
-    
+    @objc func resetButton(_ sender : UIButton!) {
+        GlobalColor().reset()
+        refreshControllers()
+        settingsTable.reloadData()
+    }
     @objc func toggled(_ sender : ColorSwitch!){
         if sender.isOn {
             GlobalColor.useDecimals[sender.type.rawValue] = true
@@ -153,6 +159,4 @@ extension SettingsViewController: UITableViewDataSource {
         settingsTable.reloadData()
         refreshControllers()
     }
-
-    
 }

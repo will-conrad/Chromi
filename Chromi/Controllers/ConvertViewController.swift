@@ -132,7 +132,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
     
     func updateInputColorField() {
-        print(GlobalColor.color)
         inputColor.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         setDefaultInputType()
     }

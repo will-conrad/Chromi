@@ -92,6 +92,8 @@ class SchemesViewController: UIViewController {
             return GlobalColor.color.complementary
         case .splitComplementary:
             return GlobalColor.color.splitComplementary
+        case .square:
+            return GlobalColor.color.square
         case .tetradic:
             return GlobalColor.color.tetradic
         case .triadic:

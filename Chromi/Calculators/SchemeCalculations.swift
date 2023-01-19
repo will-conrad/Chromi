@@ -17,11 +17,14 @@ extension UIColor {
         let b = self.withHueOffset(210 / 360)
         return [self, a, b]
     }
+    var square: [UIColor] {
+        return [self, self.withHueOffset(0.25), self.withHueOffset(0.5), self.withHueOffset(0.75)]
+    }
     var triadic: [UIColor] {
         return [self, self.withHueOffset(120 / 360), self.withHueOffset(240 / 360)]
     }
     var tetradic: [UIColor] {
-        return [self, self.withHueOffset(0.25), self.withHueOffset(0.75), self.complementary[1]]
+        return [self, self.withHueOffset(60/360), self.withHueOffset(0.5), self.withHueOffset(240/360)]
     }
     var analagous: [UIColor] {
         return [self.withHueOffset(-1 / 12), self, self.withHueOffset(1 / 12)]

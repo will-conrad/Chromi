@@ -219,7 +219,7 @@ extension UIColor {
         let l = (116.0 * Y) - 16.0
         let a = 500.0 * (X - Y)
         let b = 200.0 * (Y - Z)
-        print(a)
+        
         return (l, a, b)
     }
 }
@@ -330,7 +330,6 @@ func parseInputColor(color: String, type: ColorType) -> UIColor? {
             expectedValues: GlobalColor.useDecimals["ciexyz"]! ? [1, 1, 1] : [100, 100, 100],
             color: color)
         {
-            print(values)
             return UIColor(xyz: values)
         }
         return nil

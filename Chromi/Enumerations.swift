@@ -19,6 +19,7 @@ enum ColorType: String, CaseIterable {
 enum ColorScheme: String, CaseIterable {
     case complementary = "Complementary"
     case splitComplementary = "Split Complementary"
+    case square = "Square"
     case tetradic = "Tetradic"
     case triadic = "Triadic"
     case analogous = "Analogous"

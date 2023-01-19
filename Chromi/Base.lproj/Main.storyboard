@@ -460,35 +460,10 @@
                     <view key="view" contentMode="scaleToFill" id="ZxW-Ef-Jid">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DkM-bn-jJj">
-                                <rect key="frame" x="163" y="502" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="displayTypeSwitched:" destination="KGd-Sg-8Wk" eventType="valueChanged" id="H2Z-oG-T8o"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use Decimals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebS-oC-PAR">
-                                <rect key="frame" x="144" y="473" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJp-R9-3BY">
-                                <rect key="frame" x="120" y="702" width="133" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Reset defaults"/>
-                                <connections>
-                                    <action selector="resetDefaults:" destination="KGd-Sg-8Wk" eventType="touchUpInside" id="fVV-KI-75a"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VWD-z8-aNV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="QKG-yF-eMw">
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="QKG-yF-eMw">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="VDC-uS-4my">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
                                 <rect key="frame" x="16" y="10.666666666666664" width="77.333333333333329" height="35"/>
@@ -504,7 +479,6 @@
                     <connections>
                         <outlet property="backButton" destination="XVZ-sp-09J" id="jkl-sf-1H8"/>
                         <outlet property="superView" destination="ZxW-Ef-Jid" id="38M-QZ-r5b"/>
-                        <outlet property="useDecimalsSwitch" destination="DkM-bn-jJj" id="xXk-VC-aGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iW1-vh-uis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -586,7 +560,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1U-JC-tLd">
-                                <rect key="frame" x="21.666666666666657" y="141" width="350" height="400"/>
+                                <rect key="frame" x="21.666666666666657" y="141" width="350" height="450"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fcl-lp-Ia5">
                                         <rect key="frame" x="10" y="10" width="330" height="32"/>
@@ -596,7 +570,7 @@
                                         </segments>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-HT-RRz">
-                                        <rect key="frame" x="0.0" y="51" width="350" height="349"/>
+                                        <rect key="frame" x="0.0" y="51" width="350" height="399"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="swatchCell" rowHeight="65" id="A7K-0a-orA" customClass="SwatchCell" customModule="Chromi" customModuleProvider="target">
@@ -651,7 +625,7 @@
                                     <constraint firstItem="fcl-lp-Ia5" firstAttribute="top" secondItem="o1U-JC-tLd" secondAttribute="top" constant="10" id="2Fh-tW-XeW"/>
                                     <constraint firstAttribute="trailing" secondItem="fcl-lp-Ia5" secondAttribute="trailing" constant="10" id="Fmv-xZ-xrC"/>
                                     <constraint firstItem="a9i-HT-RRz" firstAttribute="leading" secondItem="o1U-JC-tLd" secondAttribute="leading" id="UwL-SG-IEQ"/>
-                                    <constraint firstAttribute="height" constant="400" id="hSY-0p-kh6"/>
+                                    <constraint firstAttribute="height" constant="450" id="hSY-0p-kh6"/>
                                     <constraint firstAttribute="trailing" secondItem="a9i-HT-RRz" secondAttribute="trailing" id="kWv-Us-UZq"/>
                                     <constraint firstItem="a9i-HT-RRz" firstAttribute="top" secondItem="fcl-lp-Ia5" secondAttribute="bottom" constant="10" id="olP-3Y-Uj1"/>
                                     <constraint firstAttribute="bottom" secondItem="a9i-HT-RRz" secondAttribute="bottom" id="p5T-zk-9CJ"/>

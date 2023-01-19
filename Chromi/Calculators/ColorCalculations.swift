@@ -123,10 +123,9 @@ extension UIColor {
     var rgb: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var (r, g, b) = (CGFloat(), CGFloat(), CGFloat())
         getRed(&r, green: &g, blue: &b, alpha: nil)
-        r = min(1, r)
-        g = min(1, g)
-        b = min(1, b)
-        
+        r = clamp(r)
+        g = clamp(g)
+        b = clamp(b)
         return (r, g, b)
     }
 
@@ -231,6 +230,7 @@ func colorToText(color: UIColor, type: ColorType) -> String {
     case .rgb:
         let (r, g, b) = color.rgb
         if GlobalColor.useDecimals["rgb"]! {
+            print("RED: \(r) TRUNC: \(truncate(r))")
             return "\(truncate(r)), \(truncate(g)), \(truncate(b))"
         } else {
             return "\(truncate(r * 255)), \(truncate(g * 255)), \(truncate(b * 255))"
@@ -395,5 +395,8 @@ func truncate(_ x: Double) -> Double {
     let decimals = 3
     let n = pow(10.0, decimals).doubleValue
     let trunc = abs(ceil(x * n)/n)
-    return negative ? -1 * trunc : trunc
+    return negative && trunc != 0 ? -1 * trunc : trunc
+}
+func clamp(_ value: CGFloat) -> CGFloat {
+    return max(-1, min(1, value))
 }

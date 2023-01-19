@@ -41,8 +41,8 @@ class GlobalColor {
         "hsl": false,
         "hsv": false,
         "cmyk": false,
-        "ciexyz": false,
-        "cielab": false
+        "ciexyz": true,
+        "cielab": true
     ]
     static var defaultDecimalsNS: NSDictionary = defaultDecimals as NSDictionary
     

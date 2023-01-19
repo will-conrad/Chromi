@@ -264,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-494.36619718309862"/>
+            <point key="canvasLocation" x="1900" y="-529"/>
         </scene>
         <!--Schemes-->
         <scene sceneID="Xhe-ZK-tYt">
@@ -483,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iW1-vh-uis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3979.3893129770991" y="212.67605633802819"/>
+            <point key="canvasLocation" x="3785" y="191"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AD9-wM-OMS">
@@ -636,6 +636,13 @@
                                     <constraint firstItem="fcl-lp-Ia5" firstAttribute="leading" secondItem="o1U-JC-tLd" secondAttribute="leading" constant="10" id="xg5-3N-fHv"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZbA-eO-u1d">
+                                <rect key="frame" x="14" y="116" width="360" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="76K-EL-vyg" eventType="valueChanged" id="pJf-hv-gsO"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Brs-g9-2b7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -671,7 +678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBB-n0-5EK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="924.38423645320199"/>
+            <point key="canvasLocation" x="1900" y="924"/>
         </scene>
         <!--Schemes-->
         <scene sceneID="lVN-7i-Hvc">
@@ -699,7 +706,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blG-U6-MO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="270"/>
+            <point key="canvasLocation" x="1062" y="191"/>
         </scene>
         <!--Swatches-->
         <scene sceneID="QaL-mX-pnD">
@@ -739,11 +746,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0P-OR-MpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052.6717557251909" y="212.67605633802819"/>
+            <point key="canvasLocation" x="2908" y="191"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QZC-IO-pG7"/>
+        <segue reference="tzS-om-u4c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>

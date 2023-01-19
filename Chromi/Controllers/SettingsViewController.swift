@@ -21,8 +21,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         backButton.frame.origin = CGPoint(x: -10, y: 0)
         
-        let yOffset: CGFloat = 0
-        settingsTable.frame = CGRect(x: 0, y: yOffset, width: superView.frame.width, height: superView.frame.height - yOffset)
+        settingsTable.frame = CGRect(x: 0, y: 0, width: superView.frame.width, height: superView.frame.height)
         settingsTable.delegate = self
         settingsTable.dataSource = self
         superView.addSubview(settingsTable)
@@ -37,6 +36,7 @@ class SettingsViewController: UIViewController {
         NotificationCenter.default.post(name: Notification.Name("refresh"), object: nil)
     }
 }
+
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = settingsTable.cellForRow(at: indexPath) {

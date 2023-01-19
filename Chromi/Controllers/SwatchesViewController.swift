@@ -26,7 +26,16 @@ class SwatchesViewController: UIViewController {
     var data: [[String]] = [[String]]()
     var swatchType: SwatchType = .gel
     
+    var threshold: Double = 0.2
+    
     // MARK: IBACTIONS
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        threshold = Double(sender.value)
+        data = [[String]]()
+        getSwatches()
+        swatchTable.reloadData()
+    }
     @IBAction func typeChanged(_ sender: Any) {
         switch swatchTypeControl.selectedSegmentIndex {
         case 0: //Gels
@@ -55,28 +64,28 @@ class SwatchesViewController: UIViewController {
                    y: padding,
                    width: colorBarContainerView.frame.width - 2*padding,
                    height: colorBarContainerView.frame.height - 2*padding))
-        colorBarView.layer.cornerRadius = 10
+        colorBarView.layer.cornerRadius = 20
         colorBarView.backgroundColor = GlobalColor.color
         colorBarContainerView.addSubview(colorBarView)
         
-        inputColorStack.layer.cornerRadius = 10
+        inputColorStack.layer.cornerRadius = 20
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         
-        swatchContainerView.layer.cornerRadius = 10
+        swatchContainerView.layer.cornerRadius = 20
         swatchTable.dataSource = self
     }
     // MARK: FUNCS
     override func viewWillAppear(_ animated: Bool) {
         reload()
-        data = [[String]]()
-        getSwatches()
-        swatchTable.reloadData()
     }
     @objc func refresh (notification: NSNotification) { reload() }
     
     func reload() {
         colorBarView.backgroundColor = GlobalColor.color
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
+        data = [[String]]()
+        getSwatches()
+        swatchTable.reloadData()
     }
     
     func fetchCSV(type: SwatchType) -> [[String]] {
@@ -86,18 +95,17 @@ class SwatchesViewController: UIViewController {
         return SavedCSVData.roscoCSV
     }
     func getSwatches() {
-        let diff = 0.2
         if swatchType == .gel {
             for line in SavedCSVData.roscoCSV {
                 print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
-                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < diff {
+                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < threshold {
                     data.append(line)
                 }
             }
         } else {
             for line in SavedCSVData.pantoneCSV {
                 print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
-                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < diff {
+                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < threshold {
                     data.append(line)
                 }
             }

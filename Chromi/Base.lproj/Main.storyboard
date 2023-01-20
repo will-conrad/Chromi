@@ -292,11 +292,11 @@
                                     <constraint firstAttribute="width" constant="300" id="VD3-nZ-feg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Continue">
+                                <buttonConfiguration key="configuration" style="filled" title="Continue" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="continuePressed:" destination="BLN-Vh-8w1" eventType="touchUpInside" id="tQU-JC-giW"/>
+                                    <action selector="continuePressed:" destination="BLN-Vh-8w1" eventType="touchUpInside" id="Kba-gK-ZVn"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lkm-S5-ULP">

@@ -10,7 +10,7 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     @IBOutlet var fish: UIImageView!
-    
+
     @IBOutlet var fishToRight: NSLayoutConstraint!
     @IBOutlet var fishToTop: NSLayoutConstraint!
     
@@ -24,13 +24,15 @@ class OnboardingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        infoStack.isHidden = true
-        fishToTop.constant = 500
-        fishToRight.constant = 250
-        continueBottom.constant = -75
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            self.animate()
+        if UserDefaults.standard.bool(forKey: "appFirstTime") {
+            infoStack.alpha = 0
+            fishToTop.constant = 500
+            fishToRight.constant = 250
+            continueBottom.constant = -75
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                self.animate()
+            }
         }
     }
     func animate() {
@@ -45,6 +47,7 @@ class OnboardingViewController: UIViewController {
         
         self.fishToTop.constant = topFinal
         self.fishToRight.constant = rightFinal
+    
         
         
         UIView.animate(withDuration: 1.5, delay: 0, options: [.preferredFramesPerSecond60], animations: {
@@ -53,8 +56,11 @@ class OnboardingViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                self.infoStack.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                UIView.animate(withDuration: 0.2) {
+                    self.infoStack.alpha = 1
+                    }
+                
                 self.view.setNeedsLayout()
                 self.continueBottom.constant = continueFinal
                 UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut, .preferredFramesPerSecond60], animations: {
@@ -69,7 +75,12 @@ class OnboardingViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }, completion: nil)
             
+            
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            self.isModalInPresentation = false
+        }
+        
         
         
     }

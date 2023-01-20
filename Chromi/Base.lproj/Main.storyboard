@@ -784,7 +784,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1U-JC-tLd">
-                                <rect key="frame" x="21.666666666666657" y="141" width="350" height="450"/>
+                                <rect key="frame" x="21.666666666666657" y="171" width="350" height="433"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fcl-lp-Ia5">
                                         <rect key="frame" x="10" y="10" width="330" height="32"/>
@@ -797,7 +797,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-HT-RRz">
-                                        <rect key="frame" x="0.0" y="51" width="350" height="399"/>
+                                        <rect key="frame" x="0.0" y="51" width="350" height="382"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="swatchCell" rowHeight="65" id="A7K-0a-orA" customClass="SwatchCell" customModule="Chromi" customModuleProvider="target">
@@ -852,7 +852,6 @@
                                     <constraint firstItem="fcl-lp-Ia5" firstAttribute="top" secondItem="o1U-JC-tLd" secondAttribute="top" constant="10" id="2Fh-tW-XeW"/>
                                     <constraint firstAttribute="trailing" secondItem="fcl-lp-Ia5" secondAttribute="trailing" constant="10" id="Fmv-xZ-xrC"/>
                                     <constraint firstItem="a9i-HT-RRz" firstAttribute="leading" secondItem="o1U-JC-tLd" secondAttribute="leading" id="UwL-SG-IEQ"/>
-                                    <constraint firstAttribute="height" constant="450" id="hSY-0p-kh6"/>
                                     <constraint firstAttribute="trailing" secondItem="a9i-HT-RRz" secondAttribute="trailing" id="kWv-Us-UZq"/>
                                     <constraint firstItem="a9i-HT-RRz" firstAttribute="top" secondItem="fcl-lp-Ia5" secondAttribute="bottom" constant="10" id="olP-3Y-Uj1"/>
                                     <constraint firstAttribute="bottom" secondItem="a9i-HT-RRz" secondAttribute="bottom" id="p5T-zk-9CJ"/>
@@ -860,9 +859,11 @@
                                     <constraint firstItem="fcl-lp-Ia5" firstAttribute="leading" secondItem="o1U-JC-tLd" secondAttribute="leading" constant="10" id="xg5-3N-fHv"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZbA-eO-u1d">
-                                <rect key="frame" x="14" y="116" width="360" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.20000000000000001" minValue="0.0" maxValue="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="ZbA-eO-u1d">
+                                <rect key="frame" x="24.666666666666657" y="131" width="344" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="egR-mp-xbZ"/>
+                                </constraints>
                                 <connections>
                                     <action selector="sliderChanged:" destination="76K-EL-vyg" eventType="valueChanged" id="pJf-hv-gsO"/>
                                 </connections>
@@ -871,10 +872,13 @@
                         <viewLayoutGuide key="safeArea" id="Brs-g9-2b7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZbA-eO-u1d" firstAttribute="centerX" secondItem="Qjz-I2-v22" secondAttribute="centerX" id="0Hj-aN-IWa"/>
                             <constraint firstItem="LQp-QM-9t4" firstAttribute="centerX" secondItem="Qjz-I2-v22" secondAttribute="centerX" id="7Rh-J4-MFe"/>
                             <constraint firstItem="o1U-JC-tLd" firstAttribute="centerX" secondItem="Qjz-I2-v22" secondAttribute="centerX" id="SyG-sk-sbA"/>
                             <constraint firstItem="LQp-QM-9t4" firstAttribute="top" secondItem="Brs-g9-2b7" secondAttribute="top" constant="20" id="j4e-Fq-oIJ"/>
-                            <constraint firstItem="o1U-JC-tLd" firstAttribute="top" secondItem="LQp-QM-9t4" secondAttribute="bottom" constant="20" id="yiT-TI-1y7"/>
+                            <constraint firstItem="o1U-JC-tLd" firstAttribute="top" secondItem="ZbA-eO-u1d" secondAttribute="bottom" constant="10" id="lcB-jj-IG9"/>
+                            <constraint firstItem="Brs-g9-2b7" firstAttribute="bottom" secondItem="o1U-JC-tLd" secondAttribute="bottom" constant="10" id="ydh-ia-cke"/>
+                            <constraint firstItem="ZbA-eO-u1d" firstAttribute="top" secondItem="LQp-QM-9t4" secondAttribute="bottom" constant="10" id="zwf-Rg-UHZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swatches" id="oag-Vj-h52">
@@ -902,7 +906,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBB-n0-5EK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="924"/>
+            <point key="canvasLocation" x="2119.8473282442746" y="923.94366197183103"/>
         </scene>
         <!--Schemes-->
         <scene sceneID="lVN-7i-Hvc">
@@ -993,7 +997,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tzS-om-u4c"/>
+        <segue reference="QZC-IO-pG7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Chromi" width="1710" height="1600"/>

@@ -57,21 +57,21 @@ class SwatchesViewController: UIViewController {
         swatchTypeControl.selectedSegmentIndex = 0
         data = fetchCSV(type: .gel)
         
-        let padding: CGFloat = 10
+        let padding: CGFloat = 7
         colorBarView = UIView(
            frame: CGRect(
                    x: padding,
                    y: padding,
                    width: colorBarContainerView.frame.width - 2*padding,
                    height: colorBarContainerView.frame.height - 2*padding))
-        colorBarView.layer.cornerRadius = 15
+        colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
         colorBarContainerView.addSubview(colorBarView)
         
-        inputColorStack.layer.cornerRadius = 15
+        inputColorStack.layer.cornerRadius = 10
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
         
-        swatchContainerView.layer.cornerRadius = 15
+        swatchContainerView.layer.cornerRadius = 10
         swatchTable.dataSource = self
     }
     // MARK: FUNCS

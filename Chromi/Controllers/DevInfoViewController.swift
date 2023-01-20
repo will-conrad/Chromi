@@ -16,6 +16,7 @@ class DevInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         devTable =  UITableView(frame: CGRect(), style: .insetGrouped)
         devTable.frame = CGRect(x: 0, y: 0, width: superView.frame.width, height: superView.frame.height)
         devTable.dataSource = self

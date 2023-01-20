@@ -230,15 +230,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIr-tS-uIl">
-                                <rect key="frame" x="159" y="292" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <segue destination="BLN-Vh-8w1" kind="presentation" id="5I2-tJ-hAD"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.46666666666666667" green="0.5725490196078431" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -294,13 +285,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chromi" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-rC-ryd">
-                                <rect key="frame" x="-141" y="317" width="500" height="500"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-xB-AMF">
+                                <rect key="frame" x="46.666666666666657" y="693" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="DTO-kz-r3W"/>
-                                    <constraint firstAttribute="width" constant="500" id="tZq-dN-bvA"/>
+                                    <constraint firstAttribute="height" constant="40" id="SGR-4E-iWI"/>
+                                    <constraint firstAttribute="width" constant="300" id="VD3-nZ-feg"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Continue">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="continuePressed:" destination="BLN-Vh-8w1" eventType="touchUpInside" id="tQU-JC-giW"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Lkm-S5-ULP">
                                 <rect key="frame" x="21.666666666666657" y="259" width="350" height="330"/>
                                 <subviews>
@@ -328,7 +326,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="9fU-rV-vss" firstAttribute="centerY" secondItem="1fb-O0-85t" secondAttribute="centerY" id="1fd-Ef-Dwj"/>
                                             <constraint firstItem="Jkt-8k-hLZ" firstAttribute="leading" secondItem="9fU-rV-vss" secondAttribute="trailing" constant="10" id="2hR-B0-gv0"/>
@@ -364,7 +361,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Hoc-Ea-pdY" firstAttribute="centerY" secondItem="PIf-vC-BWc" secondAttribute="centerY" id="1g7-5d-0Vq"/>
                                             <constraint firstItem="Hoc-Ea-pdY" firstAttribute="centerY" secondItem="PIf-vC-BWc" secondAttribute="centerY" id="2tm-Z9-VNO"/>
@@ -400,7 +396,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="E6b-B6-YSV" firstAttribute="leading" secondItem="ncx-y5-wen" secondAttribute="trailing" constant="10" id="1zk-tZ-qhC"/>
                                             <constraint firstItem="Lqs-Xh-FYm" firstAttribute="top" secondItem="E6b-B6-YSV" secondAttribute="bottom" constant="5" id="2kn-78-jwV"/>
@@ -418,20 +413,18 @@
                                     <constraint firstAttribute="height" constant="330" id="syK-Zm-CwC"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-xB-AMF">
-                                <rect key="frame" x="46.666666666666657" y="668" width="300" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chromi" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-rC-ryd">
+                                <rect key="frame" x="-141" y="317" width="500" height="500"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="SGR-4E-iWI"/>
-                                    <constraint firstAttribute="width" constant="300" id="VD3-nZ-feg"/>
+                                    <constraint firstAttribute="height" constant="500" id="DTO-kz-r3W"/>
+                                    <constraint firstAttribute="width" constant="500" id="tZq-dN-bvA"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Let's Go!"/>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R37-pm-4lk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R37-pm-4lk" firstAttribute="bottom" secondItem="8s8-xB-AMF" secondAttribute="bottom" constant="75" id="BWH-xM-DrI"/>
+                            <constraint firstItem="R37-pm-4lk" firstAttribute="bottom" secondItem="8s8-xB-AMF" secondAttribute="bottom" constant="50" id="BWH-xM-DrI"/>
                             <constraint firstItem="8s8-xB-AMF" firstAttribute="centerX" secondItem="9SJ-Ir-1gQ" secondAttribute="centerX" id="EVx-rR-GRT"/>
                             <constraint firstItem="7Rv-aX-3xJ" firstAttribute="top" secondItem="R37-pm-4lk" secondAttribute="top" constant="50" id="Jwy-7R-iMr"/>
                             <constraint firstItem="GtN-rC-ryd" firstAttribute="top" secondItem="R37-pm-4lk" secondAttribute="top" constant="258" id="NBY-JH-dn7"/>
@@ -440,17 +433,14 @@
                             <constraint firstItem="7Rv-aX-3xJ" firstAttribute="centerX" secondItem="9SJ-Ir-1gQ" secondAttribute="centerX" id="d5I-HM-xTL"/>
                             <constraint firstItem="Lkm-S5-ULP" firstAttribute="top" secondItem="7Rv-aX-3xJ" secondAttribute="bottom" id="g9t-dS-xgA"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="GtN-rC-ryd"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="YT9-T0-Dyo"/>
                     <connections>
+                        <outlet property="continueBottom" destination="BWH-xM-DrI" id="iau-XF-4Rq"/>
                         <outlet property="fish" destination="GtN-rC-ryd" id="IGw-Aq-p6o"/>
                         <outlet property="fishToRight" destination="Px4-PN-vgK" id="2lQ-Fh-bJU"/>
                         <outlet property="fishToTop" destination="NBY-JH-dn7" id="IEG-Ua-6Lz"/>
+                        <outlet property="infoStack" destination="Lkm-S5-ULP" id="fdT-OQ-5wE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nae-md-xKp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1004,7 +994,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tzS-om-u4c"/>
-        <segue reference="3sR-RS-Ksf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Chromi" width="1710" height="1600"/>

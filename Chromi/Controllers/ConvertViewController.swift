@@ -20,6 +20,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
     
+    let defaults = UserDefaults.standard
+    
     // MARK: IBACTIONS
     @IBAction func inputColorUpdated(_ sender: Any) {
         if let color = parseInputColor(color: inputColor.text!, type: GlobalColor.inputType) {
@@ -49,6 +51,15 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        
+        if defaults.bool(forKey: "appFirstTime") {
+            defaults.set(false, forKey: "appFirstTime")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.performSegue(withIdentifier: "Onboard", sender: nil)
+            }
+        }
+        
+        
         
         colorSelector.addTarget(self, action: #selector(colorSelectorUpdate), for: .valueChanged)
         colorSelector.selectedColor = GlobalColor.color
@@ -100,7 +111,6 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         inputTypeButton.menu = colorInputTypeContextMenu()
         outputTypeButton.menu = colorOutputTypeContextMenu()
     }
-    
     func colorInputTypeContextMenu() -> UIMenu {
         var actions: [UIAction] = []
         for type in ColorType.allCases {
@@ -150,12 +160,12 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: DEFAULTS
     func setDefaultColor() {
-        UserDefaults.standard.set(GlobalColor.colorNS, forKey: "color")
+        defaults.set(GlobalColor.colorNS, forKey: "color")
     }
     func setDefaultInputType() {
-        UserDefaults.standard.set(GlobalColor.inTypeNS, forKey: "inType")
+        defaults.set(GlobalColor.inTypeNS, forKey: "inType")
     }
     func setDefaultOutputType() {
-        UserDefaults.standard.set(GlobalColor.outTypeNS, forKey: "outType")
+        defaults.set(GlobalColor.outTypeNS, forKey: "outType")
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet var backButton: UIButton!
+    @IBOutlet var infoButton: UIButton!
     @IBOutlet var superView: UIView!
     
     var settingsTable =  UITableView(frame: CGRect(), style: .insetGrouped)
@@ -19,7 +20,6 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backButton.frame.origin = CGPoint(x: -10, y: 0)
         
         settingsTable.frame = CGRect(x: 0, y: 0, width: superView.frame.width, height: superView.frame.height)
         settingsTable.delegate = self

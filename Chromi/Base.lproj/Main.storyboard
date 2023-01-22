@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="54" id="56F-Fo-0rR"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-pS-GRf" customClass="UITableView">
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ho-pS-GRf">
                                 <rect key="frame" x="0.0" y="499" width="393" height="400"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG8-Rh-AIy">
@@ -172,8 +172,18 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bv-XI-aGa">
                                                         <rect key="frame" x="0.0" y="24" width="250" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-IM-NCN" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
+                                                                <rect key="frame" x="10" y="11.999999999999998" width="41.333333333333336" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstItem="cJZ-IM-NCN" firstAttribute="centerY" secondItem="0bv-XI-aGa" secondAttribute="centerY" id="NYY-Ye-Ud0"/>
+                                                            <constraint firstItem="cJZ-IM-NCN" firstAttribute="leading" secondItem="0bv-XI-aGa" secondAttribute="leading" constant="10" id="ON3-gL-M2q"/>
                                                             <constraint firstAttribute="width" constant="250" id="ecZ-8Q-heO"/>
                                                             <constraint firstAttribute="height" constant="44" id="qj0-mi-j29"/>
                                                         </constraints>
@@ -256,8 +266,8 @@
                         <outlet property="colorSelector" destination="foV-mM-aTa" id="09m-6N-g6z"/>
                         <outlet property="inputColor" destination="Odm-vu-afW" id="gZh-D3-Q9B"/>
                         <outlet property="inputTypeButton" destination="uXU-tE-jQe" id="UB5-la-wBx"/>
-                        <outlet property="mainStack" destination="7Ho-pS-GRf" id="ubY-lf-g3b"/>
                         <outlet property="mainStackBottomConstraint" destination="irl-u0-zET" id="I5A-gD-lBf"/>
+                        <outlet property="outputColorText" destination="cJZ-IM-NCN" id="dye-me-5Ku"/>
                         <outlet property="outputColorView" destination="0bv-XI-aGa" id="pFG-hW-qCz"/>
                         <outlet property="outputTypeButton" destination="Xhi-wK-IbK" id="JJf-8v-cjc"/>
                         <segue destination="BLN-Vh-8w1" kind="presentation" identifier="Onboard" id="3sR-RS-Ksf"/>
@@ -492,7 +502,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#FFFFFF" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-NS-97l" customClass="SRCopyableLabel" customModule="Chromi" customModuleProvider="target">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#FFFFFF" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-NS-97l" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
                                                 <rect key="frame" x="266.66666666666669" y="14.999999999999998" width="66.333333333333314" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -524,7 +534,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-xx-MN7">
                                                     <rect key="frame" x="10" y="7" width="265" height="36"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.000, 00.000, 00.000, 00.000" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-gu-c2K" customClass="SRCopyableLabel" customModule="Chromi" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.000, 00.000, 00.000, 00.000" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NbL-gu-c2K" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="7.9999999999999982" width="255" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -645,7 +655,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="QKG-yF-eMw">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="VDC-uS-4my">
+                        <barButtonItem key="leftBarButtonItem" id="VDC-uS-4my">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
                                 <rect key="frame" x="16" y="10.666666666666664" width="77.333333333333329" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -656,7 +666,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="cbm-Ju-yl2">
+                        <barButtonItem key="rightBarButtonItem" id="cbm-Ju-yl2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UDC-od-Zf4">
                                 <rect key="frame" x="290" y="10.666666666666664" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -689,7 +699,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Developer Info" largeTitleDisplayMode="always" id="qKV-5H-C5w">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="BwP-mD-gbk">
+                        <barButtonItem key="leftBarButtonItem" id="BwP-mD-gbk">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AdP-d0-84I">
                                 <rect key="frame" x="16" y="10.666666666666664" width="87" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -774,7 +784,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#FFFFFF" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-ZT-KpA" customClass="SRCopyableLabel" customModule="Chromi" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#FFFFFF" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-ZT-KpA" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
                                                 <rect key="frame" x="266.66666666666669" y="14.999999999999998" width="66.333333333333314" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -824,13 +834,13 @@
                                                                 <constraint firstAttribute="width" constant="40" id="yUJ-MX-Lt1"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-fB-EjX">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-fB-EjX" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
                                                             <rect key="frame" x="80" y="10.999999999999998" width="35" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0y-uX-Qns">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0y-uX-Qns" customClass="CopyableLabel" customModule="Chromi" customModuleProvider="target">
                                                             <rect key="frame" x="80" y="36.333333333333336" width="30" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>

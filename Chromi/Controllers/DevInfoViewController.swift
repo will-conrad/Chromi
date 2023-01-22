@@ -39,8 +39,8 @@ extension DevInfoViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
-        var button = UIButton(type: .system)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
+        let button = UIButton(type: .system)
         button.frame = cell.frame
         
         button.setTitle("Reset app (quits appplication)", for: .normal)

@@ -15,8 +15,8 @@ class SwatchCell: UITableViewCell {
     var color: UIColor? = UIColor.black
     
     @IBOutlet var colorCircleView: UIView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var descLabel: UILabel!
+    @IBOutlet var titleLabel: CopyableLabel!
+    @IBOutlet var descLabel: CopyableLabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         colorCircleView.layer.cornerRadius = colorCircleView.frame.width / 2

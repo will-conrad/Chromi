@@ -10,7 +10,6 @@ import UIKit
 class ConvertViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var mainStackBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var mainStack: UITableView!
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var colorSelector: UIColorWell!
     @IBOutlet var inputTypeButton: UIButton!
@@ -18,9 +17,11 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var outputTypeButton: UIButton!
     @IBOutlet var outputColorView: UIView!
 
-    var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
-    
+    @IBOutlet var outputColorText: CopyableLabel!
+//    var outputColorText = SRCopyableLabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
+//
     let defaults = UserDefaults.standard
+    //padding
     
     // MARK: IBACTIONS
     @IBAction func inputColorUpdated(_ sender: Any) {
@@ -85,8 +86,8 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         outputTypeButton.menu = colorOutputTypeContextMenu()
 
         outputColorView.layer.cornerRadius = 10
-        outputColorText.textColor = UIColor.lightGray
-        outputColorView.addSubview(outputColorText)
+//        outputColorText.textColor = UIColor.lightGray
+//        outputColorView.addSubview(outputColorText)
 
         mainStackBottomConstraint.constant = 130
     }

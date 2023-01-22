@@ -109,7 +109,7 @@ extension SettingsViewController: UITableViewDataSource {
         return section == 0 ? 30 : 50
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
         switch indexPath.section {
         case 0: // D65
             if indexPath.row == 0 {
@@ -130,7 +130,7 @@ extension SettingsViewController: UITableViewDataSource {
             
             cell.accessoryView = toggle
         case 2:
-            var button = UIButton(type: .system)
+            let button = UIButton(type: .system)
             button.frame = cell.frame
             
             button.setTitle("Reset App Defaults", for: .normal)

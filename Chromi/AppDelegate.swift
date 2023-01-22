@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         _ = GlobalColor()
         _ = SavedCSVData()
-        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        UserDefaults.standard.set(true, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
         //UserDefaults.standard.set(true, forKey: "appFirstTime")
         return true

@@ -17,7 +17,5 @@ class SavedCSVData {
         if let path = Bundle.main.path(forResource: "Rosco", ofType: "csv") {
             SavedCSVData.roscoCSV = CSVParser(path: path, separator: ",").data
         }
-        
-        
     }
 }

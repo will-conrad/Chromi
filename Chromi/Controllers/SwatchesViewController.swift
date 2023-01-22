@@ -17,7 +17,7 @@ class SwatchesViewController: UIViewController {
     @IBOutlet var swatchTypeControl: UISegmentedControl!
     @IBOutlet var swatchTable: UITableView!
     @IBOutlet var inputColorStack: UIStackView!
-    @IBOutlet var inputColorLabel: SRCopyableLabel!
+    @IBOutlet var inputColorLabel: CopyableLabel!
     @IBOutlet var thresholdSlider: UISlider!
     
     var data: [[String]] = [[String]]()

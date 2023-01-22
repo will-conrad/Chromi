@@ -17,8 +17,7 @@ class CSVParser {
     init(path: String, separator: String) {
         self.path = path
         self.data = [[String]]()
-        
-        let fileURL = NSURL.fileURL(withPath: path)
+    
         do {
             let fileData = try String(contentsOfFile: path)
             let lines = fileData.components(separatedBy: "\r\n")

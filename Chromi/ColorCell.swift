@@ -11,7 +11,7 @@ class ColorCell: UITableViewCell {
 
     @IBOutlet var cellView: UIView!
     @IBOutlet var textBackdropView: UIView!
-    @IBOutlet public var colorLabel: SRCopyableLabel!
+    @IBOutlet public var colorLabel: CopyableLabel!
     
     var color = UIColor()
     var type = ColorType.rgb

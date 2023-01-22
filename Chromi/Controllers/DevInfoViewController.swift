@@ -15,6 +15,8 @@ class DevInfoViewController: UIViewController {
     @IBOutlet var superView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+
         
         
         devTable =  UITableView(frame: CGRect(), style: .insetGrouped)

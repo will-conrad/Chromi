@@ -12,21 +12,18 @@ enum SwatchType {
 }
 class SwatchesViewController: UIViewController {
     @IBOutlet var colorBarContainerView: UIView!
+    @IBOutlet var colorBarView: UIView!
     @IBOutlet var swatchContainerView: UIView!
     @IBOutlet var swatchTypeControl: UISegmentedControl!
     @IBOutlet var swatchTable: UITableView!
     @IBOutlet var inputColorStack: UIStackView!
     @IBOutlet var inputColorLabel: SRCopyableLabel!
-
-    let testDataTitles: [String] = ["R21", "R50", "R62"]
-    let testDataDescs: [String] = ["Midnight Blue", "Bastard Amber", "Forrest Green"]
-    let testDataColors: [UIColor] = [UIColor(hex: "00015B"), UIColor(hex: "FFA588"), UIColor(hex: "007802")]
+    @IBOutlet var thresholdSlider: UISlider!
     
-    var colorBarView = UIView()
     var data: [[String]] = [[String]]()
     var swatchType: SwatchType = .gel
     
-    var threshold: Double = 0.2
+    var threshold: Double = 0.1
     
     // MARK: IBACTIONS
     
@@ -52,21 +49,16 @@ class SwatchesViewController: UIViewController {
     // MARK: VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         
         swatchTypeControl.selectedSegmentIndex = 0
         data = fetchCSV(type: .gel)
         
-        let padding: CGFloat = 7
-        colorBarView = UIView(
-           frame: CGRect(
-                   x: padding,
-                   y: padding,
-                   width: colorBarContainerView.frame.width - 2*padding,
-                   height: colorBarContainerView.frame.height - 2*padding))
+        
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
-        colorBarContainerView.addSubview(colorBarView)
         
         inputColorStack.layer.cornerRadius = 10
         inputColorLabel.text = colorToText(color: GlobalColor.color, type: GlobalColor.inputType)
@@ -129,6 +121,7 @@ extension SwatchesViewController: UITableViewDataSource {
         if data.count == 0 {
             cell.cellType = .pantone
             cell.titleText = "No Swatches Found"
+            cell.color = nil
             cell.descText = ""
         } else {
             cell.cellType = swatchType

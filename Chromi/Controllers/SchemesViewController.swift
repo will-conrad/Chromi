@@ -11,16 +11,16 @@ class SchemesViewController: UIViewController {
     
     @IBOutlet var inputColorStack: UIStackView!
     @IBOutlet var colorBarContainerView: UIView!
+    @IBOutlet var colorBarView: UIView!
     @IBOutlet var inputColorLabel: UILabel!
     @IBOutlet var schemeView: UIView!
     @IBOutlet var schemeTypeButton: UIButton!
-    @IBOutlet var schemeTypeText: UILabel!
+    
     @IBOutlet var schemeTable: UITableView!
     @IBOutlet var copyAllButton: UIButton!
     
     var schemeType: ColorScheme = .complementary
     var schemeColors: [UIColor] = []
-    var colorBarView = UIView()
     
     // MARK: IBACTIONS
     @IBAction func copyAll(_ sender: Any) {
@@ -41,20 +41,13 @@ class SchemesViewController: UIViewController {
     // MARK: OVERRIDES
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         
-        let padding: CGFloat = 7
-        
         //Color display bar
-        colorBarView = UIView(
-            frame: CGRect(
-                    x: padding,
-                    y: padding,
-                    width: colorBarContainerView.frame.width - 2*padding,
-                    height: colorBarContainerView.frame.height - 2*padding))
         colorBarView.layer.cornerRadius = 10
         colorBarView.backgroundColor = GlobalColor.color
-        colorBarContainerView.addSubview(colorBarView)
         
         //Input color text
         inputColorStack.layer.cornerRadius = 10
@@ -62,7 +55,7 @@ class SchemesViewController: UIViewController {
         
         //Scheme table
         schemeView.layer.cornerRadius = 10
-        schemeTypeText.text = schemeType.rawValue.uppercased()
+//        schemeTypeText.text = schemeType.rawValue.uppercased()
         schemeTypeButton.showsMenuAsPrimaryAction = true
         schemeTypeButton.menu = schemeTypeContextMenu()
         
@@ -72,7 +65,10 @@ class SchemesViewController: UIViewController {
 
         schemeColors = getScheme(scheme: schemeType)
     }
-    override func viewWillAppear(_ animated: Bool) { reload() }
+    override func viewWillAppear(_ animated: Bool) {
+        reload()
+        
+    }
     @objc func refresh (notification: NSNotification){ reload() }
     
     // MARK: FUNCS
@@ -83,7 +79,7 @@ class SchemesViewController: UIViewController {
     }
     func updateTabs() {
         schemeColors = getScheme(scheme: schemeType)
-        schemeTypeText.text = schemeType.rawValue.uppercased()
+         
         schemeTable.reloadData()
     }
     func getScheme(scheme: ColorScheme)-> [UIColor] {
@@ -123,6 +119,12 @@ extension SchemesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return schemeColors.count
         
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return schemeType.rawValue
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! ColorCell

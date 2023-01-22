@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+
         
         settingsTable.frame = CGRect(x: 0, y: 0, width: superView.frame.width, height: superView.frame.height)
         settingsTable.delegate = self

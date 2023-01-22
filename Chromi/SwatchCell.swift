@@ -12,7 +12,7 @@ class SwatchCell: UITableViewCell {
     var cellType: SwatchType = .gel
     var titleText: String = ""
     var descText: String = ""
-    var color: UIColor = UIColor.black
+    var color: UIColor? = UIColor.black
     
     @IBOutlet var colorCircleView: UIView!
     @IBOutlet var titleLabel: UILabel!
@@ -29,9 +29,9 @@ class SwatchCell: UITableViewCell {
         }
 
         if descText == "" {
-            descLabel.text = color.hex
+            descLabel.text = color?.hex ?? ""
         } else {
-            descLabel.text = "\(color.hex) - \(descText)"
+            descLabel.text = "\(color?.hex ?? "") - \(descText)"
         }
     }
 }

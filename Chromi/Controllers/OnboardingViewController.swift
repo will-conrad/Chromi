@@ -20,6 +20,8 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+
         self.isModalInPresentation = true
     }
     

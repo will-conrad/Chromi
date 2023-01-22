@@ -13,10 +13,12 @@ class SwatchCell: UITableViewCell {
     var titleText: String = ""
     var descText: String = ""
     var color: UIColor? = UIColor.black
+    var match = false
     
     @IBOutlet var colorCircleView: UIView!
     @IBOutlet var titleLabel: CopyableLabel!
     @IBOutlet var descLabel: CopyableLabel!
+    @IBOutlet var matching: UIImageView!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         colorCircleView.layer.cornerRadius = colorCircleView.frame.width / 2
@@ -32,6 +34,11 @@ class SwatchCell: UITableViewCell {
             descLabel.text = color?.hex ?? ""
         } else {
             descLabel.text = "\(color?.hex ?? "") - \(descText)"
+        }
+        if color?.hex == GlobalColor.color.hex {
+            matching.isHidden = false
+        } else {
+            matching.isHidden = true
         }
     }
 }

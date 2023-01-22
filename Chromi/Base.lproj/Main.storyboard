@@ -846,12 +846,22 @@
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SAq-Ve-d9G">
+                                                            <rect key="frame" x="323" y="10.999999999999998" width="20" height="18.666666666666664"/>
+                                                            <color key="tintColor" systemColor="systemGreenColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="Evz-Un-hSj"/>
+                                                                <constraint firstAttribute="height" constant="20" id="dvv-TG-edG"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="Zyc-fB-EjX" firstAttribute="top" secondItem="Ssv-ng-D5L" secondAttribute="topMargin" id="9sN-M3-7Wc"/>
                                                         <constraint firstItem="SGl-s0-n7a" firstAttribute="centerY" secondItem="Ssv-ng-D5L" secondAttribute="centerY" id="FeO-cA-ioX"/>
+                                                        <constraint firstItem="SAq-Ve-d9G" firstAttribute="top" secondItem="Ssv-ng-D5L" secondAttribute="top" constant="10" id="H7T-m7-Yir"/>
                                                         <constraint firstItem="A0y-uX-Qns" firstAttribute="top" secondItem="Zyc-fB-EjX" secondAttribute="bottom" constant="5" id="KRR-lM-DE3"/>
                                                         <constraint firstItem="SGl-s0-n7a" firstAttribute="leading" secondItem="Ssv-ng-D5L" secondAttribute="leading" constant="20" id="Kx1-0o-2kH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SAq-Ve-d9G" secondAttribute="trailing" constant="10" id="Lbr-fb-rxO"/>
                                                         <constraint firstItem="A0y-uX-Qns" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="20" id="fLj-HR-MKq"/>
                                                         <constraint firstItem="Zyc-fB-EjX" firstAttribute="leading" secondItem="SGl-s0-n7a" secondAttribute="trailing" constant="20" id="mot-NZ-Y2V"/>
                                                     </constraints>
@@ -860,6 +870,7 @@
                                                 <connections>
                                                     <outlet property="colorCircleView" destination="SGl-s0-n7a" id="eDJ-Ca-pnD"/>
                                                     <outlet property="descLabel" destination="A0y-uX-Qns" id="Eff-lZ-ODd"/>
+                                                    <outlet property="matching" destination="SAq-Ve-d9G" id="2Fd-4Z-mva"/>
                                                     <outlet property="titleLabel" destination="Zyc-fB-EjX" id="2ht-HG-xso"/>
                                                 </connections>
                                             </tableViewCell>
@@ -1039,10 +1050,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fcB-Se-Gnd"/>
+        <segue reference="QZC-IO-pG7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Chromi" width="1710" height="1600"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="gear" catalog="system" width="128" height="122"/>
@@ -1067,6 +1079,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

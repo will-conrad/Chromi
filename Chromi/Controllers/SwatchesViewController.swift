@@ -125,13 +125,16 @@ extension SwatchesViewController: UITableViewDataSource {
             cell.descText = ""
         } else {
             cell.cellType = swatchType
-            cell.titleText = data[indexPath.row][0]
+            cell.titleText = data[indexPath.row][0].capitalized
             cell.color = UIColor(hex: data[indexPath.row][1])
+    
             if data[indexPath.row].count == 3 {
                 cell.descText = data[indexPath.row][2]
             } else {
                 cell.descText = ""
             }
+            
+            
         }
         
         return cell

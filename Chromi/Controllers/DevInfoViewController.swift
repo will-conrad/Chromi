@@ -53,7 +53,8 @@ extension DevInfoViewController: UITableViewDataSource {
     }
     @objc func resetButton(_ sender : UIButton!) {
         GlobalColor().reset()
-        defaults.set(true, forKey: "appFirstTime")
+        //defaults.set(true, forKey: "appFirstTime")
+        defaults.removeObject(forKey: "appFirstTime")
         exit(0)
     }
 }

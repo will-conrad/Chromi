@@ -16,6 +16,7 @@ class OnboardingViewController: UIViewController {
     
     @IBOutlet var continueBottom: NSLayoutConstraint!
     
+    let defaults = UserDefaults.standard
     @IBOutlet var infoStack: UIStackView!
     
     override func viewDidLoad() {
@@ -26,7 +27,7 @@ class OnboardingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if UserDefaults.standard.bool(forKey: "appFirstTime") {
+        if defaults.object(forKey: "appFirstTime") == nil {
             infoStack.alpha = 0
             fishToTop.constant = 500
             fishToRight.constant = 250
@@ -49,8 +50,6 @@ class OnboardingViewController: UIViewController {
         
         self.fishToTop.constant = topFinal
         self.fishToRight.constant = rightFinal
-    
-        
         
         UIView.animate(withDuration: 1.5, delay: 0, options: [.preferredFramesPerSecond60], animations: {
             self.view.layoutIfNeeded()

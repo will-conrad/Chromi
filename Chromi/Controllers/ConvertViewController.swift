@@ -54,7 +54,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
-        if defaults.bool(forKey: "appFirstTime") {
+        if defaults.object(forKey: "appFirstTime") == nil {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.performSegue(withIdentifier: "Onboard", sender: nil)

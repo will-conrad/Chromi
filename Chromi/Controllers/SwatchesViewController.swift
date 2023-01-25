@@ -20,10 +20,16 @@ class SwatchesViewController: UIViewController {
     @IBOutlet var inputColorLabel: CopyableLabel!
     @IBOutlet var thresholdSlider: UISlider!
     
-    var data: [[String]] = [[String]]()
+    @IBOutlet var thresholdTextView: UIView!
+    
+    var data = [[String]]()
+    var distances = [(Int, Double)]()
+    
     var swatchType: SwatchType = .gel
     
     var threshold: Double = 0.1
+    
+    let rt3 = pow(3, 1/3)
     
     // MARK: IBACTIONS
     
@@ -52,6 +58,11 @@ class SwatchesViewController: UIViewController {
         overrideUserInterfaceStyle = .dark
 
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
+        thresholdTextView.layer.cornerRadius = 10
+        thresholdSlider.minimumTrackTintColor = GlobalColor.color
+        //thresholdSlider.setThumbImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
+        thresholdSlider.thumbTintColor = GlobalColor.color
+
         
         swatchTypeControl.selectedSegmentIndex = 0
         data = fetchCSV(type: .gel)
@@ -87,29 +98,45 @@ class SwatchesViewController: UIViewController {
         return SavedCSVData.roscoCSV
     }
     func getSwatches() {
+        distances = [(Int, Double)]()
+        
+        var newData = [[String]]()
+        var index = 0
         if swatchType == .gel {
             for line in SavedCSVData.roscoCSV {
-                print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
-                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < threshold {
+                let distance = colorDistance(GlobalColor.color, UIColor(hex: line[1]))
+                if distance < threshold {
                     data.append(line)
+                    distances.append((index, distance))
+                    index += 1
                 }
+                
             }
         } else {
             for line in SavedCSVData.pantoneCSV {
-                print(colorDistance(GlobalColor.color, UIColor(hex: line[1])))
-                if colorDistance(GlobalColor.color, UIColor(hex: line[1])) < threshold {
+                let distance = colorDistance(GlobalColor.color, UIColor(hex: line[1]))
+                if distance < threshold {
                     data.append(line)
+                    distances.append((index, distance))
+                    index += 1
                 }
+                
             }
+            
         }
+        distances = distances.sorted { ($0.1) < ($1.1) }
+        for x in distances {
+            newData.append(data[x.0])
+        }
+        data = newData
     }
     func colorDistance(_ c1: UIColor, _ c2: UIColor) -> Double {
         let (c1r, c1g, c1b) = c1.rgb
         let (c2r, c2g, c2b) = c2.rgb
         return sqrt(pow(c1r-c2r, 2) + pow(c1g-c2g, 2) + pow(c1b-c2b, 2))
     }
-    
 }
+
 // MARK: - INIT CELLS
 extension SwatchesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -127,6 +154,7 @@ extension SwatchesViewController: UITableViewDataSource {
             cell.cellType = swatchType
             cell.titleText = data[indexPath.row][0].capitalized
             cell.color = UIColor(hex: data[indexPath.row][1])
+            cell.matchPercent = (1 - distances[indexPath.row].1) * 100
     
             if data[indexPath.row].count == 3 {
                 cell.descText = data[indexPath.row][2]

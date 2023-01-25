@@ -127,6 +127,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
                 self.updateInputColorField()
             })
         }
+        actions.reverse()
         let colorInputTypeMenu = UIMenu(title: "Input Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return colorInputTypeMenu
     }
@@ -140,6 +141,7 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
                 self.updateOutputColorField()
             })
         }
+        actions.reverse()
         let colorOutputTypeMenu = UIMenu(title: "Ouptut Type", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: actions)
         return colorOutputTypeMenu
     }

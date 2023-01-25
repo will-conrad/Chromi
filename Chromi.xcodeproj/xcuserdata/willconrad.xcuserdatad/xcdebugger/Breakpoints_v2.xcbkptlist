@@ -302,8 +302,8 @@
             filePath = "Chromi/Controllers/SwatchesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "getSwatches()"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "Chromi/Controllers/SwatchesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "getSwatches()"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,22 +328,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "74764ED0-A08E-468C-85A2-B9D2C2BD8C48"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Chromi/Controllers/SwatchesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "getSwatches()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B7641AD-375C-41B0-9E31-36A15B48B1FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -359,6 +343,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "9B7641AD-375C-41B0-9E31-36A15B48B1FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/SwatchesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "getSwatches()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             uuid = "9D56F196-85A8-46FA-81FB-97C75E96C1D8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -366,8 +366,8 @@
             filePath = "Chromi/Controllers/ConvertViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "colorInputTypeContextMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "Chromi/Controllers/ConvertViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "colorOutputTypeContextMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,9 +398,365 @@
             filePath = "Chromi/Controllers/ConvertViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "colorOutputTypeContextMenu()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/ConvertViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ConvertViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - 716324480058de21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.mainStackBottomConstraint.getter : Swift.Optional&lt;__C.NSLayoutConstraint&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - 132e63f44423d715"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.mainStackBottomConstraint.setter : Swift.Optional&lt;__C.NSLayoutConstraint&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - c1633a1b8ad12866"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.mainStackBottomConstraint.modify : Swift.Optional&lt;__C.NSLayoutConstraint&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - d1ce362405bb703"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.mainStackBottomConstraint.modify : Swift.Optional&lt;__C.NSLayoutConstraint&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - d66f41150088afe7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Chromi.ConvertViewController"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "74C9EC6D-0DC5-4353-97DD-B377385CB28D - 2cc16169adaa875c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Chromi.ConvertViewController&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/ConvertViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "ConvertViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - b6d2c6e83a581e2a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.inputTypeButton.getter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - 8ce546aaac1ecede"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.inputTypeButton.setter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - 76c9f36a843dba2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.inputTypeButton.modify : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - c86d4a61817021e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.inputTypeButton.modify : Swift.Optional&lt;__C.UIButton&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - d66f41150088a804"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Chromi.ConvertViewController"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "DB375ED3-ACA7-42F1-BFF5-601AB3D71171 - 2cc16169adaa80bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Chromi.ConvertViewController&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/ConvertViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ConvertViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - fd2842491b2d0ee1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.colorSelector.getter : Swift.Optional&lt;__C.UIColorWell&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - 592b249a244fdad5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.colorSelector.setter : Swift.Optional&lt;__C.UIColorWell&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - 865c8b264bd991e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.colorSelector.modify : Swift.Optional&lt;__C.UIColorWell&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - c472e9cea47ff41a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.colorSelector.modify : Swift.Optional&lt;__C.UIColorWell&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - d66f41150088a825"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Chromi.ConvertViewController"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "C6BF431D-6774-446F-98B4-3DAC003F5FF1 - 2cc16169adaa809e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chromi.ConvertViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Chromi.ConvertViewController&gt;"
+                  moduleName = "Chromi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willconrad/Desktop/Chromi/Chromi/Controllers/ConvertViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "184">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49251124-0B18-418E-9106-568E7AA00E9D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/ConvertViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "colorSelectorUpdate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFAB3868-1B40-46D9-AC6B-11F12BFD4CB0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chromi/Controllers/ConvertViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "colorSelectorUpdate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

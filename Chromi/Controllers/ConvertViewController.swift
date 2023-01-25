@@ -100,9 +100,17 @@ class ConvertViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: OBJC FUNCS
     @objc private func colorSelectorUpdate() {
-        GlobalColor.color = colorSelector.selectedColor!
+//        GlobalColor.color = UIColor(hex: colorSelector.selectedColor!.hex)
+        var comps = colorSelector.selectedColor!.cgColor.components!
+        GlobalColor.color = UIColor(
+            red: comps[0] < 0.001 ? 0 : comps[0],
+            green: comps[1] < 0.001 ? 0 : comps[1],
+            blue: comps[2] < 0.001 ? 0 : comps[2],
+            alpha: 1)
+        print(GlobalColor.color)
+        
         setDefaultColor()
-        backgroundView.backgroundColor = colorSelector.selectedColor
+        backgroundView.backgroundColor = GlobalColor.color
         updateInputColorField()
         updateOutputColorField()
     }

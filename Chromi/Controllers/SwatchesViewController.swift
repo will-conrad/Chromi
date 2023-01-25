@@ -60,7 +60,6 @@ class SwatchesViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: Notification.Name("refresh"), object: nil)
         thresholdTextView.layer.cornerRadius = 10
         thresholdSlider.minimumTrackTintColor = GlobalColor.color
-        //thresholdSlider.setThumbImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
         thresholdSlider.thumbTintColor = GlobalColor.color
 
         
@@ -89,6 +88,8 @@ class SwatchesViewController: UIViewController {
         data = [[String]]()
         getSwatches()
         swatchTable.reloadData()
+        thresholdSlider.minimumTrackTintColor = GlobalColor.color
+        thresholdSlider.thumbTintColor = GlobalColor.color
     }
     
     func fetchCSV(type: SwatchType) -> [[String]] {

@@ -72,7 +72,7 @@
                                                             <constraint firstAttribute="height" constant="44" id="obe-sG-33l"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
                                                             <action selector="inputColorUpdated:" destination="BYZ-38-t0r" eventType="editingChanged" id="hWI-oH-Ql0"/>
@@ -104,7 +104,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title=" ">
-                                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                         </buttonConfiguration>
                                                     </button>
                                                 </subviews>
@@ -152,7 +152,9 @@
                                                             <constraint firstAttribute="height" constant="44" id="a4y-Rr-8d1"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                        </buttonConfiguration>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -226,7 +228,7 @@
                                 <items>
                                     <navigationItem title="Chromi" largeTitleDisplayMode="never" id="LOJ-xC-ZTe">
                                         <barButtonItem key="rightBarButtonItem" id="bub-Q6-kxv">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RpN-IV-TSX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RpN-IV-TSX">
                                                 <rect key="frame" x="325" y="5" width="52" height="34.333333333333336"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -496,7 +498,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLj-ji-LtB">
                                         <rect key="frame" x="0.0" y="51" width="353" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-Qv-92N">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCC-Qv-92N">
                                                 <rect key="frame" x="20" y="14.999999999999998" width="41" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -575,9 +577,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35e-bA-7ai">
-                                        <rect key="frame" x="324" y="18" width="24" height="14"/>
+                                        <rect key="frame" x="319.33333333333331" y="8" width="28.666666666666686" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -652,23 +656,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="VWD-z8-aNV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="QKG-yF-eMw">
-                        <barButtonItem key="leftBarButtonItem" id="VDC-uS-4my">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
-                                <rect key="frame" x="16" y="10.666666666666664" width="77.333333333333329" height="35"/>
+                        <barButtonItem key="leftBarButtonItem" width="30" id="VDC-uS-4my">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
+                                <rect key="frame" x="16" y="11" width="77.333333333333329" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="Back"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="Back">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="back:" destination="KGd-Sg-8Wk" eventType="touchUpInside" id="aqM-j1-Bkx"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="cbm-Ju-yl2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UDC-od-Zf4">
-                                <rect key="frame" x="290" y="10.666666666666664" width="87" height="35"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UDC-od-Zf4">
+                                <rect key="frame" x="290" y="11" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="questionmark.circle" catalog="system"/>
@@ -700,11 +706,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Developer Info" largeTitleDisplayMode="always" id="qKV-5H-C5w">
                         <barButtonItem key="leftBarButtonItem" id="BwP-mD-gbk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AdP-d0-84I">
-                                <rect key="frame" x="16" y="10.666666666666664" width="87" height="35"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AdP-d0-84I">
+                                <rect key="frame" x="16" y="11" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="Back"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title="Back">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="back:" destination="rGP-kz-C2D" eventType="touchUpInside" id="MBI-go-Jr4"/>
                                 </connections>
@@ -949,7 +957,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Swatches" id="oag-Vj-h52">
                         <barButtonItem key="rightBarButtonItem" id="VV3-7R-Jar">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="W4O-2z-Jbu">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="W4O-2z-Jbu">
                                 <rect key="frame" x="325" y="5" width="52" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -1084,7 +1092,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tzS-om-u4c"/>
+        <segue reference="fcB-Se-Gnd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Chromi" width="1710" height="1600"/>
@@ -1110,6 +1118,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

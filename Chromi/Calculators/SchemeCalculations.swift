@@ -27,7 +27,7 @@ extension UIColor {
         return [self, self.withHueOffset(60/360), self.withHueOffset(0.5), self.withHueOffset(240/360)]
     }
     var analagous: [UIColor] {
-        return [self.withHueOffset(-1 / 12), self, self.withHueOffset(1 / 12)]
+        return [self.withHueOffset(11 / 12), self, self.withHueOffset(1 / 12)]
     }
 
     func withHueOffset(_ offset: CGFloat) -> UIColor {

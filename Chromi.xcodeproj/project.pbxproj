@@ -61,6 +61,7 @@
 		29E481452970F4CD00A25D69 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		29E481482971CF3300A25D69 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E93B3729777B230085CBE9 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		29F2AD792984D86C005C3588 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		2994E076295A07CD00722665 = {
 			isa = PBXGroup;
 			children = (
+				29F2AD792984D86C005C3588 /* README.md */,
 				29E93B3729777B230085CBE9 /* TODO.md */,
 				2994E081295A07CD00722665 /* Chromi */,
 				2994E080295A07CD00722665 /* Products */,
@@ -390,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.conradux.chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -422,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.01;
 				PRODUCT_BUNDLE_IDENTIFIER = com.conradux.chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

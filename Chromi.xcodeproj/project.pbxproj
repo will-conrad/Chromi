@@ -62,6 +62,15 @@
 		29E481482971CF3300A25D69 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29E93B3729777B230085CBE9 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		29F2AD792984D86C005C3588 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		29F2AD7C2984E0AD005C3588 /* SC1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC1.jpg; sourceTree = "<group>"; };
+		29F2AD7D2984E0AD005C3588 /* SC3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC3.jpg; sourceTree = "<group>"; };
+		29F2AD7E2984E0AD005C3588 /* SC2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC2.jpg; sourceTree = "<group>"; };
+		29F2AD802984E0AD005C3588 /* SC1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC1.jpg; sourceTree = "<group>"; };
+		29F2AD812984E0AD005C3588 /* SC3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC3.jpg; sourceTree = "<group>"; };
+		29F2AD822984E0AD005C3588 /* SC2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC2.jpg; sourceTree = "<group>"; };
+		29F2AD842984E0AD005C3588 /* SC1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC1.jpg; sourceTree = "<group>"; };
+		29F2AD852984E0AD005C3588 /* SC3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC3.jpg; sourceTree = "<group>"; };
+		29F2AD862984E0AD005C3588 /* SC2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SC2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +96,7 @@
 		2994E076295A07CD00722665 = {
 			isa = PBXGroup;
 			children = (
+				29F2AD7A2984E0AD005C3588 /* Screenshots */,
 				29F2AD792984D86C005C3588 /* README.md */,
 				29E93B3729777B230085CBE9 /* TODO.md */,
 				2994E081295A07CD00722665 /* Chromi */,
@@ -147,6 +157,46 @@
 				29AB71A5297A2F11001F0B36 /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		29F2AD7A2984E0AD005C3588 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				29F2AD7B2984E0AD005C3588 /* 6.7 */,
+				29F2AD7F2984E0AD005C3588 /* 5.5 */,
+				29F2AD832984E0AD005C3588 /* 6.5 */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		29F2AD7B2984E0AD005C3588 /* 6.7 */ = {
+			isa = PBXGroup;
+			children = (
+				29F2AD7C2984E0AD005C3588 /* SC1.jpg */,
+				29F2AD7D2984E0AD005C3588 /* SC3.jpg */,
+				29F2AD7E2984E0AD005C3588 /* SC2.jpg */,
+			);
+			path = 6.7;
+			sourceTree = "<group>";
+		};
+		29F2AD7F2984E0AD005C3588 /* 5.5 */ = {
+			isa = PBXGroup;
+			children = (
+				29F2AD802984E0AD005C3588 /* SC1.jpg */,
+				29F2AD812984E0AD005C3588 /* SC3.jpg */,
+				29F2AD822984E0AD005C3588 /* SC2.jpg */,
+			);
+			path = 5.5;
+			sourceTree = "<group>";
+		};
+		29F2AD832984E0AD005C3588 /* 6.5 */ = {
+			isa = PBXGroup;
+			children = (
+				29F2AD842984E0AD005C3588 /* SC1.jpg */,
+				29F2AD852984E0AD005C3588 /* SC3.jpg */,
+				29F2AD862984E0AD005C3588 /* SC2.jpg */,
+			);
+			path = 6.5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,7 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.01;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.conradux.chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -424,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.01;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.conradux.chromi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

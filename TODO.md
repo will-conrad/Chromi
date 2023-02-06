@@ -1,23 +1,13 @@
 # Things to do
 
-## ColorConversions
-- [x] Implement other luminant (D50) for RGB-XYZ Transformations
-    - [x] Add global illuminant
-- [x] Add CIELab from [Here](http://www.brucelindbloom.com/index.html) 
-- [x] Create test data for gel swatches
-
+## Convert
+- [ ] Make sure CIE conversions are good
+- [ ] Check on CMYK algorithm
+- [ ] 
+## Schemes
+- [ ] Transition to all tableview
+- [ ] 
 
 ## Swatches
-- [x] Read from csv file
-- [x] Implement [Euclidean Distance](https://en.wikipedia.org/wiki/Euclidean_distance#Higher_dimensions)
-  
-  $d(p,q) = \sqrt{(p_{1}-q_{1})^2+(p_{2}-q_{2})^2+(p_{3}-q_{3})^2}$
-  
-`func getEuclideanDistance(p: [CGFloat], q: [CGFloat]) { }`
-
-  - P and Q are three, 3-dimentional points
-      - P = input color
-      - Q = compared color in .csv
 
 ## Settings
-- [x] Create list layout for settings page     

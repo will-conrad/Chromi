@@ -29,6 +29,5 @@ class CSVParser {
         } catch {
             data = [[""]]
         }
-    
     }
 }

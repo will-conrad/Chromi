@@ -228,7 +228,7 @@
                                 <items>
                                     <navigationItem title="Chromi" largeTitleDisplayMode="never" id="LOJ-xC-ZTe">
                                         <barButtonItem key="rightBarButtonItem" id="bub-Q6-kxv">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RpN-IV-TSX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RpN-IV-TSX">
                                                 <rect key="frame" x="325" y="5" width="52" height="34.333333333333336"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -660,7 +660,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="QKG-yF-eMw">
                         <barButtonItem key="leftBarButtonItem" width="30" id="VDC-uS-4my">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="XVZ-sp-09J">
                                 <rect key="frame" x="16" y="11" width="77.333333333333329" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -673,7 +673,7 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="cbm-Ju-yl2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UDC-od-Zf4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UDC-od-Zf4">
                                 <rect key="frame" x="290" y="11" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -706,7 +706,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Developer Info" largeTitleDisplayMode="always" id="qKV-5H-C5w">
                         <barButtonItem key="leftBarButtonItem" id="BwP-mD-gbk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AdP-d0-84I">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="AdP-d0-84I">
                                 <rect key="frame" x="16" y="11" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -957,7 +957,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Swatches" id="oag-Vj-h52">
                         <barButtonItem key="rightBarButtonItem" id="VV3-7R-Jar">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="W4O-2z-Jbu">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="W4O-2z-Jbu">
                                 <rect key="frame" x="325" y="5" width="52" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -1092,7 +1092,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QZC-IO-pG7"/>
+        <segue reference="fcB-Se-Gnd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Chromi" width="1710" height="1600"/>
